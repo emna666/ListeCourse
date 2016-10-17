@@ -1,0 +1,15 @@
+back_general_client_list:
+    path:     /list
+    defaults: { _controller: backGeneralBundle:Client:client}
+
+back_general_client_delete:
+    path:     /clients_delete/{id}
+    defaults: { _controller: backGeneralBundle:Client:clientDelete }
+
+back_general_client_ajouter:
+    path:     /ajouter
+    defaults: { _controller: backGeneralBundle:Client:ajouter,id:null }
+
+back_general_client_modifier:
+    path:      /modifier/{id}
+    defaults: { _controller: backGeneralBundle:Client:ajouter }

@@ -1,0 +1,59 @@
+{% extends ":Back:base.html.twig" %}
+{% block title %}Client{% endblock %}
+{% block description %}
+    {% if client.id is null %}Ajouter{% else %}Modifier{% endif %}
+{% endblock %}
+{% block topbody %}
+    {{ parent() }}
+    <li>
+        <a href="javascript:void(0)" >{{ block('title') }}</a>
+    </li>
+{% endblock %}
+{% block body %}
+    <div class="row">
+        <div class="col-md-12">
+            <div class="tabbable">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        {{ form_start(form) }}
+                        <div class="row">
+                            {{ formulaire.input("col-md-6","Nom ",form.nom,true) }}
+                            {{ formulaire.input("col-md-6","Prénom",form.prenom,true) }}
+                            {{ formulaire.input("col-md-6","Email",form.email,true) }}
+                            {{ formulaire.input("col-md-6","Login",form.login,false) }}
+                            {{ formulaire.input("col-md-6","Mot de passe initial",form.password,true) }}
+                        </div>
+                        <div class="row">
+
+                            {{ formulaire.input("col-md-6","Télephone 1",form.telephone,false) }}
+                            {{ formulaire.input("col-md-6","Téléphone 2",form.telephone2,false) }}
+                            {{ formulaire.input("col-md-6","localite",form.localite,false) }}
+                            {{ formulaire.input("col-md-6","Adresse",form.adresse,false) }}
+                        </div>
+
+                        <div class="row">
+                            {{ formulaire.input("col-md-6","Logo/Photo",form.file,false) }}
+                        </div>
+                        {{ formulaire.submit("Enregistrer") }}
+                        {{ form_end(form) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block jquery %}
+    <script>
+        $(document).ready(function(){
+            $('#back_userbundle_client_type_0').on('change',function(){
+                if($('.alternative').hasClass("no-display"))
+                    $('.alternative').removeClass("no-display")
+            })
+            $('#back_userbundle_client_type_1').on('change',function(){
+                if(!$('.alternative').hasClass("no-display"))
+                    $('.alternative').addClass("no-display")
+            })
+        })
+    </script>
+{% endblock %}

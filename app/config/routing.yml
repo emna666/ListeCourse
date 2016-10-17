@@ -1,0 +1,15 @@
+back_general_client:
+    resource: "@backGeneralBundle/Controller/ClientController.php"
+    type:     annotation
+
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+
+back_general:
+    resource: "@backGeneralBundle/Resources/config/routing.yml"
+    prefix:   /admin
+
+front_general:
+    resource: "@frontGeneralBundle/Resources/config/routing.yml"
+    prefix:   /
+

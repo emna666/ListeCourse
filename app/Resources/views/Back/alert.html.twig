@@ -1,0 +1,26 @@
+{% for class in ['success','info','warning','danger'] %}
+    {% for msg in app.session.flashBag.get(class) %}
+        <div class="alert alert-{{ class }}">
+            <button data-dismiss="alert" class="close"> &times; </button>
+            <strong>
+                {% if class == "success" %}
+                    <i class="fa fa-check-circle"></i>
+                    <strong>Succès!</strong>
+                {% endif %}
+                {% if class == "info" %}
+                    <i class="fa fa-info-circle"></i>
+                    <strong>Information!</strong>
+                {% endif %}
+                {% if class == "warning" %}
+                    <i class="fa fa-exclamation-triangle"></i>
+                    <strong>Avertissement!</strong>
+                {% endif %}
+                {% if class == "danger" %}
+                    <i class="fa fa-times-circle"></i>
+                    <strong>Erreur!</strong>
+                {% endif %}
+            </strong>
+            {{ msg |raw }}
+        </div>
+    {% endfor %}
+{% endfor %}

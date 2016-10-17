@@ -1,0 +1,21 @@
+#Governorat
+back_general_referentiel_governorat:
+    path:     /governorats/{id}
+    defaults: { _controller: backGeneralBundle:Referentiel:governorat,id:null }
+back_general_referentiel_governorat_delete:
+    path:     /governorats_delete/{id}
+    defaults: { _controller: backGeneralBundle:Referentiel:governoratDelete }
+#Delergation
+back_general_referentiel_delegation:
+    path:     /delegations/{id}
+    defaults: { _controller: backGeneralBundle:Referentiel:delegation,id:null }
+back_general_referentiel_delegation_delete:
+    path:     /delegations_delete/{id}
+    defaults: { _controller: backGeneralBundle:Referentiel:delegationDelete }
+#Localites
+back_general_referentiel_localite:
+    path:     /localites/{id}
+    defaults: { _controller: backGeneralBundle:Referentiel:localite,id:null }
+back_general_referentiel_localite_delete:
+    path:     /localites_delete/{id}
+    defaults: { _controller: backGeneralBundle:Referentiel:localiteDelete }

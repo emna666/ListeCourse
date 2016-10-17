@@ -1,0 +1,59 @@
+{% extends ":Back:base.html.twig" %}
+{% block title %}Gestion des delegations{% endblock %}
+{% block description %}{% endblock %}
+{% block topbody %}
+    {{ parent() }}
+    <li>
+        <a href="javascript:void(0)" >Gestion des delegations</a>
+    </li>
+{% endblock %}
+{% block body %}
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    {{ form_start(form) }}
+                    <div class="row">
+                        {{ formulaire.input("col-md-4","Libellé",form.name,true) }}
+                        {{ formulaire.select2("col-md-4","Governorat",form.governorat,true) }}
+                    </div>
+                    {{ formulaire.submit("Enregistrer") }}
+                    {{ form_end(form) }}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <table class="table table-striped table-bordered table-hover table-full-width table-condensed table-hover"  id="sample_1">
+                        <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Libellé</th>
+                            <th>Governorat</th>
+                            <th class="center" >Action</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for delegation in delegations %}
+                            <tr>
+                                <td>{{ delegation.id }}</td>
+                                <td>{{ delegation.name }}</td>
+                                <td>{{ delegation.governorat }}</td>
+                                <td class="TableAction">
+                                    <div class="visible-md visible-lg hidden-sm hidden-xs">
+                                        {{ macros.tableEdit(path('back_general_referentiel_delegation',{'id':delegation.id})) }}
+                                        {{ macros.tableDelete(path('back_general_referentiel_delegation_delete',{'id':delegation.id})) }}
+                                    </div>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

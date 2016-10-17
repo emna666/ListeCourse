@@ -1,0 +1,125 @@
+{% macro text(class,label,name,value=null,required=true) %}
+    <div class="{{ class }}">
+        <div class="form-group">
+            {% if label is not null %}
+                <label class="control-label">
+                    {{ label|raw }} {% if required==true %}<span class="symbol required"></span>{% endif %}
+                </label>
+            {% endif %}
+            <input type="text" name="{{ name }}" value="{{ value }}" class="form-control ">
+        </div>
+    </div>
+{% endmacro %}
+{% macro file(class,label,from,required) %}
+    <div class="{{ class }}">
+        <div class="form-group">
+            <label class="control-label">
+                {{ label }} {% if required==true %}<span class="symbol required"></span>{% endif %}
+            </label>
+            <div class="fileupload fileupload-new" data-provides="fileupload">
+                <div class="input-group">
+                    <div class="form-control uneditable-input">
+                        <i class="fa fa-file fileupload-exists"></i>
+                        <span class="fileupload-preview"></span>
+                    </div>
+                    <div class="input-group-btn">
+                        <div class="btn btn-light-grey btn-file">
+                            <span class="fileupload-new"><i class="fa fa-folder-open-o"></i> Select file</span>
+                            <span class="fileupload-exists"><i class="fa fa-folder-open-o"></i> Change</span>
+                            {{ form_widget(from) | raw }}
+                            {{ form_errors(from) | raw }}
+                        </div>
+                        <a href="#" class="btn btn-light-grey fileupload-exists" data-dismiss="fileupload">
+                            <i class="fa fa-times"></i> Remove
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endmacro %}
+{% macro read_only(class,label,from,required) %}
+    <div class="{{ class }}">
+        <div class="form-group">
+            <label class="control-label">
+                {{ label }} {% if required==true %}<span class="symbol required"></span>{% endif %}
+            </label>
+            {{ form_widget(from, { 'attr':{'readonly':'readonly'} }) | raw }}
+            {{ form_errors(from) | raw }}
+        </div>
+    </div>
+{% endmacro %}
+{% macro input(class,label,from,required,smallText=null,value=null) %}
+    <div class="{{ class }}">
+        <div class="form-group">
+            {% if label is not null %}
+                <label class="control-label">
+                    {{ label|raw }} {% if required==true %}<span class="symbol required"></span>{% endif %}
+                </label>
+            {% endif %}
+            {% if value is null %}
+                {{ form_widget(from) | raw }}
+            {% else %}
+                {{ form_widget(from,{'attr':{'value':value}}) | raw }}
+            {% endif %}
+            {{ form_errors(from) | raw }}
+            {% if smallText is not null %}
+                <small>{{ smallText }}</small>
+            {% endif %}
+        </div>
+    </div>
+{% endmacro %}
+{% macro select2(class,label,from,required) %}
+    <div class="{{ class }}">
+        <div class="form-group">
+            {% if label is not null %}
+                <label class="control-label">
+                    {{ label }} {% if required==true %}<span class="symbol required"></span>{% endif %}
+                </label>
+            {% endif %}
+            {{ form_widget(from, {'attr': {'class': 'search-select'}}) }}
+            {{ form_errors(from) | raw }}
+        </div>
+    </div>
+{% endmacro %}
+{% macro submit(label) %}
+    <hr>
+    <div class="row">
+        <div class="col-md-8">
+            <p>
+                <span class="symbol required"></span>Champs obligatoires
+            </p>
+        </div>
+        <div class="col-md-4">
+            <button class="btn btn-green btn-block" type="submit">
+                {{ label }} <i class="fa fa-arrow-circle-right"></i>
+            </button>
+        </div>
+    </div>
+{% endmacro %}
+{% macro htmlInput(class,label,name,required=false,placeholder=null) %}
+    <div class="{{ class }}">
+        <div class="form-group">
+            {% if label is not null %}
+                <label class="control-label">
+                    {{ label|raw }} {% if required %}<span class="symbol required"></span>{% endif %}
+                </label>
+            {% endif %}
+            <input type="text" name="{{ name }}" class="form-control" {% if required %}required{% endif %}
+                   placeholder="{{ placeholder }}">
+        </div>
+    </div>
+{% endmacro %}
+{% macro htmlDate(class,label,name,required=false,placeholder=null) %}
+    <div class="{{ class }}">
+        <div class="form-group">
+            {% if label is not null %}
+                <label class="control-label">
+                    {{ label|raw }} {% if required %}<span class="symbol required"></span>{% endif %}
+                </label>
+            {% endif %}
+            <input type="date" name="{{ name }}" class="form-control" {% if required %}required{% endif %}
+                   placeholder="{{ placeholder }}">
+        </div>
+    </div>
+{% endmacro %}

@@ -1,0 +1,11 @@
+back_general_homepage:
+    path:     /
+    defaults: { _controller: backGeneralBundle:Default:dashboard }
+
+back_general_referentiel:
+    resource: "@backGeneralBundle/Resources/config/routing/referentiel.yml"
+    prefix:   /ref
+
+back_general_client:
+    resource: "@backGeneralBundle/Resources/config/routing/client.yml"
+    prefix:   /client

@@ -1,0 +1,53 @@
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button data-target=".navbar-collapse" data-toggle="collapse" class="navbar-toggle" type="button">
+                <span class="clip-list-2"></span>
+            </button>
+            <a class="navbar-brand" href="{{ path('back_general_homepage') }}">
+                Liste de courses
+            </a>
+        </div>
+        <div class="navbar-tools">
+            <ul class="nav navbar-left">
+                <li class="dropdown">
+                </li>
+            </ul>
+            <ul class="nav navbar-right">
+                <li class="dropdown current-user">
+                    <a data-toggle="dropdown" data-hover="dropdown" class="dropdown-toggle" data-close-others="true"
+                       href="#">
+                        <img src="{{ asset("back-assets/images/avatar-1-small.jpg") }}" class="circle-img" alt="">
+                        <span class="username">{{ app.user.username }}</span>
+                        <i class="clip-chevron-down"></i>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="{{ path('fos_user_profile_show') }}">
+                                <i class="clip-user-2"></i>
+                                &nbsp;Mon profile
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ path('fos_user_profile_edit') }}">
+                                <i class="clip-calendar"></i>
+                                &nbsp;Modifier mon profile
+                            </a>
+                        <li>
+                            <a href="{{ path('fos_user_change_password') }}">
+                                <i class="clip-bubble-4"></i>
+                                &nbsp;Modifier mot de passe
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="{{ path('fos_user_security_logout') }}">
+                                <i class="clip-exit"></i>
+                                &nbsp;Déconnexion </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

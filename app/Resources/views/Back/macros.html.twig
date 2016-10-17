@@ -1,0 +1,74 @@
+{% macro boutton(path,icon,color,texte,alert=null) %}
+    <a href="{{ path }}" class="btn btn-xs {{ color }} tooltips" data-placement="top" data-original-title="{{ texte }}" {% if alert is not null %}onclick="javascript:return(confirm('{{ alert }}'))"{% endif %}>
+        <i class="fa {{ icon }}"></i> </a>
+{% endmacro %}
+{% macro bouttonBlank(path,icon,color,texte) %}
+    <a href="{{ path }}" target="_blank" class="btn btn-xs {{ color }} tooltips" data-placement="top" data-original-title="{{ texte }}">
+        <i class="fa {{ icon }}"></i> </a>
+{% endmacro %}
+{% macro bouttonModal(id,path,icon,color,texte) %}
+    <a href="{{ path }}" data-toggle="modal" data-id="{{ id }}" class="btn btn-xs {{ color }} tooltips" data-placement="top" data-original-title="{{ texte }}">
+        <i class="fa {{ icon }}"></i> </a>
+{% endmacro %}
+{% macro tablePassword(path) %}
+    <a href="{{ path }}" class="btn btn-xs btn-blue tooltips" data-placement="top" data-original-title="Modifier mot de passe"><i class="fa fa-lock"></i></a>
+{% endmacro %}
+
+{% macro tableReload(path) %}
+    <a href="{{ path }}" class="btn btn-xs btn-green tooltips" data-placement="top" data-original-title="Reload" onclick="javascript:return(confirm('Etes-vous certain de vouloir reactiver cet hÃ´tel ?'))"><i class="fa fa-mail-reply-all fa fa-white"></i></a>
+{% endmacro %}
+
+{% macro saisonAmicaleGenerer(path) %}
+    <a href="{{ path }}" class="btn btn-xs btn-blue tooltips" data-placement="top" data-original-title="GÃªnere saisons amicale" onclick="javascript:return(confirm('Etes-vous certain de vouloir gÃªnerer des saisons amicales ?'))"><i class="fa fa-refresh fa fa-white"></i></a>
+{% endmacro %}
+
+{% macro tableValider(path) %}
+    <a href="{{ path }}" class="btn btn-xs btn-green tooltips" data-placement="top" data-original-title="Valider" onclick="javascript:return(confirm('Etes-vous certain de vouloir valider cette facture ?'))"><i class="fa fa-check fa-white"></i></a>
+{% endmacro %}
+
+{% macro tableStopSales(path) %}
+    <a href="{{ path }}" class="btn btn-xs btn-blue tooltips" data-placement="top" data-original-title="Stop Sales"><i class="fa fa-clock-o fa fa-white"></i></a>
+{% endmacro %}
+
+{% macro tableDelete(path) %}
+    <a href="{{ path }}" class="btn btn-xs btn-bricky tooltips" data-placement="top" data-original-title="Supprimer" onclick="javascript:return(confirm('Etes-vous certain de vouloir supprimer cette ligne ?'))"><i class="fa fa-times fa fa-white"></i></a>
+{% endmacro %}
+
+{% macro tableClone(path) %}
+    <a href="{{ path }}" class="btn btn-xs btn-blue tooltips" data-placement="top" data-original-title="Cloner" onclick="javascript:return(confirm('Etes-vous certain de vouloir cloner cette ligne ?'))"><i class="fa fa-files-o fa fa-white"></i></a>
+{% endmacro %}
+
+{% macro generate(path) %}
+    <a href="{{ path }}" class="btn btn-xs btn-blue tooltips" data-placement="top" data-original-title="Frais chambre" onclick="javascript:return(confirm('Etes-vous certain de vouloir faire cette action ?'))"><i class="fa fa-share"></i></a>
+{% endmacro %}
+
+{% macro returnPiece(path) %}
+    <a href="{{ path }}" class="btn btn-xs tooltips" data-placement="top" data-original-title="Retourner la PiÃ©ce" onclick="javascript:return(confirm('Etes-vous certain de vouloir retourner cette piece au client ?'))"><i class="fa fa-mail-reply"></i></a>
+{% endmacro %}
+
+{% macro tableEdit(path) %}
+    <a href="{{ path }}" class="btn btn-xs btn-green tooltips" data-placement="top" data-original-title="Modifier"><i class="fa fa-edit"></i></a>
+{% endmacro %}
+
+{% macro tablePdf(path) %}
+    <a href="{{ path }}" class="btn btn-xs btn-green tooltips" target="_blank" data-placement="top" data-original-title="PDF"><i class="fa fa-file-pdf-o"></i></a>
+{% endmacro %}
+
+{% macro tablePhoto(path) %}
+    <a href="{{ path }}" class="btn btn-xs btn-teal tooltips" data-placement="top" data-original-title="Photos"><i class="fa fa-camera"></i></a>
+{% endmacro %}
+
+{% macro albumPhoto(image) %}
+    <div class="col-md-2 col-sm-4 gallery-img">
+        <div class="wrap-image">
+            <a class="group1 cboxElement" href="javascript:void(0)">
+                <img src="{{ asset(image.getAssetPath) }}" class="img-responsive"> </a>
+            <div class="tools tools-bottom">
+                <a href="{{ path('deletephoto',{'id':image.id}) }}" onclick="javascript:return(confirm('Etes-vous certain de vouloir supprimer cette photo ?'))">
+                    <i class="clip-close-2"></i>
+                    {{ image.showType }}, Ordre : {{ image.ordre }}
+                </a>
+            </div>
+        </div>
+    </div>
+{% endmacro %}
