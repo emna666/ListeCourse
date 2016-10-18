@@ -39,7 +39,7 @@
                     <span class="title">Utilisateurs</span><i class="icon-arrow"></i>
                 </a>
                 <ul class="sub-menu">
-                    <li {% if app.request.get('_route') == "back_general_client_list" %} class="open"{% endif %}>
+                    <li {% if app.request.get('_route') in ['back_general_client_list','back_general_client_ajouter','back_general_client_modifier'] %} class="open"{% endif %}>
                         <a href="{{ path('back_general_client_list') }}">
                             <span class="title">Clients</span>
                         </a>

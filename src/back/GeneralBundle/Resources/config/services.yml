@@ -2,3 +2,7 @@ services:
 #    back_general.example:
 #        class: back\GeneralBundle\Example
 #        arguments: ["@service_id", "plain_value", %parameter%]
+    back.form.registration:
+        class: back\GeneralBundle\Form\RegistrationType
+            tags:
+                - { name: form.type, alias: back_user_registration }

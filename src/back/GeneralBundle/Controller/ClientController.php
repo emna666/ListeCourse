@@ -2,9 +2,9 @@
 
 namespace back\GeneralBundle\Controller;
 
+use back\GeneralBundle\Entity\User;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use back\GeneralBundle\Entity\Client;
 use back\GeneralBundle\Form\ClientType;
@@ -30,15 +30,17 @@ class ClientController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         if (is_null($id))
-            $client = new Client();
+            $client = new User();
         else
-            $client = $em->find(Client::class, $id);
+            $client = $em->find(User::class, $id);
         $form = $this->createForm(ClientType::class, $client);
         if ($request->isMethod("POST")) {
             $form->handleRequest($request);
             if ($form->isValid()) {
                 $client = $form->getData();
                 $em->persist($client);
+                //$user = new User();
+                //$user->addRole('ROLE_CLIENT');
                 $em->flush();
                 $this->addFlash('success', " Opération réussie ");
                 return $this->redirect($this->generateUrl('back_general_client_list'));
