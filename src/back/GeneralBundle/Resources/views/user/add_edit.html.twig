@@ -1,7 +1,7 @@
 {% extends ":Back:base.html.twig" %}
 {% block title %}Client{% endblock %}
 {% block description %}
-    {% if client.id is null %}Ajouter{% else %}Modifier{% endif %}
+    {% if app.request.get('id') is null %}Ajouter{% else %}Modifier{% endif %}
 {% endblock %}
 {% block topbody %}
     {{ parent() }}
@@ -20,11 +20,12 @@
                             {{ formulaire.input("col-md-6","Nom ",form.nom,true) }}
                             {{ formulaire.input("col-md-6","Prénom",form.prenom,true) }}
                             {{ formulaire.input("col-md-6","Email",form.email,true) }}
-                            {{ formulaire.input("col-md-6","Login",form.login,false) }}
-                            {{ formulaire.input("col-md-6","Mot de passe initial",form.password,true) }}
+                            {{ formulaire.input("col-md-6","Login",form.username,false) }}
+                            {{ formulaire.input("col-md-6","Mot de passe",form.plainPassword.first,true) }}
+                            {{ formulaire.input("col-md-6","Confirmation",form.plainPassword.second,true) }}
+
                         </div>
                         <div class="row">
-
                             {{ formulaire.input("col-md-6","Télephone 1",form.telephone,false) }}
                             {{ formulaire.input("col-md-6","Téléphone 2",form.telephone2,false) }}
                             {{ formulaire.input("col-md-6","localite",form.localite,false) }}
@@ -41,19 +42,4 @@
             </div>
         </div>
     </div>
-{% endblock %}
-
-{% block jquery %}
-    <script>
-        $(document).ready(function(){
-            $('#back_userbundle_client_type_0').on('change',function(){
-                if($('.alternative').hasClass("no-display"))
-                    $('.alternative').removeClass("no-display")
-            })
-            $('#back_userbundle_client_type_1').on('change',function(){
-                if(!$('.alternative').hasClass("no-display"))
-                    $('.alternative').addClass("no-display")
-            })
-        })
-    </script>
 {% endblock %}

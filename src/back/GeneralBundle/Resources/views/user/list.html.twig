@@ -23,6 +23,8 @@
                         <thead>
                         <tr>
                             <th>ID</th>
+                            <th>Username</th>
+                            <th>Email</th>
                             <th>Nom</th>
                             <th>prénom</th>
                             <th class="center" >Action</th>
@@ -32,6 +34,8 @@
                         {% for client in clients %}
                             <tr>
                                 <td>{{ client.id }}</td>
+                                <td>{{ client.username }}</td>
+                                <td>{{ client.email }}</td>
                                 <td>{{ client.nom }}</td>
                                 <td>{{ client.prenom}}</td>
                                 <td class="TableAction">

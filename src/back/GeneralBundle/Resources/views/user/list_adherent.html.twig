@@ -1,0 +1,57 @@
+{% extends ":Back:base.html.twig" %}
+{% block title %}Gestion des Adhérents{% endblock %}
+{% block description %}{% endblock %}
+{% block topbody %}
+    {{ parent() }}
+    <li>
+        <a href="javascript:void(0)" >Gestion des Adhérents</a>
+    </li>
+{% endblock %}
+{% block body %}
+    <div class="row">
+        <div class="col-md-3 col-md-offset-9">
+            <a class="btn btn-primary right" href="{{ path('back_general_adherent_ajouter') }}"><i class="fa fa-plus"></i>
+                Ajouter Adhérent</a>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <table class="table table-striped table-bordered table-hover table-full-width table-condensed table-hover"  id="sample_1">
+                        <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Username</th>
+                            <th>Email</th>
+                            <th>Nom</th>
+                            <th>prénom</th>
+                            <th>Entreprise</th>
+                            <th class="center" >Action</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for adherent in adherents %}
+                            <tr>
+                                <td>{{ adherent.id }}</td>
+                                <td>{{ adherent.username }}</td>
+                                <td>{{ adherent.email }}</td>
+                                <td>{{ adherent.nom }}</td>
+                                <td>{{ adherent.prenom}}</td>
+                                <td>{{ adherent.entreprise}}</td>
+                                <td class="TableAction">
+                                    <div class="visible-md visible-lg hidden-sm hidden-xs">
+                                        {{ macros.tableEdit(path('back_general_adherent_modifier',{'id':adherent.id})) }}
+                                        {{ macros.tableDelete(path('back_general_adherent_delete',{'id':adherent.id})) }}
+                                    </div>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -9,6 +9,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 /**
  * @ORM\Entity
  * @ORM\Table(name="user")
+ * @ORM\Entity(repositoryClass="back\GeneralBundle\Repository\UserRepository")
  * @ORM\HasLifecycleCallbacks()
  */
 class User extends BaseUser
@@ -55,16 +56,38 @@ class User extends BaseUser
     /**
      * @var string
      *
-     * @ORM\Column(name="adresse", type="string", length=255)
+     * @ORM\Column(name="adresse", type="string", length=255, nullable=true)
      */
     private $adresse;
+
+    /**
+     * @var string
+     * @ORM\Column(name="entreprise", type="string", length=255, nullable=true)
+     */
+    private $entreprise;
+
+    /**
+     * @return string
+     */
+    public function getEntreprise()
+    {
+        return $this->entreprise;
+    }
+
+    /**
+     * @param string $entreprise
+     */
+    public function setEntreprise($entreprise)
+    {
+        $this->entreprise = $entreprise;
+    }
 
     /**
      * Image path
      *
      * @var string
      *
-     * @ORM\Column(type="text", length=255, nullable=false)
+     * @ORM\Column(type="text", length=255, nullable=true)
      */
     private $url;
 
@@ -328,4 +351,25 @@ class User extends BaseUser
     {
         return $this->localite;
     }
+
+    /**
+     * @return File
+     */
+    public function getFile()
+    {
+        return $this->file;
+    }
+
+    /**
+     * @param File $file
+     * @return User
+     */
+    public function setFile($file)
+    {
+        $this->file = $file;
+        return $this;
+    }
+
+
+
 }

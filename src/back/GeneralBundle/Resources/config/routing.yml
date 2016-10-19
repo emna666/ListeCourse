@@ -9,3 +9,7 @@ back_general_referentiel:
 back_general_client:
     resource: "@backGeneralBundle/Resources/config/routing/client.yml"
     prefix:   /client
+
+back_general_adherent:
+    resource: "@backGeneralBundle/Resources/config/routing/adherent.yml"
+    prefix:   /adherent

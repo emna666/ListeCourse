@@ -1,0 +1,15 @@
+back_general_adherent_list:
+    path:     /list
+    defaults: { _controller: backGeneralBundle:Client:adherent}
+
+back_general_adherent_delete:
+    path:     /clients_delete/{id}
+    defaults: { _controller: backGeneralBundle:Client:adherentDelete }
+
+back_general_adherent_ajouter:
+    path:     /ajouter
+    defaults: { _controller: backGeneralBundle:Client:ajouteradhrent,id:null }
+
+back_general_adherent_modifier:
+    path:      /modifier/{id}
+    defaults: { _controller: backGeneralBundle:Client:ajouteradhrent }
