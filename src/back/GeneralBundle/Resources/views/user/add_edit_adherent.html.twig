@@ -17,7 +17,21 @@
                     <div class="panel-body">
                         {{ form_start(form) }}
                         <div class="row">
-                            {{ formulaire.input("col-md-6","Nom ",form.file,true) }}
+                            {{ formulaire.input("col-md-6","Nom ",form.nom,true) }}
+                            {{ formulaire.input("col-md-6","Prénom",form.prenom,true) }}
+                            {{ formulaire.input("col-md-6","Email",form.email,true) }}
+                            {{ formulaire.input("col-md-6","Login",form.username,false) }}
+                            {{ formulaire.input("col-md-6","Mot de passe",form.plainPassword.first,true) }}
+                            {{ formulaire.input("col-md-6","Confirmation",form.plainPassword.second,true) }}
+
+                        </div>
+                        <div class="row">
+                            {{ formulaire.input("col-md-6","Télephone 1",form.telephone,false) }}
+                            {{ formulaire.input("col-md-6","Entreprise",form.entreprise,false) }}
+                        </div>
+
+                        <div class="row">
+                            {{ formulaire.input("col-md-6","Logo/Photo",form.file,false) }}
                         </div>
                         {{ formulaire.submit("Enregistrer") }}
                         {{ form_end(form) }}

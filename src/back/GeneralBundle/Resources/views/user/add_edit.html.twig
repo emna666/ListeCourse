@@ -21,15 +21,16 @@
                             {{ formulaire.input("col-md-6","Prénom",form.prenom,true) }}
                             {{ formulaire.input("col-md-6","Email",form.email,true) }}
                             {{ formulaire.input("col-md-6","Login",form.username,false) }}
-                            {{ formulaire.input("col-md-6","Mot de passe",form.plainPassword.first,true) }}
-                            {{ formulaire.input("col-md-6","Confirmation",form.plainPassword.second,true) }}
-
+                            {% if form.plainPassword is defined %}
+                                {{ formulaire.input("col-md-6","Mot de passe",form.plainPassword.first,true) }}
+                                {{ formulaire.input("col-md-6","Confirmation",form.plainPassword.second,true) }}
+                            {% endif %}
                         </div>
                         <div class="row">
-                            {{ formulaire.input("col-md-6","Télephone 1",form.telephone,false) }}
-                            {{ formulaire.input("col-md-6","Téléphone 2",form.telephone2,false) }}
-                            {{ formulaire.input("col-md-6","localite",form.localite,false) }}
-                            {{ formulaire.input("col-md-6","Adresse",form.adresse,false) }}
+                            {{ formulaire.input("col-md-3","Télephone 1",form.telephone,false) }}
+                            {{ formulaire.input("col-md-3","Téléphone 2",form.telephone2,false) }}
+                            {{ formulaire.select2("col-md-3","localite",form.localite,false) }}
+                            {{ formulaire.input("col-md-3","Adresse",form.adresse,false) }}
                         </div>
 
                         <div class="row">
