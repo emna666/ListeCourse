@@ -1,5 +1,5 @@
 {% extends ":Back:base.html.twig" %}
-{% block title %}Adherent{% endblock %}
+{% block title %}Supermarché{% endblock %}
 {% block description %}
     {% if app.request.get('id') is null %}Ajouter{% else %}Modifier{% endif %}
 {% endblock %}
@@ -17,19 +17,16 @@
                     <div class="panel-body">
                         {{ form_start(form) }}
                         <div class="row">
-                            {{ formulaire.input("col-md-6","Nom ",form.nom,true) }}
-                            {{ formulaire.input("col-md-6","Prénom",form.prenom,true) }}
+                            {{ formulaire.input("col-md-6","Libelle ",form.libelle,true) }}
                             {{ formulaire.input("col-md-6","Email",form.email,true) }}
-                            {{ formulaire.input("col-md-6","Login",form.username,false) }}
-                            {% if form.plainPassword is defined %}
-                                {{ formulaire.input("col-md-6","Mot de passe",form.plainPassword.first,true) }}
-                                {{ formulaire.input("col-md-6","Confirmation",form.plainPassword.second,true) }}
-                            {% endif %}
+
 
                         </div>
                         <div class="row">
-                            {{ formulaire.input("col-md-6","Télephone 1",form.telephone,false) }}
-                            {{ formulaire.input("col-md-6","Entreprise",form.entreprise,false) }}
+                            {{ formulaire.input("col-md-6","Télephone",form.telephone,false) }}
+                            {{ formulaire.input("col-md-6","Latitude",form.latitude,true) }}
+                            {{ formulaire.input("col-md-6","Longitude",form.longitude,true) }}
+                            {{ formulaire.input("col-md-6","Adresse",form.adresse,false) }}
                         </div>
 
                         <div class="row">

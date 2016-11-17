@@ -13,3 +13,7 @@ back_general_client:
 back_general_adherent:
     resource: "@backGeneralBundle/Resources/config/routing/adherent.yml"
     prefix:   /adherent
+
+back_general_supermarche:
+    resource: "@backGeneralBundle/Resources/config/routing/supermarche.yml"
+    prefix:   /supermarche
