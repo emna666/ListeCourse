@@ -34,8 +34,7 @@
                         {% for marque in marques %}
                             <tr>
                                 <td>{{ marque.id }}</td>
-                                <td>logo
-                                </td>
+                                <td> <img src="{{ asset('uploads/marques/' ~ marque.url) }}" style="max-width:50px;"></td>
                                 <td>{{ marque.libelle }}</td>
                                 <td class="TableAction">
                                     <div class="visible-md visible-lg hidden-sm hidden-xs">
