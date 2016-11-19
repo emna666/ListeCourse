@@ -5,13 +5,13 @@ namespace back\GeneralBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 /**
- * Supermarche
+ * Marque
  *
- * @ORM\Table(name="supermarche")
- * @ORM\Entity(repositoryClass="back\GeneralBundle\Repository\SupermarcheRepository")
- * @ORM\HasLifecycleCallbacks()
+ * @ORM\Table(name="marque")
+ * @ORM\Entity(repositoryClass="back\GeneralBundle\Repository\MarqueRepository")
+ * * @ORM\HasLifecycleCallbacks()
  */
-class Supermarche
+class Marque
 {
     /**
      * @var int
@@ -28,45 +28,6 @@ class Supermarche
      * @ORM\Column(name="libelle", type="string", length=255)
      */
     private $libelle;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="latitude", type="string", length=255, nullable=true)
-     */
-    private $latitude;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="longitude", type="string", length=255, nullable=true)
-     */
-    private $longitude;
-
-
-    /**
-     * @var string
-     * @Assert\Email(
-     *     message = "The email '{{ value }}' is not a valid email.",
-     *     checkMX = true
-     * )
-     * @ORM\Column(name="email", type="string", length=255, nullable=true)
-     */
-    private $email;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="telephone", type="string", length=255, nullable=true)
-     */
-    private $telephone;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="adresse", type="string", length=255, nullable=true)
-     */
-    private $adresse;
 
     /**
      * Image path
@@ -98,7 +59,7 @@ class Supermarche
 
     public function getDirectory()
     {
-        return 'uploads/supermarches';
+        return 'uploads/marques';
     }
 
     public function getAssetPath()
@@ -164,6 +125,7 @@ class Supermarche
             unlink($this->tempFile);
     }
 
+
     /**
      * Get id
      *
@@ -179,7 +141,7 @@ class Supermarche
      *
      * @param string $libelle
      *
-     * @return Supermarche
+     * @return Marque
      */
     public function setLibelle($libelle)
     {
@@ -199,124 +161,27 @@ class Supermarche
     }
 
     /**
-     * Set latitude
+     * Set file
      *
-     * @param string $latitude
+     * @param string $file
      *
-     * @return Supermarche
+     * @return Marque
      */
-    public function setLatitude($latitude)
+    public function setFile($file)
     {
-        $this->latitude = $latitude;
+        $this->file = $file;
 
         return $this;
     }
 
     /**
-     * Get latitude
+     * Get file
      *
      * @return string
      */
-    public function getLatitude()
+    public function getFile()
     {
-        return $this->latitude;
-    }
-
-    /**
-     * Set longitude
-     *
-     * @param string $longitude
-     *
-     * @return Supermarche
-     */
-    public function setLongitude($longitude)
-    {
-        $this->longitude = $longitude;
-
-        return $this;
-    }
-
-    /**
-     * Get longitude
-     *
-     * @return string
-     */
-    public function getLongitude()
-    {
-        return $this->longitude;
-    }
-
-
-    /**
-     * Set email
-     *
-     * @param string $email
-     *
-     * @return Supermarche
-     */
-    public function setEmail($email)
-    {
-        $this->email = $email;
-
-        return $this;
-    }
-
-    /**
-     * Get email
-     *
-     * @return string
-     */
-    public function getEmail()
-    {
-        return $this->email;
-    }
-
-    /**
-     * Set telephone
-     *
-     * @param string $telephone
-     *
-     * @return Supermarche
-     */
-    public function setTelephone($telephone)
-    {
-        $this->telephone = $telephone;
-
-        return $this;
-    }
-
-    /**
-     * Get telephone
-     *
-     * @return string
-     */
-    public function getTelephone()
-    {
-        return $this->telephone;
-    }
-
-    /**
-     * Set adresse
-     *
-     * @param string $adresse
-     *
-     * @return Supermarche
-     */
-    public function setAdresse($adresse)
-    {
-        $this->adresse = $adresse;
-
-        return $this;
-    }
-
-    /**
-     * Get adresse
-     *
-     * @return string
-     */
-    public function getAdresse()
-    {
-        return $this->adresse;
+        return $this->file;
     }
 
     /**
@@ -333,22 +198,6 @@ class Supermarche
     public function setUrl($url)
     {
         $this->url = $url;
-    }
-
-    /**
-     * @return File
-     */
-    public function getFile()
-    {
-        return $this->file;
-    }
-
-    /**
-     * @param File $file
-     */
-    public function setFile($file)
-    {
-        $this->file = $file;
     }
 }
 

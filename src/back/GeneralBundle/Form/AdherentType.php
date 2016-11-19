@@ -5,7 +5,7 @@ namespace back\GeneralBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 
-class adherentType extends AbstractType
+class AdherentType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {

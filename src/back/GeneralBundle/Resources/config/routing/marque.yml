@@ -1,0 +1,15 @@
+back_general_marque_list:
+    path:     /list
+    defaults: { _controller: backGeneralBundle:Marque:list}
+
+back_general_marque_delete:
+    path:     /delete/{id}
+    defaults: { _controller: backGeneralBundle:Marque:Delete}
+
+back_general_marque_ajouter:
+    path:     /ajouter
+    defaults: { _controller: backGeneralBundle:Marque:ajouter,id:null }
+
+back_general_marque_modifier:
+    path:      /modifier/{id}
+    defaults: { _controller: backGeneralBundle:Marque:ajouter }

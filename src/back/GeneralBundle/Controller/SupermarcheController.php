@@ -7,7 +7,7 @@ use back\GeneralBundle\Form\SupermarcheType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
-class supermarcheController extends Controller
+class SupermarcheController extends Controller
 {
     public function listAction()
     {
@@ -22,13 +22,9 @@ class supermarcheController extends Controller
     {
         $em = $this->get('doctrine.orm.entity_manager');
         if(is_null($id))
-        {
             $supermarche = new Supermarche();
-        }
         else
-        {
             $supermarche =$em->find(Supermarche::class,$id);
-        }
         $form=$this->createForm(SupermarcheType::class,$supermarche);
         $form->handleRequest($request);
         if ($form->isValid())

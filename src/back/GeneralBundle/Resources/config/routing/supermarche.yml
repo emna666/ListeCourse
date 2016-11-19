@@ -1,15 +1,15 @@
 back_general_supermarche_list:
     path:     /list
-    defaults: { _controller: backGeneralBundle:supermarche:list}
+    defaults: { _controller: backGeneralBundle:Supermarche:list}
 
 back_general_supermarche_delete:
     path:     /delete/{id}
-    defaults: { _controller: backGeneralBundle:supermarche:Delete }
+    defaults: { _controller: backGeneralBundle:Supermarche:Delete }
 
 back_general_supermarche_ajouter:
     path:     /ajouter
-    defaults: { _controller: backGeneralBundle:supermarche:ajouter,id:null }
+    defaults: { _controller: backGeneralBundle:Supermarche:ajouter,id:null }
 
 back_general_supermarche_modifier:
     path:      /modifier/{id}
-    defaults: { _controller: backGeneralBundle:supermarche:ajouter }
+    defaults: { _controller: backGeneralBundle:Supermarche:ajouter }

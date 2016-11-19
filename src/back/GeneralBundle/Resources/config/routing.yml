@@ -17,3 +17,7 @@ back_general_adherent:
 back_general_supermarche:
     resource: "@backGeneralBundle/Resources/config/routing/supermarche.yml"
     prefix:   /supermarche
+
+back_general_marque:
+    resource: "@backGeneralBundle/Resources/config/routing/marque.yml"
+    prefix:   /marque

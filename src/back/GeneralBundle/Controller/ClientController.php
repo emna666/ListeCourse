@@ -3,13 +3,11 @@
 namespace back\GeneralBundle\Controller;
 
 use back\GeneralBundle\Entity\User;
-use back\GeneralBundle\Form\adherentType;
+use back\GeneralBundle\Form\AdherentType;
 use back\GeneralBundle\Form\RegistrationType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use back\GeneralBundle\Entity\Client;
-use back\GeneralBundle\Form\ClientType;
 
 /**
  * Client controller.
@@ -89,12 +87,12 @@ class ClientController extends Controller
         if(is_null($id))
         {
             $user = new User();
-            $form=$this->createForm(adherentType::class,$user, array('validation_groups' => array('Registration')));
+            $form=$this->createForm(AdherentType::class,$user, array('validation_groups' => array('Registration')));
         }
         else
         {
             $user =$em->find(User::class,$id);
-            $form=$this->createForm(adherentType::class,$user, array('validation_groups' => array('Profile')));
+            $form=$this->createForm(AdherentType::class,$user, array('validation_groups' => array('Profile')));
             $form->remove("plainPassword");
         }
         $form->handleRequest($request);
