@@ -2,8 +2,27 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b3cbf9c6-0ffa-4b23-9cd2-4385d1c868a8" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/back/GeneralBundle/Resources/views/marque/list.html.twig" afterPath="$PROJECT_DIR$/src/back/GeneralBundle/Resources/views/marque/list.html.twig" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/deployment.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/back/GeneralBundle/Resources/config/routing/categorie.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/back/GeneralBundle/Resources/config/routing/rayon.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/back/GeneralBundle/Resources/views/supermarche/categorie_add_edit.html.twig" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/back/GeneralBundle/Resources/views/supermarche/categorie_list.html.twig" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/back/GeneralBundle/Resources/views/supermarche/rayon_add_edit.html.twig" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/back/GeneralBundle/Resources/views/supermarche/rayon_list.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/Back/menu.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/Back/menu.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/symfony_requirements" afterPath="$PROJECT_DIR$/bin/symfony_requirements" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/back/GeneralBundle/Controller/SupermarcheController.php" afterPath="$PROJECT_DIR$/src/back/GeneralBundle/Controller/SupermarcheController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/back/GeneralBundle/Entity/Supermarche.php" afterPath="$PROJECT_DIR$/src/back/GeneralBundle/Entity/Supermarche.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/back/GeneralBundle/Entity/User.php" afterPath="$PROJECT_DIR$/src/back/GeneralBundle/Entity/User.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/back/GeneralBundle/Form/AdherentType.php" afterPath="$PROJECT_DIR$/src/back/GeneralBundle/Form/AdherentType.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/back/GeneralBundle/Form/SupermarcheType.php" afterPath="$PROJECT_DIR$/src/back/GeneralBundle/Form/SupermarcheType.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/back/GeneralBundle/Resources/config/routing.yml" afterPath="$PROJECT_DIR$/src/back/GeneralBundle/Resources/config/routing.yml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/back/GeneralBundle/Resources/views/supermarche/add_edit.html.twig" afterPath="$PROJECT_DIR$/src/back/GeneralBundle/Resources/views/supermarche/add_edit.html.twig" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/back/GeneralBundle/Resources/views/supermarche/list.html.twig" afterPath="$PROJECT_DIR$/src/back/GeneralBundle/Resources/views/supermarche/list.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/back/GeneralBundle/Resources/views/user/add_edit_adherent.html.twig" afterPath="$PROJECT_DIR$/src/back/GeneralBundle/Resources/views/user/add_edit_adherent.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/SymfonyRequirements.php" afterPath="$PROJECT_DIR$/var/SymfonyRequirements.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/config.php" afterPath="$PROJECT_DIR$/web/config.php" />
     </list>
     <ignored path="listcourse.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -23,28 +42,35 @@
     <favorites_list name="listcourse" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="list.html.twig" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/back/GeneralBundle/Resources/views/marque/list.html.twig">
+    <leaf>
+      <file leaf-file-name="Categories.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/back/GeneralBundle/Entity/Categories.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="612">
-              <caret line="36" column="36" selection-start-line="36" selection-start-column="36" selection-end-line="36" selection-end-column="117" />
+            <state relative-caret-position="491">
+              <caret line="237" column="27" selection-start-line="237" selection-start-column="22" selection-end-line="237" selection-end-column="27" />
               <folding>
-                <element signature="e#12#32#0#Twig" expanded="true" />
-                <element signature="e#1435#1458#0#HTML" expanded="true" />
+                <element signature="e#45#77#0#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="list.html.twig" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/back/GeneralBundle/Resources/views/supermarche/list.html.twig">
+      <file leaf-file-name="Delegation.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/back/GeneralBundle/Entity/Delegation.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="555">
-              <caret line="37" column="77" selection-start-line="37" selection-start-column="77" selection-end-line="37" selection-end-column="77" />
-              <folding>
-                <element signature="e#1565#1588#0#HTML" expanded="true" />
-              </folding>
+            <state relative-caret-position="457">
+              <caret line="139" column="30" selection-start-line="139" selection-start-column="20" selection-end-line="139" selection-end-column="30" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Rayon.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/back/GeneralBundle/Entity/Rayon.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="525">
+              <caret line="96" column="29" selection-start-line="96" selection-start-column="29" selection-end-line="96" selection-end-column="29" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -57,16 +83,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/back/GeneralBundle/Entity/Governorat.php" />
-        <option value="$PROJECT_DIR$/src/back/GeneralBundle/Resources/views/ref/governorats.html.twig" />
-        <option value="$PROJECT_DIR$/src/back/GeneralBundle/Form/DelegationType.php" />
-        <option value="$PROJECT_DIR$/src/back/GeneralBundle/Resources/views/ref/delegations.html.twig" />
-        <option value="$PROJECT_DIR$/app/Resources/views/Back/alert.html.twig" />
-        <option value="$PROJECT_DIR$/src/back/GeneralBundle/Resources/config/routing/referentiel.yml" />
-        <option value="$PROJECT_DIR$/src/back/GeneralBundle/Controller/ReferentielController.php" />
-        <option value="$PROJECT_DIR$/src/back/GeneralBundle/Resources/views/ref/localites.html.twig" />
-        <option value="$PROJECT_DIR$/src/back/GeneralBundle/Entity/Delegation.php" />
-        <option value="$PROJECT_DIR$/src/back/GeneralBundle/Form/LocaliteType.php" />
         <option value="$PROJECT_DIR$/src/back/GeneralBundle/Entity/Localite.php" />
         <option value="$PROJECT_DIR$/src/back/GeneralBundle/Resources/views/client/new.html.twig" />
         <option value="$PROJECT_DIR$/src/back/GeneralBundle/Form/ClientType.php" />
@@ -89,25 +105,35 @@
         <option value="$PROJECT_DIR$/src/back/GeneralBundle/Resources/views/user/add_edit.html.twig" />
         <option value="$PROJECT_DIR$/app/config/config.yml" />
         <option value="$PROJECT_DIR$/app/config/security.yml" />
-        <option value="$PROJECT_DIR$/src/back/GeneralBundle/Resources/views/user/add_edit_adherent.html.twig" />
-        <option value="$PROJECT_DIR$/src/back/GeneralBundle/Entity/User.php" />
-        <option value="$PROJECT_DIR$/src/back/GeneralBundle/Resources/views/supermarche/add_edit.html.twig" />
-        <option value="$PROJECT_DIR$/src/back/GeneralBundle/Resources/config/routing.yml" />
         <option value="$PROJECT_DIR$/src/back/GeneralBundle/Resources/views/marque/add_edit.html.twig" />
         <option value="$PROJECT_DIR$/src/back/GeneralBundle/Resources/config/routing/marque.yml" />
         <option value="$PROJECT_DIR$/src/back/GeneralBundle/Controller/MarqueController.php" />
-        <option value="$PROJECT_DIR$/app/Resources/views/Back/menu.html.twig" />
         <option value="$PROJECT_DIR$/src/back/GeneralBundle/Entity/Marque.php" />
         <option value="$PROJECT_DIR$/src/back/GeneralBundle/Controller/supermarcheController.php" />
-        <option value="$PROJECT_DIR$/src/back/GeneralBundle/Entity/Supermarche.php" />
         <option value="$PROJECT_DIR$/src/back/GeneralBundle/Form/MarqueType.php" />
-        <option value="$PROJECT_DIR$/src/back/GeneralBundle/Form/SupermarcheType.php" />
-        <option value="$PROJECT_DIR$/src/back/GeneralBundle/Form/AdherentType.php" />
-        <option value="$PROJECT_DIR$/src/back/GeneralBundle/Controller/SupermarcheController.php" />
         <option value="$PROJECT_DIR$/src/back/GeneralBundle/Controller/ClientController.php" />
         <option value="$PROJECT_DIR$/src/back/GeneralBundle/Resources/config/routing/supermarche.yml" />
         <option value="$PROJECT_DIR$/src/back/GeneralBundle/Resources/views/marque/list.html.twig" />
+        <option value="$PROJECT_DIR$/app/config/parameters.yml" />
+        <option value="$PROJECT_DIR$/src/back/GeneralBundle/Form/SupermarcheType.php" />
+        <option value="$PROJECT_DIR$/src/back/GeneralBundle/Resources/views/supermarche/add_edit.html.twig" />
         <option value="$PROJECT_DIR$/src/back/GeneralBundle/Resources/views/supermarche/list.html.twig" />
+        <option value="$PROJECT_DIR$/src/back/GeneralBundle/Resources/views/user/add_edit_adherent.html.twig" />
+        <option value="$PROJECT_DIR$/src/back/GeneralBundle/Form/AdherentType.php" />
+        <option value="$PROJECT_DIR$/src/back/GeneralBundle/Entity/User.php" />
+        <option value="$PROJECT_DIR$/src/back/GeneralBundle/Entity/Supermarche.php" />
+        <option value="$PROJECT_DIR$/src/back/GeneralBundle/Resources/views/supermarche/rayon_list.html.twig" />
+        <option value="$PROJECT_DIR$/src/back/GeneralBundle/Resources/config/routing/rayon.yml" />
+        <option value="$PROJECT_DIR$/src/back/GeneralBundle/Resources/views/supermarche/rayon_add_edit.html.twig" />
+        <option value="$PROJECT_DIR$/src/back/GeneralBundle/Resources/config/routing.yml" />
+        <option value="$PROJECT_DIR$/src/back/GeneralBundle/Resources/config/routing/categorie.yml" />
+        <option value="$PROJECT_DIR$/src/back/GeneralBundle/Controller/SupermarcheController.php" />
+        <option value="$PROJECT_DIR$/app/Resources/views/Back/menu.html.twig" />
+        <option value="$PROJECT_DIR$/src/back/GeneralBundle/Resources/views/supermarche/categorie_list.html.twig" />
+        <option value="$PROJECT_DIR$/src/back/GeneralBundle/Entity/Categories.php" />
+        <option value="$PROJECT_DIR$/src/back/GeneralBundle/Form/CategoriesType.php" />
+        <option value="$PROJECT_DIR$/src/back/GeneralBundle/Resources/views/supermarche/categorie_add_edit.html.twig" />
+        <option value="$PROJECT_DIR$/src/back/GeneralBundle/Entity/Rayon.php" />
       </list>
     </option>
   </component>
@@ -121,8 +147,8 @@
   <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
-    <option name="width" value="1936" />
-    <option name="height" value="1056" />
+    <option name="width" value="1378" />
+    <option name="height" value="754" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -149,7 +175,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -294,66 +319,6 @@
               <option name="myItemId" value="Resources" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="marque" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ListeCourse" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ListeCourse" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="back" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="GeneralBundle" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Resources" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ListeCourse" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ListeCourse" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="back" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="GeneralBundle" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Form" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -381,34 +346,9 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ListeCourse" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ListeCourse" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="back" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="GeneralBundle" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Controller" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -419,15 +359,15 @@
     <property name="js-jscs-nodeInterpreter" value="C:\Program Files\nodejs\node.exe" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\wamp64\www\ListeCourse\src\back\GeneralBundle\Resources\views\user" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\wamp64\www\ListeCourse\src\back\GeneralBundle\Resources\views\marque" />
       <recent name="C:\wamp64\www\ListeCourse\src\back\GeneralBundle\Resources\views\supermarche" />
+      <recent name="C:\wamp64\www\ListeCourse\app\config" />
+      <recent name="C:\wamp64\www\ListeCourse\src\back\GeneralBundle\Resources\views\marque" />
       <recent name="C:\wamp64\www\ListeCourse\src\back\GeneralBundle\Resources\config\routing" />
       <recent name="C:\wamp64\www\ListeCourse\src\back\GeneralBundle\Resources\views\user" />
-      <recent name="C:\wamp64\www\ListeCourse\src\back\GeneralBundle\Form" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\wamp64\www\ListeCourse\src\back\GeneralBundle\Resources\views\user" />
     </key>
   </component>
   <component name="RunManager">
@@ -508,21 +448,25 @@
       <workItem from="1477069602908" duration="2953000" />
       <workItem from="1479323987697" duration="9809000" />
       <workItem from="1479561346941" duration="9009000" />
+      <workItem from="1480850399038" duration="4337000" />
+      <workItem from="1480870972544" duration="1610000" />
+      <workItem from="1480967506292" duration="1591000" />
+      <workItem from="1481142363680" duration="5004000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="88099000" />
+    <option name="totallyTimeSpent" value="100641000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
-    <editor active="false" />
+    <frame x="-8" y="-8" width="1378" height="754" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23933902" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25417298" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32963374" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32935917" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24940239" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3275862" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -556,81 +500,11 @@
           <line>13</line>
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="3" />
+      <option name="time" value="4" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/back/GeneralBundle/Resources/views/client/new.html.twig" />
-    <entry file="file://$PROJECT_DIR$/src/back/GeneralBundle/Repository/UserRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="8" column="36" selection-start-line="8" selection-start-column="36" selection-end-line="8" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/doctrine/orm/lib/Doctrine/ORM/EntityRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="382">
-          <caret line="78" column="20" selection-start-line="78" selection-start-column="20" selection-end-line="78" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/back/GeneralBundle/Form/RegistrationTypeT.php" />
-    <entry file="file://$PROJECT_DIR$/src/back/GeneralBundle/Resources/config/routing/adherent.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="12" column="30" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/back/GeneralBundle/Resources/config/routing/client.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="14" column="52" selection-start-line="14" selection-start-column="52" selection-end-line="14" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/back/GeneralBundle/Entity/Localite.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="10" column="30" selection-start-line="10" selection-start-column="30" selection-end-line="11" selection-end-column="82" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/friendsofsymfony/user-bundle/Form/Type/RegistrationFormType.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="770">
-          <caret line="45" column="80" selection-start-line="45" selection-start-column="59" selection-end-line="45" selection-end-column="80" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="0">
-            <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="phar://$PROJECT_DIR$/composer.phar/bin/composer" />
-    <entry file="file://$PROJECT_DIR$/app/AppKernel.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/back/GeneralBundle/Resources/views/user/list.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="242">
@@ -663,13 +537,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="66">
           <caret line="3" column="64" selection-start-line="3" selection-start-column="64" selection-end-line="3" selection-end-column="64" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/back/GeneralBundle/Resources/views/user/add_edit_adherent.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="572">
-          <caret line="26" column="39" selection-start-line="26" selection-start-column="39" selection-end-line="26" selection-end-column="39" />
         </state>
       </provider>
     </entry>
@@ -707,43 +574,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/back/GeneralBundle/Resources/views/user/add_edit.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="31" column="95" selection-start-line="31" selection-start-column="27" selection-end-line="31" selection-end-column="95" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/back/GeneralBundle/Entity/Governorat.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="997">
-          <caret line="77" column="7" selection-start-line="77" selection-start-column="7" selection-end-line="77" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/back/GeneralBundle/Resources/views/supermarche/add_edit.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="31" column="41" selection-start-line="31" selection-start-column="41" selection-end-line="31" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/back/GeneralBundle/Resources/config/routing/marque.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
           <caret line="10" column="58" selection-start-line="10" selection-start-column="58" selection-end-line="10" selection-end-column="58" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/back/GeneralBundle/Resources/config/routing.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="22" column="21" selection-start-line="22" selection-start-column="21" selection-end-line="22" selection-end-column="21" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -751,7 +585,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
           <caret line="1" column="23" selection-start-line="1" selection-start-column="23" selection-end-line="1" selection-end-column="23" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -759,15 +592,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="901">
           <caret line="53" column="27" selection-start-line="53" selection-start-column="27" selection-end-line="53" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/config/parameters.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -775,7 +599,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -783,7 +606,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -791,7 +613,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -800,67 +621,9 @@
         <state relative-caret-position="-108">
           <caret line="6" column="45" selection-start-line="6" selection-start-column="45" selection-end-line="6" selection-end-column="45" />
           <folding>
-            <element signature="e#467#508#0#PHP" expanded="true" />
-            <element signature="e#1288#1333#0#PHP" expanded="true" />
+            <element signature="e#467#508#0#PHP" expanded="false" />
+            <element signature="e#1288#1333#0#PHP" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/Back/menu.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="592">
-          <caret line="53" column="132" selection-start-line="53" selection-start-column="132" selection-end-line="53" selection-end-column="132" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/back/GeneralBundle/Entity/User.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3927">
-          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="54" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/back/GeneralBundle/Entity/Marque.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="130">
-          <caret line="39" column="0" selection-start-line="39" selection-start-column="0" selection-end-line="52" selection-end-column="18" />
-          <folding>
-            <element signature="e#45#77#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/back/GeneralBundle/Form/RegistrationType.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="578">
-          <caret line="38" column="44" selection-start-line="38" selection-start-column="44" selection-end-line="38" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/back/GeneralBundle/Form/MarqueType.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="29" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/back/GeneralBundle/Form/DelegationType.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="31" column="5" selection-start-line="31" selection-start-column="5" selection-end-line="31" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/back/GeneralBundle/Form/GovernoratType.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="24" selection-start-line="17" selection-start-column="24" selection-end-line="17" selection-end-column="24" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -868,63 +631,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
           <caret line="22" column="12" selection-start-line="22" selection-start-column="12" selection-end-line="33" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/back/GeneralBundle/Entity/Supermarche.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-952">
-          <caret line="13" column="6" selection-start-line="13" selection-start-column="6" selection-end-line="13" selection-end-column="6" />
-          <folding>
-            <element signature="e#45#77#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/back/GeneralBundle/Form/SupermarcheType.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/back/GeneralBundle/Form/AdherentType.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="7" column="7" selection-start-line="7" selection-start-column="7" selection-end-line="7" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/back/GeneralBundle/Controller/SupermarcheController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="94">
-          <caret line="11" column="26" selection-start-line="11" selection-start-column="26" selection-end-line="11" selection-end-column="26" />
-          <folding>
-            <element signature="e#49#91#0#PHP" expanded="true" />
-            <element signature="e#491#537#0#PHP" expanded="true" />
-            <element signature="e#1336#1386#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/back/GeneralBundle/Controller/ClientController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-153">
-          <caret line="9" column="59" selection-start-line="9" selection-start-column="59" selection-end-line="9" selection-end-column="59" />
-          <folding>
-            <element signature="e#49#84#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/back/GeneralBundle/Resources/config/routing/supermarche.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="68" selection-start-line="14" selection-start-column="68" selection-end-line="14" selection-end-column="68" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -940,20 +646,284 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="612">
           <caret line="36" column="36" selection-start-line="36" selection-start-column="36" selection-end-line="36" selection-end-column="117" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/config/parameters.yml.dist">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/config/parameters.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="23" selection-start-line="4" selection-start-column="23" selection-end-line="4" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/back/GeneralBundle/Entity/Localite.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-595">
+          <caret line="11" column="70" selection-start-line="11" selection-start-column="70" selection-end-line="11" selection-end-column="70" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/back/GeneralBundle/Form/RegistrationType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="578">
+          <caret line="38" column="44" selection-start-line="38" selection-start-column="44" selection-end-line="38" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/back/GeneralBundle/Resources/views/user/add_edit.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="527">
+          <caret line="31" column="95" selection-start-line="31" selection-start-column="28" selection-end-line="31" selection-end-column="95" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/back/GeneralBundle/Resources/views/user/add_edit_adherent.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="595">
+          <caret line="35" column="91" selection-start-line="35" selection-start-column="80" selection-end-line="35" selection-end-column="91" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/back/GeneralBundle/Form/AdherentType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="19" column="5" selection-start-line="19" selection-start-column="5" selection-end-line="19" selection-end-column="5" />
           <folding>
-            <element signature="e#12#32#0#Twig" expanded="true" />
-            <element signature="e#1435#1458#0#HTML" expanded="true" />
+            <element signature="e#43#83#0#PHP" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/back/GeneralBundle/Form/DelegationType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="338">
+          <caret line="31" column="5" selection-start-line="31" selection-start-column="5" selection-end-line="31" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/back/GeneralBundle/Controller/ClientController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1258">
+          <caret line="9" column="59" selection-start-line="9" selection-start-column="59" selection-end-line="9" selection-end-column="59" />
+          <folding>
+            <element signature="e#49#84#0#PHP" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/back/GeneralBundle/Resources/config/routing/supermarche.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="68" selection-start-line="0" selection-start-column="0" selection-end-line="14" selection-end-column="68" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/back/GeneralBundle/Resources/views/supermarche/rayon_list.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="41" column="106" selection-start-line="41" selection-start-column="106" selection-end-line="41" selection-end-column="106" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/back/GeneralBundle/Resources/config/routing/rayon.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="27" selection-start-line="0" selection-start-column="0" selection-end-line="14" selection-end-column="73" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/Back/menu.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="460">
+          <caret line="73" column="146" selection-start-line="73" selection-start-column="146" selection-end-line="73" selection-end-column="146" />
+          <folding>
+            <element signature="e#5136#5163#0#Twig" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/back/GeneralBundle/Resources/config/routing/categorie.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="22" selection-start-line="12" selection-start-column="22" selection-end-line="12" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/back/GeneralBundle/Resources/config/routing.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="29" column="68" selection-start-line="29" selection-start-column="59" selection-end-line="29" selection-end-column="68" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/back/GeneralBundle/Controller/SupermarcheController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="117">
+          <caret line="112" column="16" selection-start-line="112" selection-start-column="16" selection-end-line="112" selection-end-column="16" />
+          <folding>
+            <element signature="e#49#90#0#PHP" expanded="true" />
+            <element signature="e#457#768#0#PHP" expanded="false" />
+            <element signature="e#773#1614#0#PHP" expanded="false" />
+            <element signature="e#1619#2141#0#PHP" expanded="false" />
+            <element signature="e#2146#2446#0#PHP" expanded="false" />
+            <element signature="e#2336#2388#0#PHP" expanded="true" />
+            <element signature="e#2451#3243#0#PHP" expanded="false" />
+            <element signature="e#3121#3177#0#PHP" expanded="true" />
+            <element signature="e#3248#3745#0#PHP" expanded="false" />
+            <element signature="e#3954#4010#0#PHP" expanded="true" />
+            <element signature="e#4794#4854#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/back/GeneralBundle/Resources/views/supermarche/list.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="555">
-          <caret line="37" column="77" selection-start-line="37" selection-start-column="77" selection-end-line="37" selection-end-column="77" />
+        <state relative-caret-position="372">
+          <caret line="37" column="132" selection-start-line="37" selection-start-column="31" selection-end-line="37" selection-end-column="132" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/back/GeneralBundle/Resources/views/supermarche/rayon_add_edit.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="20" column="65" selection-start-line="20" selection-start-column="65" selection-end-line="20" selection-end-column="65" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/back/GeneralBundle/Form/SupermarcheType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="185">
+          <caret line="23" column="27" selection-start-line="23" selection-start-column="27" selection-end-line="23" selection-end-column="27" />
           <folding>
-            <element signature="e#1565#1588#0#HTML" expanded="true" />
+            <element signature="e#43#83#0#PHP" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/back/GeneralBundle/Entity/Marque.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="127" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/back/GeneralBundle/Form/MarqueType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="19" column="5" selection-start-line="19" selection-start-column="5" selection-end-line="19" selection-end-column="5" />
+          <folding>
+            <element signature="e#43#83#0#PHP" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/back/GeneralBundle/Resources/views/supermarche/categorie_list.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="36" column="75" selection-start-line="36" selection-start-column="75" selection-end-line="36" selection-end-column="75" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/back/GeneralBundle/Form/GovernoratType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="24" selection-start-line="17" selection-start-column="24" selection-end-line="17" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/back/GeneralBundle/Entity/Supermarche.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="31" />
+          <folding>
+            <element signature="e#45#77#0#PHP" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/back/GeneralBundle/Entity/Governorat.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1088">
+          <caret line="77" column="3" selection-start-line="77" selection-start-column="3" selection-end-line="83" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/back/GeneralBundle/Resources/views/supermarche/categorie_add_edit.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="20" column="67" selection-start-line="20" selection-start-column="67" selection-end-line="20" selection-end-column="67" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/back/GeneralBundle/Resources/views/supermarche/add_edit.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="26" column="95" selection-start-line="26" selection-start-column="28" selection-end-line="26" selection-end-column="95" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/back/GeneralBundle/Form/CategoriesType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="18" column="24" selection-start-line="18" selection-start-column="24" selection-end-line="18" selection-end-column="24" />
+          <folding>
+            <element signature="e#43#83#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/back/GeneralBundle/Entity/User.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-5408">
+          <caret line="55" column="75" selection-start-line="55" selection-start-column="75" selection-end-line="55" selection-end-column="75" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/back/GeneralBundle/Entity/Categories.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="491">
+          <caret line="237" column="27" selection-start-line="237" selection-start-column="22" selection-end-line="237" selection-end-column="27" />
+          <folding>
+            <element signature="e#45#77#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/back/GeneralBundle/Entity/Delegation.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="457">
+          <caret line="139" column="30" selection-start-line="139" selection-start-column="20" selection-end-line="139" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/back/GeneralBundle/Entity/Rayon.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="525">
+          <caret line="96" column="29" selection-start-line="96" selection-start-column="29" selection-end-line="96" selection-end-column="29" />
+          <folding />
         </state>
       </provider>
     </entry>

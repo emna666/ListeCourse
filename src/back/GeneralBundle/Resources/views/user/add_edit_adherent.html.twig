@@ -33,6 +33,7 @@
                         </div>
 
                         <div class="row">
+                            {{ formulaire.select2("col-md-6","Supermarché",form.supermarche,false) }}
                             {{ formulaire.input("col-md-6","Logo/Photo",form.file,false) }}
                         </div>
                         {{ formulaire.submit("Enregistrer") }}

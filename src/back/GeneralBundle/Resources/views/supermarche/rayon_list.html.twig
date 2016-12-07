@@ -1,17 +1,17 @@
 {% extends ":Back:base.html.twig" %}
-{% block title %}Gestion des Supermarché{% endblock %}
+{% block title %}Gestion des Rayons{% endblock %}
 {% block description %}{% endblock %}
 {% block topbody %}
     {{ parent() }}
     <li>
-        <a href="javascript:void(0)" >Gestion des Supermarché</a>
+        <a href="javascript:void(0)" >Gestion des Rayons</a>
     </li>
 {% endblock %}
 {% block body %}
     <div class="row">
         <div class="col-md-2 col-md-offset-10 btn_ajout">
-            <a class="btn btn-primary right " href="{{ path('back_general_supermarche_ajouter') }}"><i class="fa fa-plus"></i>
-                Ajouter supermarché</a>
+            <a class="btn btn-primary right " href="{{ path('back_general_rayon_ajouter') }}"><i class="fa fa-plus"></i>
+                Ajouter rayon</a>
         </div>
     </div>
     <div class="clear"></div>
@@ -24,26 +24,22 @@
                         <thead>
                         <tr>
                             <th>ID</th>
-                            <th>Logo</th>
                             <th>Libelle</th>
-                            <th>Adresse</th>
-                            <th>Localite</th>
+                            <th>Ordre</th>
                             <th class="center" >Action</th>
                         </tr>
                         </thead>
                         <tbody>
-                        {% for supermarche in supermarches %}
+                        {% for rayon in rayons %}
                             <tr>
-                                <td>{{ supermarche.id }}</td>
-                                <td> <img src="{{ asset('uploads/supermarches/' ~ supermarche.url) }}" style="max-width:50px;"></td>
-                                <td>{{ supermarche.libelle }}</td>
-                                <td>{{ supermarche.adresse }}</td>
-                                <td>{{ supermarche.localite }}</td>
+                                <td>{{ rayon.id }}</td>
+                                <td>{{ rayon.libelle }}</td>
+                                <td>{{ rayon.ordre }}</td>
 
                                 <td class="TableAction">
                                     <div class="visible-md visible-lg hidden-sm hidden-xs">
-                                        {{ macros.tableEdit(path('back_general_supermarche_modifier',{'id':supermarche.id})) }}
-                                        {{ macros.tableDelete(path('back_general_supermarche_delete',{'id':supermarche.id})) }}
+                                        {{ macros.tableEdit(path('back_general_rayon_modifier',{'id':rayon.id})) }}
+                                        {{ macros.tableDelete(path('back_general_rayon_delete',{'id':rayon.id})) }}
                                     </div>
                                 </td>
                             </tr>

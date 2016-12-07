@@ -1,5 +1,5 @@
 {% extends ":Back:base.html.twig" %}
-{% block title %}Supermarché{% endblock %}
+{% block title %}Catégorie{% endblock %}
 {% block description %}
     {% if app.request.get('id') is null %}Ajouter{% else %}Modifier{% endif %}
 {% endblock %}
@@ -18,20 +18,9 @@
                         {{ form_start(form) }}
                         <div class="row">
                             {{ formulaire.input("col-md-6","Libelle ",form.libelle,true) }}
-                            {{ formulaire.input("col-md-6","Email",form.email,true) }}
-
-
+                            {{ formulaire.select2("col-md-6","Rayon",form.rayon,false) }}
                         </div>
                         <div class="row">
-
-                            {{ formulaire.select2("col-md-6","localite",form.localite,false) }}
-                            {{ formulaire.input("col-md-6","Latitude",form.latitude,true) }}
-                            {{ formulaire.input("col-md-6","Longitude",form.longitude,true) }}
-                            {{ formulaire.input("col-md-6","Adresse",form.adresse,false) }}
-                        </div>
-
-                        <div class="row">
-                            {{ formulaire.input("col-md-6","Télephone",form.telephone,false) }}
                             {{ formulaire.input("col-md-6","Logo/Photo",form.file,false) }}
                         </div>
                         {{ formulaire.submit("Enregistrer") }}

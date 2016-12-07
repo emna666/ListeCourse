@@ -21,3 +21,11 @@ back_general_supermarche:
 back_general_marque:
     resource: "@backGeneralBundle/Resources/config/routing/marque.yml"
     prefix:   /marque
+
+back_general_rayon:
+    resource: "@backGeneralBundle/Resources/config/routing/rayon.yml"
+    prefix:   /rayon
+
+back_general_categorie:
+    resource: "@backGeneralBundle/Resources/config/routing/categorie.yml"
+    prefix:   /categorie

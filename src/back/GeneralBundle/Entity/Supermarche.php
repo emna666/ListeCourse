@@ -62,6 +62,12 @@ class Supermarche
     private $telephone;
 
     /**
+     * @ORM\ManyToOne(targetEntity="back\GeneralBundle\Entity\Localite")
+     * @ORM\OrderBy({"libelle" = "ASC"})
+     */
+    protected $localite;
+
+    /**
      * @var string
      *
      * @ORM\Column(name="adresse", type="string", length=255, nullable=true)
@@ -296,6 +302,30 @@ class Supermarche
     }
 
     /**
+     * Set localite
+     *
+     * @param \back\GeneralBundle\Entity\Localite $localite
+     *
+     * @return Supermarche
+     */
+    public function setLocalite(\back\GeneralBundle\Entity\Localite $localite = null)
+    {
+        $this->localite = $localite;
+
+        return $this;
+    }
+
+    /**
+     * Get localite
+     *
+     * @return \back\GeneralBundle\Entity\Localite
+     */
+    public function getLocalite()
+    {
+        return $this->localite;
+    }
+
+    /**
      * Set adresse
      *
      * @param string $adresse
@@ -350,5 +380,14 @@ class Supermarche
     {
         $this->file = $file;
     }
+
+    /**
+     * Constructor
+     */
+    public function __toString()
+    {
+        return $this->libelle;
+    }
+
 }
 

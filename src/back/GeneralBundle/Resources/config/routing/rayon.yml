@@ -1,0 +1,15 @@
+back_general_rayon_list:
+    path:     /list
+    defaults: { _controller: backGeneralBundle:Supermarche:listRayon}
+
+back_general_rayon_delete:
+    path:     /delete/{id}
+    defaults: { _controller: backGeneralBundle:Supermarche:DeleteRayon }
+
+back_general_rayon_ajouter:
+    path:     /ajouter
+    defaults: { _controller: backGeneralBundle:Supermarche:ajouterRayon,id:null }
+
+back_general_rayon_modifier:
+    path:      /modifier/{id}
+    defaults: { _controller: backGeneralBundle:Supermarche:ajouterRayon }

@@ -15,6 +15,7 @@ class AdherentType extends AbstractType
             ->add('telephone')
             ->add('entreprise')
             ->add('file')
+            ->add('supermarche')
         ;
     }
 

@@ -6,7 +6,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class SupermarcheType extends AbstractType
+class CategoriesType extends AbstractType
 {
     /**
      * {@inheritdoc}
@@ -15,13 +15,8 @@ class SupermarcheType extends AbstractType
     {
         $builder
             ->add('libelle')
-            ->add('latitude')
-            ->add('longitude')
-            ->add('email')
-            ->add('telephone')
-            ->add('adresse')
             ->add('file')
-            ->add('localite')
+            ->add('rayon')
         ;
     }
     
@@ -31,7 +26,7 @@ class SupermarcheType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'back\GeneralBundle\Entity\Supermarche'
+            'data_class' => 'back\GeneralBundle\Entity\Categories'
         ));
     }
 
@@ -40,7 +35,7 @@ class SupermarcheType extends AbstractType
      */
     public function getBlockPrefix()
     {
-        return 'back_generalbundle_supermarche';
+        return 'back_generalbundle_categories';
     }
 
 

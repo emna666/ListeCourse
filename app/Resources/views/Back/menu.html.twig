@@ -51,7 +51,7 @@
                     </li>
                 </ul>
             </li>
-            <li {% if app.request.getPathInfo|split('/admin/supermarche')|length > 1 or app.request.getPathInfo|split('/admin/marque')|length > 1 %} class="active open"{% endif %}>
+            <li {% if app.request.getPathInfo|split('/admin/supermarche')|length > 1 or app.request.getPathInfo|split('/admin/marque')|length > 1 or app.request.getPathInfo|split('/admin/rayon')|length > 1 or app.request.getPathInfo|split('/admin/categorie')|length > 1 %} class="active open"{% endif %}>
                 <a href="javascript:void(0)"><i class="fa fa-shopping-cart"></i>
                     <span class="title">Courses</span><i class="icon-arrow"></i>
                 </a>
@@ -64,6 +64,16 @@
                     <li {% if app.request.get('_route') in ['back_general_marque_list','back_general_marque_ajouter','back_general_marque_modifier'] %} class="open"{% endif %}>
                         <a href="{{ path('back_general_marque_list') }}">
                             <span class="title">Marques</span>
+                        </a>
+                    </li>
+                    <li {% if app.request.get('_route') in ['back_general_rayon_list','back_general_rayon_ajouter','back_general_rayon_modifier'] %} class="open"{% endif %}>
+                        <a href="{{ path('back_general_rayon_list') }}">
+                            <span class="title">Rayons</span>
+                        </a>
+                    </li>
+                    <li {% if app.request.get('_route') in ['back_general_categorie_list','back_general_categorie_ajouter','back_general_categorie_modifier'] %} class="open"{% endif %}>
+                        <a href="{{ path('back_general_categorie_list') }}">
+                            <span class="title">Catégories</span>
                         </a>
                     </li>
                 </ul>

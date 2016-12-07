@@ -52,6 +52,11 @@ class User extends BaseUser
      */
     protected $localite;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="back\GeneralBundle\Entity\Supermarche")
+     * @ORM\OrderBy({"libelle" = "ASC"})
+     */
+    protected $supermarche;
 
     /**
      * @var string
@@ -351,6 +356,31 @@ class User extends BaseUser
     {
         return $this->localite;
     }
+
+    /**
+     * Get supermarche
+     *
+     * @return \back\GeneralBundle\Entity\Supermarche
+     */
+    public function getSupermarche()
+    {
+        return $this->supermarche;
+    }
+
+    /**
+     * Set supermarche
+     *
+     * @param \back\GeneralBundle\Entity\Supermarche $supermarche
+     *
+     * @return User
+     */
+    public function setSupermarche(Supermarche $supermarche = null)
+    {
+        $this->supermarche = $supermarche;
+
+        return $this;
+    }
+
 
     /**
      * @return File
