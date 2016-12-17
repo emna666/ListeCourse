@@ -29,3 +29,7 @@ back_general_rayon:
 back_general_categorie:
     resource: "@backGeneralBundle/Resources/config/routing/categorie.yml"
     prefix:   /categorie
+
+back_general_produit:
+    resource: "@backGeneralBundle/Resources/config/routing/produit.yml"
+    prefix:   /produit

@@ -4,14 +4,15 @@ namespace back\GeneralBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+
 /**
- * Marque
+ * Produit
  *
- * @ORM\Table(name="marque")
- * @ORM\Entity(repositoryClass="back\GeneralBundle\Repository\MarqueRepository")
- * * @ORM\HasLifecycleCallbacks()
+ * @ORM\Table(name="produit")
+ * @ORM\Entity(repositoryClass="back\GeneralBundle\Repository\ProduitRepository")
+ * @ORM\HasLifecycleCallbacks()
  */
-class Marque
+class Produit
 {
     /**
      * @var int
@@ -30,6 +31,43 @@ class Marque
     private $libelle;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="num_serie", type="string", length=255, nullable=true)
+     */
+    private $numSerie;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="description", type="string", length=500, nullable=true)
+     */
+    private $description;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="prix", type="string", length=255, nullable=true)
+     */
+    private $prix;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="back\GeneralBundle\Entity\Marque")
+     */
+    private $marque;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="back\GeneralBundle\Entity\Categories", cascade={"persist"})
+     */
+    private $categories;
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="updated_at",type="datetime", nullable=true)
+     */
+    private $updated;
+
+    /**
      * Image path
      *
      * @var string
@@ -37,13 +75,6 @@ class Marque
      * @ORM\Column(type="text", length=255, nullable=true)
      */
     private $url;
-
-    /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="updated_at",type="datetime", nullable=true)
-     */
-    private $updated;
 
     /**
      * Image file
@@ -66,7 +97,7 @@ class Marque
 
     public function getDirectory()
     {
-        return 'uploads/marques';
+        return 'uploads/produits';
     }
 
     public function getAssetPath()
@@ -132,7 +163,6 @@ class Marque
             unlink($this->tempFile);
     }
 
-
     /**
      * Get id
      *
@@ -148,7 +178,7 @@ class Marque
      *
      * @param string $libelle
      *
-     * @return Marque
+     * @return Produit
      */
     public function setLibelle($libelle)
     {
@@ -168,11 +198,35 @@ class Marque
     }
 
     /**
+     * Set numSerie
+     *
+     * @param string $numSerie
+     *
+     * @return Produit
+     */
+    public function setNumSerie($numSerie)
+    {
+        $this->numSerie = $numSerie;
+
+        return $this;
+    }
+
+    /**
+     * Get numSerie
+     *
+     * @return string
+     */
+    public function getNumSerie()
+    {
+        return $this->numSerie;
+    }
+
+    /**
      * Set file
      *
      * @param string $file
      *
-     * @return Marque
+     * @return Produit
      */
     public function setFile($file)
     {
@@ -194,22 +248,123 @@ class Marque
     /**
      * @return string
      */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * @param string $description
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPrix()
+    {
+        return $this->prix;
+    }
+
+    /**
+     * @param string $prix
+     */
+    public function setPrix($prix)
+    {
+        $this->prix = $prix;
+    }
+
+
+    /**
+     * Set url
+     *
+     * @param string $url
+     *
+     * @return Produit
+     */
+    public function setUrl($url)
+    {
+        $this->url = $url;
+
+        return $this;
+    }
+
+    /**
+     * Get url
+     *
+     * @return string
+     */
     public function getUrl()
     {
         return $this->url;
     }
 
     /**
-     * @param string $url
+     * Set marque
+     *
+     * @param \back\GeneralBundle\Entity\Marque $marque
+     *
+     * @return Produit
      */
-    public function setUrl($url)
+    public function setMarque(\back\GeneralBundle\Entity\Marque $marque = null)
     {
-        $this->url = $url;
+        $this->marque = $marque;
+
+        return $this;
     }
-    public function __toString()
+
+    /**
+     * Get marque
+     *
+     * @return \back\GeneralBundle\Entity\Marque
+     */
+    public function getMarque()
     {
-        return $this->libelle;
+        return $this->marque;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->categories = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add category
+     *
+     * @param \back\GeneralBundle\Entity\Categories $category
+     *
+     * @return Produit
+     */
+    public function addCategory(\back\GeneralBundle\Entity\Categories $category)
+    {
+        $this->categories[] = $category;
+
+        return $this;
+    }
+
+    /**
+     * Remove category
+     *
+     * @param \back\GeneralBundle\Entity\Categories $category
+     */
+    public function removeCategory(\back\GeneralBundle\Entity\Categories $category)
+    {
+        $this->categories->removeElement($category);
+    }
+
+    /**
+     * Get categories
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getCategories()
+    {
+        return $this->categories;
     }
 
 }
-

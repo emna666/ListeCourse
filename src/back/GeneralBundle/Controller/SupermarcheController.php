@@ -31,7 +31,7 @@ class SupermarcheController extends Controller
             $supermarche =$em->find(Supermarche::class,$id);
         $form=$this->createForm(SupermarcheType::class,$supermarche);
         $form->handleRequest($request);
-        if ($form->isValid())
+        if ($form->isValid() and $form->isSubmitted())
         {
             $supermarche=$form->getData();
             $em->persist($supermarche);

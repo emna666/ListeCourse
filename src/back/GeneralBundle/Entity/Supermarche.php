@@ -48,7 +48,7 @@ class Supermarche
      * @var string
      * @Assert\Email(
      *     message = "The email '{{ value }}' is not a valid email.",
-     *     checkMX = true
+     *     checkMX = false
      * )
      * @ORM\Column(name="email", type="string", length=255, nullable=true)
      */
@@ -73,6 +73,13 @@ class Supermarche
      * @ORM\Column(name="adresse", type="string", length=255, nullable=true)
      */
     private $adresse;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="updated_at",type="datetime", nullable=true)
+     */
+    private $updated;
 
     /**
      * Image path
@@ -388,6 +395,26 @@ class Supermarche
     {
         return $this->libelle;
     }
+
+    /**
+     * @return \DateTime
+     */
+    public function getUpdated()
+    {
+        return $this->updated;
+    }
+
+    /**
+     * @param \DateTime $updated
+     * @return Supermarche
+     */
+    public function setUpdated($updated)
+    {
+        $this->updated = $updated;
+        return $this;
+    }
+
+
 
 }
 

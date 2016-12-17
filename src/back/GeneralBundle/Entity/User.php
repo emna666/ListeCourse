@@ -88,6 +88,13 @@ class User extends BaseUser
     }
 
     /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="updated_at",type="datetime", nullable=true)
+     */
+    private $updated;
+
+    /**
      * Image path
      *
      * @var string

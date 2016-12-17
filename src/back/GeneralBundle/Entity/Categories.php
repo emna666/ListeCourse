@@ -35,6 +35,13 @@ class Categories
     private $rayon;
 
     /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="updated_at",type="datetime", nullable=true)
+     */
+    private $updated;
+
+    /**
      * Image path
      *
      * @var string
@@ -236,5 +243,10 @@ class Categories
     public function getRayon()
     {
         return $this->rayon;
+    }
+
+    public function __toString()
+    {
+        return $this->libelle;
     }
 }
