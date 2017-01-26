@@ -8,20 +8,7 @@
     </li>
 {% endblock %}
 {% block body %}
-    <div class="row">
-        <div class="col-md-12">
-            <div class="panel panel-default">
-                <div class="panel-body">
-                    {{ form_start(form) }}
-                    <div class="row">
-                        {{ formulaire.input("col-md-4","Libellé",form.name,true) }}
-                    </div>
-                    {{ formulaire.submit("Enregistrer") }}
-                    {{ form_end(form) }}
-                </div>
-            </div>
-        </div>
-    </div>
+
     <div class="row">
         <div class="col-md-12">
             <div class="panel panel-default">
@@ -51,6 +38,20 @@
                         {% endfor %}
                         </tbody>
                     </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    {{ form_start(form) }}
+                    <div class="row">
+                        {{ formulaire.input("col-md-4","Libellé",form.name,true) }}
+                    </div>
+                    {{ formulaire.submit("Enregistrer") }}
+                    {{ form_end(form) }}
                 </div>
             </div>
         </div>

@@ -27,13 +27,15 @@
                             {% endif %}
                         </div>
                         <div class="row">
+                            {{ formulaire.input("col-md-3","CIN",form.cin,false) }}
                             {{ formulaire.input("col-md-3","Télephone 1",form.telephone,false) }}
                             {{ formulaire.input("col-md-3","Téléphone 2",form.telephone2,false) }}
                             {{ formulaire.select2("col-md-3","localite",form.localite,false) }}
-                            {{ formulaire.input("col-md-3","Adresse",form.adresse,false) }}
+
                         </div>
 
                         <div class="row">
+                            {{ formulaire.input("col-md-6","Adresse",form.adresse,false) }}
                             {{ formulaire.input("col-md-6","Logo/Photo",form.file,false) }}
                         </div>
                         {{ formulaire.submit("Enregistrer") }}

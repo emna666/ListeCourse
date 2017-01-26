@@ -6,13 +6,13 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * Produit
+ * Coupon
  *
- * @ORM\Table(name="produit")
- * @ORM\Entity(repositoryClass="back\GeneralBundle\Repository\ProduitRepository")
+ * @ORM\Table(name="coupon")
+ * @ORM\Entity(repositoryClass="back\GeneralBundle\Repository\CouponRepository")
  * @ORM\HasLifecycleCallbacks()
  */
-class Produit
+class Coupon
 {
     /**
      * @var int
@@ -33,33 +33,22 @@ class Produit
     /**
      * @var string
      *
-     * @ORM\Column(name="num_serie", type="string", length=255, nullable=true)
-     */
-    private $numSerie;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="description", type="string", length=500, nullable=true)
+     * @ORM\Column(name="description", type="string", length=255, nullable=true)
      */
     private $description;
 
     /**
-     * @var string
+     * @var float
      *
-     * @ORM\Column(name="prix", type="string", length=255, nullable=true)
+     * @ORM\Column(name="promo", type="float")
      */
-    private $prix;
+    private $promo;
 
     /**
-     * @ORM\ManyToOne(targetEntity="back\GeneralBundle\Entity\Marque")
+     * @ORM\ManyToOne(targetEntity="back\GeneralBundle\Entity\Produit")
      */
-    private $marque;
+    private $produit;
 
-    /**
-     * @ORM\ManyToMany(targetEntity="back\GeneralBundle\Entity\Categories", cascade={"persist"})
-     */
-    private $categories;
     /**
      * @var \DateTime
      *
@@ -97,7 +86,7 @@ class Produit
 
     public function getDirectory()
     {
-        return 'uploads/produits';
+        return 'uploads/coupons';
     }
 
     public function getAssetPath()
@@ -163,6 +152,8 @@ class Produit
             unlink($this->tempFile);
     }
 
+
+
     /**
      * Get id
      *
@@ -178,7 +169,7 @@ class Produit
      *
      * @param string $libelle
      *
-     * @return Produit
+     * @return Coupon
      */
     public function setLibelle($libelle)
     {
@@ -198,27 +189,51 @@ class Produit
     }
 
     /**
-     * Set numSerie
+     * Set description
      *
-     * @param string $numSerie
+     * @param string $description
      *
-     * @return Produit
+     * @return Coupon
      */
-    public function setNumSerie($numSerie)
+    public function setDescription($description)
     {
-        $this->numSerie = $numSerie;
+        $this->description = $description;
 
         return $this;
     }
 
     /**
-     * Get numSerie
+     * Get description
      *
      * @return string
      */
-    public function getNumSerie()
+    public function getDescription()
     {
-        return $this->numSerie;
+        return $this->description;
+    }
+
+    /**
+     * Set promo
+     *
+     * @param float $promo
+     *
+     * @return Coupon
+     */
+    public function setPromo($promo)
+    {
+        $this->promo = $promo;
+
+        return $this;
+    }
+
+    /**
+     * Get promo
+     *
+     * @return float
+     */
+    public function getPromo()
+    {
+        return $this->promo;
     }
 
     /**
@@ -226,7 +241,7 @@ class Produit
      *
      * @param string $file
      *
-     * @return Produit
+     * @return Coupon
      */
     public function setFile($file)
     {
@@ -246,44 +261,35 @@ class Produit
     }
 
     /**
-     * @return string
+     * Set updated
+     *
+     * @param \DateTime $updated
+     *
+     * @return Coupon
      */
-    public function getDescription()
+    public function setUpdated($updated)
     {
-        return $this->description;
+        $this->updated = $updated;
+
+        return $this;
     }
 
     /**
-     * @param string $description
+     * Get updated
+     *
+     * @return \DateTime
      */
-    public function setDescription($description)
+    public function getUpdated()
     {
-        $this->description = $description;
+        return $this->updated;
     }
-
-    /**
-     * @return string
-     */
-    public function getPrix()
-    {
-        return $this->prix;
-    }
-
-    /**
-     * @param string $prix
-     */
-    public function setPrix($prix)
-    {
-        $this->prix = $prix;
-    }
-
 
     /**
      * Set url
      *
      * @param string $url
      *
-     * @return Produit
+     * @return Coupon
      */
     public function setUrl($url)
     {
@@ -303,71 +309,26 @@ class Produit
     }
 
     /**
-     * Set marque
+     * Set produit
      *
-     * @param \back\GeneralBundle\Entity\Marque $marque
+     * @param \back\GeneralBundle\Entity\Produit $produit
      *
-     * @return Produit
+     * @return Coupon
      */
-    public function setMarque(\back\GeneralBundle\Entity\Marque $marque = null)
+    public function setProduit(\back\GeneralBundle\Entity\Produit $produit = null)
     {
-        $this->marque = $marque;
+        $this->produit = $produit;
 
         return $this;
     }
 
     /**
-     * Get marque
+     * Get produit
      *
-     * @return \back\GeneralBundle\Entity\Marque
+     * @return \back\GeneralBundle\Entity\Produit
      */
-    public function getMarque()
+    public function getProduit()
     {
-        return $this->marque;
-    }
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->categories = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-
-    /**
-     * Add category
-     *
-     * @param \back\GeneralBundle\Entity\Categories $category
-     *
-     * @return Produit
-     */
-    public function addCategory(\back\GeneralBundle\Entity\Categories $category)
-    {
-        $this->categories[] = $category;
-
-        return $this;
-    }
-
-    /**
-     * Remove category
-     *
-     * @param \back\GeneralBundle\Entity\Categories $category
-     */
-    public function removeCategory(\back\GeneralBundle\Entity\Categories $category)
-    {
-        $this->categories->removeElement($category);
-    }
-
-    /**
-     * Get categories
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getCategories()
-    {
-        return $this->categories;
-    }
-    public function __toString()
-    {
-        return $this->libelle;
+        return $this->produit;
     }
 }

@@ -1,17 +1,17 @@
 {% extends ":Back:base.html.twig" %}
-{% block title %}Gestion des Produits{% endblock %}
+{% block title %}Gestion des Coupons{% endblock %}
 {% block description %}{% endblock %}
 {% block topbody %}
     {{ parent() }}
     <li>
-        <a href="javascript:void(0)" >Gestion des Produit</a>
+        <a href="javascript:void(0)" >Gestion des Coupons</a>
     </li>
 {% endblock %}
 {% block body %}
     <div class="row">
         <div class="col-md-2 col-md-offset-10 btn_ajout">
-            <a class="btn btn-primary right " href="{{ path('back_general_produit_ajouter') }}"><i class="fa fa-plus"></i>
-                Ajouter produit</a>
+            <a class="btn btn-primary right " href="{{ path('back_general_coupon_ajouter') }}"><i class="fa fa-plus"></i>
+                Ajouter coupon</a>
         </div>
     </div>
     <div class="row">
@@ -21,7 +21,7 @@
                     <div class="panel-body">
                         {{ form_start(form) }}
                         <div class="row">
-                            {{ formulaire.select2("col-md-6","Marque ",form.marque,false) }}
+                            {{ formulaire.select2("col-md-6","Produit ",form.produit,false) }}
                         </div>
                         {{ formulaire.submit("Filtrer") }}
                         {{ form_end(form) }}
@@ -40,26 +40,26 @@
                         <thead>
                         <tr>
                             <th>ID</th>
-                            <th>Logo</th>
+                            <th>Image</th>
                             <th>Libelle</th>
-                            <th>Categorie</th>
-                            <th>Marque</th>
+                            <th>Promo</th>
+                            <th>Produits</th>
                             <th class="center" >Action</th>
                         </tr>
                         </thead>
                         <tbody>
-                        {% for produit in produits %}
+                        {% for coupon in coupons %}
                             <tr>
-                                <td>{{ produit.id }}</td>
-                                <td> <img src="{{ asset('uploads/produits/' ~ produit.url) }}" style="max-width:50px;"></td>
-                                <td>{{ produit.libelle }}</td>
-                                <td> {% for cat in produit.categories  %} {{ cat }} / {% endfor %}</td>
-                                <td>{{ produit.marque }}</td>
+                                <td>{{ coupon.id }}</td>
+                                <td> <img src="{{ asset('uploads/coupons/' ~ coupon.url) }}" style="max-width:50px;"></td>
+                                <td>{{ coupon.libelle }}</td>
+                                <td> {{ coupon.promo }}</td>
+                                <td> {{ coupon.produit }}</td>
 
                                 <td class="TableAction">
                                     <div class="visible-md visible-lg hidden-sm hidden-xs">
-                                        {{ macros.tableEdit(path('back_general_produit_modifier',{'id':produit.id})) }}
-                                        {{ macros.tableDelete(path('back_general_produit_delete',{'id':produit.id})) }}
+                                        {{ macros.tableEdit(path('back_general_coupon_modifier',{'id':coupon.id})) }}
+                                        {{ macros.tableDelete(path('back_general_coupon_delete',{'id':coupon.id})) }}
                                     </div>
                                 </td>
                             </tr>

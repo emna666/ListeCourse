@@ -24,8 +24,30 @@ var TableData = function () {
                 [5, 10, 15, 20, "All"] // change per page values here
             ],
             // set the initial value
-            "iDisplayLength": 10,
+            "iDisplayLength": 10
         });
+		var oTable = $('#sample_3').dataTable({
+			"aoColumnDefs": [{
+				"aTargets": [0]
+			}],
+			"oLanguage": {
+
+				"sSearch": "",
+				"oPaginate": {
+					"sPrevious": "",
+					"sNext": ""
+				}
+			},
+			"aaSorting": [
+				[1, 'asc']
+			],
+			"aLengthMenu": [
+				[-1],
+				["All"] // change per page values here
+			],
+			// set the initial value
+			"iDisplayLength": -1
+		});
         $('#sample_1_wrapper .dataTables_filter input').addClass("form-control input-sm").attr("placeholder", "Search");
         // modify table search input
         $('#sample_1_wrapper .dataTables_length select').addClass("m-wrap small");

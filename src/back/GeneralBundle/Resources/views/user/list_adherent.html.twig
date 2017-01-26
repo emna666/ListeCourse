@@ -25,9 +25,10 @@
                             <th>ID</th>
                             <th>Username</th>
                             <th>Email</th>
+                            <th>Téléphone</th>
                             <th>Nom</th>
                             <th>prénom</th>
-                            <th>Entreprise</th>
+                            <th>Supermarché</th>
                             <th class="center" >Action</th>
                         </tr>
                         </thead>
@@ -37,9 +38,10 @@
                                 <td>{{ adherent.id }}</td>
                                 <td>{{ adherent.username }}</td>
                                 <td>{{ adherent.email }}</td>
+                                <td>{{ adherent.telephone }}</td>
                                 <td>{{ adherent.nom }}</td>
                                 <td>{{ adherent.prenom}}</td>
-                                <td>{{ adherent.entreprise}}</td>
+                                <td>{{ adherent.supermarche}}</td>
                                 <td class="TableAction">
                                     <div class="visible-md visible-lg hidden-sm hidden-xs">
                                         {{ macros.tableEdit(path('back_general_adherent_modifier',{'id':adherent.id})) }}

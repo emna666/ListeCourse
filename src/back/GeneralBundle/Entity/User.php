@@ -31,6 +31,12 @@ class User extends BaseUser
     /**
      * @var string
      * @Assert\NotNull()
+     * @ORM\Column(name="cin", type="string", length=255 , nullable=true)
+     */
+    private $cin;
+    /**
+     * @var string
+     * @Assert\NotNull()
      * @ORM\Column(name="prenom", type="string", length=255 , nullable=true)
      */
     private $prenom;
@@ -64,28 +70,6 @@ class User extends BaseUser
      * @ORM\Column(name="adresse", type="string", length=255, nullable=true)
      */
     private $adresse;
-
-    /**
-     * @var string
-     * @ORM\Column(name="entreprise", type="string", length=255, nullable=true)
-     */
-    private $entreprise;
-
-    /**
-     * @return string
-     */
-    public function getEntreprise()
-    {
-        return $this->entreprise;
-    }
-
-    /**
-     * @param string $entreprise
-     */
-    public function setEntreprise($entreprise)
-    {
-        $this->entreprise = $entreprise;
-    }
 
     /**
      * @var \DateTime
@@ -409,4 +393,52 @@ class User extends BaseUser
 
 
 
+
+    /**
+     * Set cin
+     *
+     * @param string $cin
+     *
+     * @return User
+     */
+    public function setCin($cin)
+    {
+        $this->cin = $cin;
+
+        return $this;
+    }
+
+    /**
+     * Get cin
+     *
+     * @return string
+     */
+    public function getCin()
+    {
+        return $this->cin;
+    }
+
+    /**
+     * Set updated
+     *
+     * @param \DateTime $updated
+     *
+     * @return User
+     */
+    public function setUpdated($updated)
+    {
+        $this->updated = $updated;
+
+        return $this;
+    }
+
+    /**
+     * Get updated
+     *
+     * @return \DateTime
+     */
+    public function getUpdated()
+    {
+        return $this->updated;
+    }
 }

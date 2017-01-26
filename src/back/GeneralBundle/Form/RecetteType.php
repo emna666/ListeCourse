@@ -2,14 +2,12 @@
 
 namespace back\GeneralBundle\Form;
 
-use back\GeneralBundle\Entity\Rayon;
-use Doctrine\ORM\EntityRepository;
-use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class CategoriesType extends AbstractType
+class RecetteType extends AbstractType
 {
     /**
      * {@inheritdoc}
@@ -18,15 +16,15 @@ class CategoriesType extends AbstractType
     {
         $builder
             ->add('libelle')
-            ->add('file')
-            ->add('rayon', EntityType::class, array(
-                "class"         => Rayon::class,
-                'query_builder' => function (EntityRepository $er)
-                {
-                    return $er->createQueryBuilder('d')
-                        ->orderBy('d.libelle', 'ASC');
-                },
+            ->add('description',TextareaType::class, array(
+        'attr' => array('class' => 'tinymce')
+    ))
+            ->add('shortDesc')
+            ->add('ingredients',TextareaType::class, array(
+                'attr' => array('class' => 'tinymce')
             ))
+            ->add('file')
+            ->add('produit')
         ;
     }
     
@@ -36,7 +34,7 @@ class CategoriesType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'back\GeneralBundle\Entity\Categories'
+            'data_class' => 'back\GeneralBundle\Entity\Recette'
         ));
     }
 
@@ -45,7 +43,7 @@ class CategoriesType extends AbstractType
      */
     public function getBlockPrefix()
     {
-        return 'back_generalbundle_categories';
+        return 'back_generalbundle_recette';
     }
 
 

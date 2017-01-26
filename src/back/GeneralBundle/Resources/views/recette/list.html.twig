@@ -1,17 +1,17 @@
 {% extends ":Back:base.html.twig" %}
-{% block title %}Gestion des Produits{% endblock %}
+{% block title %}Gestion des Recettes{% endblock %}
 {% block description %}{% endblock %}
 {% block topbody %}
     {{ parent() }}
     <li>
-        <a href="javascript:void(0)" >Gestion des Produit</a>
+        <a href="javascript:void(0)" >Gestion des Recettes</a>
     </li>
 {% endblock %}
 {% block body %}
     <div class="row">
         <div class="col-md-2 col-md-offset-10 btn_ajout">
-            <a class="btn btn-primary right " href="{{ path('back_general_produit_ajouter') }}"><i class="fa fa-plus"></i>
-                Ajouter produit</a>
+            <a class="btn btn-primary right " href="{{ path('back_general_recette_ajouter') }}"><i class="fa fa-plus"></i>
+                Ajouter recette</a>
         </div>
     </div>
     <div class="row">
@@ -21,7 +21,7 @@
                     <div class="panel-body">
                         {{ form_start(form) }}
                         <div class="row">
-                            {{ formulaire.select2("col-md-6","Marque ",form.marque,false) }}
+                            {{ formulaire.select2("col-md-6","Produit ",form.produit,false) }}
                         </div>
                         {{ formulaire.submit("Filtrer") }}
                         {{ form_end(form) }}
@@ -40,26 +40,26 @@
                         <thead>
                         <tr>
                             <th>ID</th>
-                            <th>Logo</th>
+                            <th>Image</th>
                             <th>Libelle</th>
-                            <th>Categorie</th>
-                            <th>Marque</th>
+                            <th>Description</th>
+                            <th>Produits</th>
                             <th class="center" >Action</th>
                         </tr>
                         </thead>
                         <tbody>
-                        {% for produit in produits %}
+                        {% for recette in recettes %}
                             <tr>
-                                <td>{{ produit.id }}</td>
-                                <td> <img src="{{ asset('uploads/produits/' ~ produit.url) }}" style="max-width:50px;"></td>
-                                <td>{{ produit.libelle }}</td>
-                                <td> {% for cat in produit.categories  %} {{ cat }} / {% endfor %}</td>
-                                <td>{{ produit.marque }}</td>
+                                <td>{{ recette.id }}</td>
+                                <td> <img src="{{ asset('uploads/recettes/' ~ recette.url) }}" style="max-width:50px;"></td>
+                                <td>{{ recette.libelle }}</td>
+                                <td> {{ recette.shortDesc }}</td>
+                                <td>{% for prod in recette.produit  %} {{ prod }} / {% endfor %}</td>
 
                                 <td class="TableAction">
                                     <div class="visible-md visible-lg hidden-sm hidden-xs">
-                                        {{ macros.tableEdit(path('back_general_produit_modifier',{'id':produit.id})) }}
-                                        {{ macros.tableDelete(path('back_general_produit_delete',{'id':produit.id})) }}
+                                        {{ macros.tableEdit(path('back_general_recette_ajouter',{'id':recette.id})) }}
+                                        {{ macros.tableDelete(path('back_general_recette_delete',{'id':recette.id})) }}
                                     </div>
                                 </td>
                             </tr>

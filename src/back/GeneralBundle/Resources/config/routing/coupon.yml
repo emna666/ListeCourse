@@ -1,0 +1,15 @@
+back_general_coupon_list:
+    path:     /list
+    defaults: { _controller: backGeneralBundle:Coupon:list}
+
+back_general_coupon_delete:
+    path:     /delete/{id}
+    defaults: { _controller: backGeneralBundle:Coupon:Delete }
+
+back_general_coupon_ajouter:
+    path:     /ajouter
+    defaults: { _controller: backGeneralBundle:Coupon:ajouter,id:null }
+
+back_general_coupon_modifier:
+    path:      /modifier/{id}
+    defaults: { _controller: backGeneralBundle:Coupon:ajouter }

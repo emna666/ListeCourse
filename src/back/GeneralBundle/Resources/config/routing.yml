@@ -33,3 +33,11 @@ back_general_categorie:
 back_general_produit:
     resource: "@backGeneralBundle/Resources/config/routing/produit.yml"
     prefix:   /produit
+
+back_general_coupon:
+    resource: "@backGeneralBundle/Resources/config/routing/coupon.yml"
+    prefix:   /coupon
+
+back_general_recette:
+    resource: "@backGeneralBundle/Resources/config/routing/recette.yml"
+    prefix:   /recette

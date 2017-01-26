@@ -18,6 +18,7 @@ class RegistrationType extends AbstractType
             ->add('telephone')
             ->add('telephone2')
             ->add('adresse')
+            ->add('cin')
             ->add('localite', EntityType::class, array(
                 "class"         => Localite::class,
                 'query_builder' => function (EntityRepository $er)

@@ -1,0 +1,15 @@
+back_general_recette_list:
+    path:     /list
+    defaults: { _controller: backGeneralBundle:Recette:list}
+
+back_general_recette_delete:
+    path:     /delete/{id}
+    defaults: { _controller: backGeneralBundle:Recette:Delete }
+
+back_general_recette_ajouter:
+    path:     /ajouter
+    defaults: { _controller: backGeneralBundle:Recette:ajouter,id:null }
+
+back_general_recette_modifier:
+    path:      /modifier/{id}
+    defaults: { _controller: backGeneralBundle:Recette:ajouter }

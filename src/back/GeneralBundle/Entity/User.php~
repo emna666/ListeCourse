@@ -9,6 +9,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 /**
  * @ORM\Entity
  * @ORM\Table(name="user")
+ * @ORM\Entity(repositoryClass="back\GeneralBundle\Repository\UserRepository")
  * @ORM\HasLifecycleCallbacks()
  */
 class User extends BaseUser
@@ -23,14 +24,20 @@ class User extends BaseUser
     /**
      * @var string
      * @Assert\NotNull()
-     * @ORM\Column(name="nom", type="string", length=255)
+     * @ORM\Column(name="nom", type="string", length=255 , nullable=true)
      */
     private $nom;
 
     /**
      * @var string
      * @Assert\NotNull()
-     * @ORM\Column(name="prenom", type="string", length=255)
+     * @ORM\Column(name="cin", type="string", length=255 , nullable=true)
+     */
+    private $cin;
+    /**
+     * @var string
+     * @Assert\NotNull()
+     * @ORM\Column(name="prenom", type="string", length=255 , nullable=true)
      */
     private $prenom;
     /**
@@ -51,20 +58,32 @@ class User extends BaseUser
      */
     protected $localite;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="back\GeneralBundle\Entity\Supermarche")
+     * @ORM\OrderBy({"libelle" = "ASC"})
+     */
+    protected $supermarche;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="adresse", type="string", length=255)
+     * @ORM\Column(name="adresse", type="string", length=255, nullable=true)
      */
     private $adresse;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="updated_at",type="datetime", nullable=true)
+     */
+    private $updated;
 
     /**
      * Image path
      *
      * @var string
      *
-     * @ORM\Column(type="text", length=255, nullable=false)
+     * @ORM\Column(type="text", length=255, nullable=true)
      */
     private $url;
 
@@ -159,5 +178,267 @@ class User extends BaseUser
     {
         parent::__construct();
         // your own logic
+    }
+
+    /**
+     * Set nom
+     *
+     * @param string $nom
+     *
+     * @return User
+     */
+    public function setNom($nom)
+    {
+        $this->nom = $nom;
+
+        return $this;
+    }
+
+    /**
+     * Get nom
+     *
+     * @return string
+     */
+    public function getNom()
+    {
+        return $this->nom;
+    }
+
+    /**
+     * Set prenom
+     *
+     * @param string $prenom
+     *
+     * @return User
+     */
+    public function setPrenom($prenom)
+    {
+        $this->prenom = $prenom;
+
+        return $this;
+    }
+
+    /**
+     * Get prenom
+     *
+     * @return string
+     */
+    public function getPrenom()
+    {
+        return $this->prenom;
+    }
+
+    /**
+     * Set telephone
+     *
+     * @param string $telephone
+     *
+     * @return User
+     */
+    public function setTelephone($telephone)
+    {
+        $this->telephone = $telephone;
+
+        return $this;
+    }
+
+    /**
+     * Get telephone
+     *
+     * @return string
+     */
+    public function getTelephone()
+    {
+        return $this->telephone;
+    }
+
+    /**
+     * Set telephone2
+     *
+     * @param string $telephone2
+     *
+     * @return User
+     */
+    public function setTelephone2($telephone2)
+    {
+        $this->telephone2 = $telephone2;
+
+        return $this;
+    }
+
+    /**
+     * Get telephone2
+     *
+     * @return string
+     */
+    public function getTelephone2()
+    {
+        return $this->telephone2;
+    }
+
+    /**
+     * Set adresse
+     *
+     * @param string $adresse
+     *
+     * @return User
+     */
+    public function setAdresse($adresse)
+    {
+        $this->adresse = $adresse;
+
+        return $this;
+    }
+
+    /**
+     * Get adresse
+     *
+     * @return string
+     */
+    public function getAdresse()
+    {
+        return $this->adresse;
+    }
+
+    /**
+     * Set url
+     *
+     * @param string $url
+     *
+     * @return User
+     */
+    public function setUrl($url)
+    {
+        $this->url = $url;
+
+        return $this;
+    }
+
+    /**
+     * Get url
+     *
+     * @return string
+     */
+    public function getUrl()
+    {
+        return $this->url;
+    }
+
+    /**
+     * Set localite
+     *
+     * @param \back\GeneralBundle\Entity\Localite $localite
+     *
+     * @return User
+     */
+    public function setLocalite(\back\GeneralBundle\Entity\Localite $localite = null)
+    {
+        $this->localite = $localite;
+
+        return $this;
+    }
+
+    /**
+     * Get localite
+     *
+     * @return \back\GeneralBundle\Entity\Localite
+     */
+    public function getLocalite()
+    {
+        return $this->localite;
+    }
+
+    /**
+     * Get supermarche
+     *
+     * @return \back\GeneralBundle\Entity\Supermarche
+     */
+    public function getSupermarche()
+    {
+        return $this->supermarche;
+    }
+
+    /**
+     * Set supermarche
+     *
+     * @param \back\GeneralBundle\Entity\Supermarche $supermarche
+     *
+     * @return User
+     */
+    public function setSupermarche(Supermarche $supermarche = null)
+    {
+        $this->supermarche = $supermarche;
+
+        return $this;
+    }
+
+
+    /**
+     * @return File
+     */
+    public function getFile()
+    {
+        return $this->file;
+    }
+
+    /**
+     * @param File $file
+     * @return User
+     */
+    public function setFile($file)
+    {
+        $this->file = $file;
+        return $this;
+    }
+
+
+
+
+    /**
+     * Set cin
+     *
+     * @param string $cin
+     *
+     * @return User
+     */
+    public function setCin($cin)
+    {
+        $this->cin = $cin;
+
+        return $this;
+    }
+
+    /**
+     * Get cin
+     *
+     * @return string
+     */
+    public function getCin()
+    {
+        return $this->cin;
+    }
+
+    /**
+     * Set updated
+     *
+     * @param \DateTime $updated
+     *
+     * @return User
+     */
+    public function setUpdated($updated)
+    {
+        $this->updated = $updated;
+
+        return $this;
+    }
+
+    /**
+     * Get updated
+     *
+     * @return \DateTime
+     */
+    public function getUpdated()
+    {
+        return $this->updated;
     }
 }

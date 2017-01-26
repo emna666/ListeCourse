@@ -3,43 +3,55 @@
 namespace back\GeneralBundle\Controller;
 
 use back\GeneralBundle\Entity\Produit;
+use back\GeneralBundle\Form\ProduitSearchType;
 use back\GeneralBundle\Form\ProduitType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
 class ProduitController extends Controller
 {
-    public function listAction()
+    public function listAction(Request $request)
     {
         $em = $this->get('doctrine.orm.entity_manager');
+        $form = $this->createForm(ProduitSearchType::class);
+        $form->handleRequest($request);
 
-        $produit = $em->getRepository(Produit::class)->findAll();
+
+        if ($form->isValid())
+        {
+            $data = $form->getData();
+            $produits = $em->getRepository(Produit::class)->search($data);
+        } else
+            $produits = $em->getRepository(Produit::class)->findAll();
         return $this->render("backGeneralBundle:produit:list.html.twig", array(
-            'produits' => $produit
+            'form'     => $form->createView(),
+            'produits' => $produits
         ));
     }
+
     public function ajouterAction($id, Request $request)
     {
         $em = $this->get('doctrine.orm.entity_manager');
-        if(is_null($id))
+        if (is_null($id))
             $produit = new Produit();
         else
-            $produit =$em->find(Produit::class,$id);
-        $form=$this->createForm(ProduitType::class,$produit);
+            $produit = $em->find(Produit::class, $id);
+        $form = $this->createForm(ProduitType::class, $produit);
         $form->handleRequest($request);
         if ($form->isValid())
         {
-            $produit=$form->getData();
+            $produit = $form->getData();
             $em->persist($produit);
             $em->flush();
             $this->addFlash('success', "Votre produit a été enregistré avec succés");
             return $this->redirectToRoute('back_general_produit_list');
         }
-        return $this->render("backGeneralBundle:produit:add_edit.html.twig",array(
-            'form'=>$form->createView()
+        return $this->render("backGeneralBundle:produit:add_edit.html.twig", array(
+            'form' => $form->createView()
         ));
 
     }
+
     public function DeleteAction(Produit $produit)
     {
         $em = $this->get('doctrine.orm.entity_manager');

@@ -6,13 +6,13 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * Produit
+ * Recette
  *
- * @ORM\Table(name="produit")
- * @ORM\Entity(repositoryClass="back\GeneralBundle\Repository\ProduitRepository")
- * @ORM\HasLifecycleCallbacks()
+ * @ORM\Table(name="recette")
+ * @ORM\Entity(repositoryClass="back\GeneralBundle\Repository\RecetteRepository")
+ *  @ORM\HasLifecycleCallbacks()
  */
-class Produit
+class Recette
 {
     /**
      * @var int
@@ -33,33 +33,29 @@ class Produit
     /**
      * @var string
      *
-     * @ORM\Column(name="num_serie", type="string", length=255, nullable=true)
-     */
-    private $numSerie;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="description", type="string", length=500, nullable=true)
+     * @ORM\Column(name="description", type="string", length=500)
      */
     private $description;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="prix", type="string", length=255, nullable=true)
+     * @ORM\Column(name="short_desc", type="string", length=255, nullable=true)
      */
-    private $prix;
+    private $shortDesc;
 
     /**
-     * @ORM\ManyToOne(targetEntity="back\GeneralBundle\Entity\Marque")
+     * @var string
+     *
+     * @ORM\Column(name="ingredients", type="string", length=500)
      */
-    private $marque;
+    private $ingredients;
 
     /**
-     * @ORM\ManyToMany(targetEntity="back\GeneralBundle\Entity\Categories", cascade={"persist"})
+     * @ORM\ManyToMany(targetEntity="back\GeneralBundle\Entity\Produit", cascade={"persist"})
      */
-    private $categories;
+    private $produit;
+
     /**
      * @var \DateTime
      *
@@ -97,7 +93,7 @@ class Produit
 
     public function getDirectory()
     {
-        return 'uploads/produits';
+        return 'uploads/recettes';
     }
 
     public function getAssetPath()
@@ -163,6 +159,7 @@ class Produit
             unlink($this->tempFile);
     }
 
+
     /**
      * Get id
      *
@@ -178,7 +175,7 @@ class Produit
      *
      * @param string $libelle
      *
-     * @return Produit
+     * @return Recette
      */
     public function setLibelle($libelle)
     {
@@ -198,27 +195,75 @@ class Produit
     }
 
     /**
-     * Set numSerie
+     * Set description
      *
-     * @param string $numSerie
+     * @param string $description
      *
-     * @return Produit
+     * @return Recette
      */
-    public function setNumSerie($numSerie)
+    public function setDescription($description)
     {
-        $this->numSerie = $numSerie;
+        $this->description = $description;
 
         return $this;
     }
 
     /**
-     * Get numSerie
+     * Get description
      *
      * @return string
      */
-    public function getNumSerie()
+    public function getDescription()
     {
-        return $this->numSerie;
+        return $this->description;
+    }
+
+    /**
+     * Set shortDesc
+     *
+     * @param string $shortDesc
+     *
+     * @return Recette
+     */
+    public function setShortDesc($shortDesc)
+    {
+        $this->shortDesc = $shortDesc;
+
+        return $this;
+    }
+
+    /**
+     * Get shortDesc
+     *
+     * @return string
+     */
+    public function getShortDesc()
+    {
+        return $this->shortDesc;
+    }
+
+    /**
+     * Set ingredients
+     *
+     * @param string $ingredients
+     *
+     * @return Recette
+     */
+    public function setIngredients($ingredients)
+    {
+        $this->ingredients = $ingredients;
+
+        return $this;
+    }
+
+    /**
+     * Get ingredients
+     *
+     * @return string
+     */
+    public function getIngredients()
+    {
+        return $this->ingredients;
     }
 
     /**
@@ -226,7 +271,7 @@ class Produit
      *
      * @param string $file
      *
-     * @return Produit
+     * @return Recette
      */
     public function setFile($file)
     {
@@ -246,44 +291,35 @@ class Produit
     }
 
     /**
-     * @return string
+     * Set updated
+     *
+     * @param \DateTime $updated
+     *
+     * @return Recette
      */
-    public function getDescription()
+    public function setUpdated($updated)
     {
-        return $this->description;
+        $this->updated = $updated;
+
+        return $this;
     }
 
     /**
-     * @param string $description
+     * Get updated
+     *
+     * @return \DateTime
      */
-    public function setDescription($description)
+    public function getUpdated()
     {
-        $this->description = $description;
+        return $this->updated;
     }
-
-    /**
-     * @return string
-     */
-    public function getPrix()
-    {
-        return $this->prix;
-    }
-
-    /**
-     * @param string $prix
-     */
-    public function setPrix($prix)
-    {
-        $this->prix = $prix;
-    }
-
 
     /**
      * Set url
      *
      * @param string $url
      *
-     * @return Produit
+     * @return Recette
      */
     public function setUrl($url)
     {
@@ -301,73 +337,45 @@ class Produit
     {
         return $this->url;
     }
-
-    /**
-     * Set marque
-     *
-     * @param \back\GeneralBundle\Entity\Marque $marque
-     *
-     * @return Produit
-     */
-    public function setMarque(\back\GeneralBundle\Entity\Marque $marque = null)
-    {
-        $this->marque = $marque;
-
-        return $this;
-    }
-
-    /**
-     * Get marque
-     *
-     * @return \back\GeneralBundle\Entity\Marque
-     */
-    public function getMarque()
-    {
-        return $this->marque;
-    }
     /**
      * Constructor
      */
     public function __construct()
     {
-        $this->categories = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->produit = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
-     * Add category
+     * Add produit
      *
-     * @param \back\GeneralBundle\Entity\Categories $category
+     * @param \back\GeneralBundle\Entity\Produit $produit
      *
-     * @return Produit
+     * @return Recette
      */
-    public function addCategory(\back\GeneralBundle\Entity\Categories $category)
+    public function addProduit(\back\GeneralBundle\Entity\Produit $produit)
     {
-        $this->categories[] = $category;
+        $this->produit[] = $produit;
 
         return $this;
     }
 
     /**
-     * Remove category
+     * Remove produit
      *
-     * @param \back\GeneralBundle\Entity\Categories $category
+     * @param \back\GeneralBundle\Entity\Produit $produit
      */
-    public function removeCategory(\back\GeneralBundle\Entity\Categories $category)
+    public function removeProduit(\back\GeneralBundle\Entity\Produit $produit)
     {
-        $this->categories->removeElement($category);
+        $this->produit->removeElement($produit);
     }
 
     /**
-     * Get categories
+     * Get produit
      *
      * @return \Doctrine\Common\Collections\Collection
      */
-    public function getCategories()
+    public function getProduit()
     {
-        return $this->categories;
-    }
-    public function __toString()
-    {
-        return $this->libelle;
+        return $this->produit;
     }
 }

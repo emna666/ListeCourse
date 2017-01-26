@@ -29,15 +29,18 @@
                         </div>
                         <div class="row">
                             {{ formulaire.input("col-md-6","Télephone 1",form.telephone,false) }}
-                            {{ formulaire.input("col-md-6","Entreprise",form.entreprise,false) }}
+                            {{ formulaire.select2("col-md-6","Supermarché",form.supermarche,false) }}
                         </div>
 
                         <div class="row">
-                            {{ formulaire.select2("col-md-6","Supermarché",form.supermarche,false) }}
                             {{ formulaire.input("col-md-6","Logo/Photo",form.file,false) }}
                         </div>
                         {{ formulaire.submit("Enregistrer") }}
-                        {{ form_end(form) }}
+                        <div class="row">
+                        <div class="col-md-4 col-md-offset-6">
+                            <a href="{{ path("back_general_adherent_list") }}" class=" btn btn-green btn-block">Annuler</a>
+                        </div>
+                        </div>
                     </div>
                 </div>
             </div>
