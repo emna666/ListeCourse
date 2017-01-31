@@ -17,11 +17,9 @@ class RecetteType extends AbstractType
         $builder
             ->add('libelle')
             ->add('description',TextareaType::class, array(
-        'attr' => array('class' => 'tinymce')
     ))
             ->add('shortDesc')
             ->add('ingredients',TextareaType::class, array(
-                'attr' => array('class' => 'tinymce')
             ))
             ->add('file')
             ->add('produit')
