@@ -3,6 +3,7 @@
 namespace back\GeneralBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
+use Doctrine\ORM\EntityRepository;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -16,11 +17,9 @@ class RecetteType extends AbstractType
     {
         $builder
             ->add('libelle')
-            ->add('description',TextareaType::class, array(
-    ))
+            ->add('description',TextareaType::class)
             ->add('shortDesc')
-            ->add('ingredients',TextareaType::class, array(
-            ))
+            ->add('ingredients',TextareaType::class)
             ->add('file')
             ->add('produit')
         ;

@@ -2,7 +2,6 @@
 
 namespace back\GeneralBundle\Form;
 
-use back\GeneralBundle\Entity\Categories;
 use back\GeneralBundle\Entity\Marque;
 use Doctrine\ORM\EntityRepository;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
