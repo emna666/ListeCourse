@@ -1,6 +1,7 @@
 <?php
 
 namespace back\GeneralBundle\Repository;
+use back\GeneralBundle\Entity\User;
 
 /**
  * CouponRepository
@@ -10,15 +11,21 @@ namespace back\GeneralBundle\Repository;
  */
 class CouponRepository extends \Doctrine\ORM\EntityRepository
 {
-    public function search($data)
+    public function search($data, User $user=null)
     {
         $query = $this->createQueryBuilder("p");
 
-        $query->select("p");
+        $query->select("p")
+              ->innerJoin("p.produit","cp")
+           ->leftJoin("cp.supermarche", "sp");
         if (isset($data['produit']) && $data['produit'] != null)
             $query
                 ->andWhere("p.produit = :idProduit")
                 ->setParameter("idProduit", $data['produit']->getId());
+        if(isset($user) and  $user->getSupermarche())
+            $query
+                ->andWhere("sp.id = :supermarcheId")
+                ->setParameter("supermarcheId",$user->getSupermarche()->getId());
         return $query->getQuery()->getResult();
 
     }

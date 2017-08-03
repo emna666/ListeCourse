@@ -60,6 +60,13 @@ class Produit
      * @ORM\ManyToMany(targetEntity="back\GeneralBundle\Entity\Categories", cascade={"persist"})
      */
     private $categories;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="back\GeneralBundle\Entity\Supermarche", cascade={"persist"})
+     */
+    private $supermarche;
+
+
     /**
      * @var \DateTime
      *
@@ -89,6 +96,37 @@ class Produit
      * )
      */
     private $file;
+
+
+    /**
+     * @param mixed $supermarche
+     * @return Produit
+     */
+    public function setSupermarche($supermarche)
+    {
+        $this->supermarche = $supermarche;
+        return $this;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getUpdated()
+    {
+        return $this->updated;
+    }
+
+    /**
+     * @param \DateTime $updated
+     * @return Produit
+     */
+    public function setUpdated($updated)
+    {
+        $this->updated = $updated;
+        return $this;
+    }
+
+
 
     public function getUploadRootDir()
     {
@@ -331,6 +369,7 @@ class Produit
     public function __construct()
     {
         $this->categories = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->supermarche = new  \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -366,6 +405,41 @@ class Produit
     {
         return $this->categories;
     }
+
+    /**
+     * Add Supermarche
+     *
+     * @param \back\GeneralBundle\Entity\Supermarche $supermarche
+     *
+     * @return Produit
+     */
+    public function addSupermarche(\back\GeneralBundle\Entity\Supermarche $supermarche)
+    {
+        $this->supermarche[] = $supermarche;
+
+        return $this;
+    }
+
+    /**
+     * Remove Supermarche
+     *
+     * @param \back\GeneralBundle\Entity\Supermarche $supermarche
+     */
+    public function removeSupermarche(\back\GeneralBundle\Entity\Supermarche $supermarche)
+    {
+        $this->supermarche->removeElement($supermarche);
+    }
+
+    /**
+     * Get supermarche
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getSupermarche()
+    {
+        return $this->supermarche;
+    }
+
     public function __toString()
     {
         return $this->libelle;

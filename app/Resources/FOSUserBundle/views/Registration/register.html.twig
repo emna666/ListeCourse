@@ -1,5 +1,42 @@
-{% extends "FOSUserBundle::layout.html.twig" %}
+{% extends ":Front:base.html.twig" %}
 
-{% block fos_user_content %}
-{% include "FOSUserBundle:Registration:register_content.html.twig" %}
-{% endblock fos_user_content %}
+{% block body %}
+    <div class="container">
+        {% trans_default_domain 'FOSUserBundle' %}
+
+        {{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}
+        {#{{ form_widget(form) }}#}
+        <div class="row">
+            {{ formulaire.input("col-md-6","Email ",form.email,true) }}
+            {{ formulaire.input("col-md-6","Login",form.username,true) }}
+        </div>
+        <div class="row">
+            {{ formulaire.input("col-md-6","Nom ",form.nom,true) }}
+            {{ formulaire.input("col-md-6","Prénom",form.prenom,true) }}
+        </div>
+
+        <div class="row">
+
+                {{ formulaire.input("col-md-6","Mot de passe",form.plainPassword.first,true) }}
+                {{ formulaire.input("col-md-6","Confirmation mot de passe",form.plainPassword.second,true) }}
+
+        </div>
+        <div class="row">
+            {{ formulaire.input("col-md-3","CIN",form.cin,false) }}
+            {{ formulaire.input("col-md-3","Télephone 1",form.telephone,false) }}
+            {{ formulaire.input("col-md-3","Téléphone 2",form.telephone2,false) }}
+            {{ formulaire.select2("col-md-3","localite",form.localite,false) }}
+        </div>
+        <div class="row">
+            {{ formulaire.input("col-md-6","Adresse",form.adresse,false) }}
+            {{ formulaire.input("col-md-6","Logo/Photo",form.file,false) }}
+        </div>
+        <div>
+            <input type="submit" value="{{ 'registration.submit'|trans }}" />
+        </div>
+        {{ form_end(form) }}
+
+
+    </div>
+
+{% endblock body %}

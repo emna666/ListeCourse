@@ -1,0 +1,14 @@
+adherent_produit_list:
+    path:     /list
+    defaults: { _controller: backAdherentBundle:Produit:list}
+adherent_produit_delete:
+    path:     /delete/{id}
+    defaults: { _controller: backAdherentBundle:Produit:Delete }
+
+adherent_produit_ajouter:
+    path:     /ajouter
+    defaults: { _controller: backAdherentBundle:Produit:ajouter,id:null }
+
+adherent_produit_modifier:
+    path:      /modifier/{id}
+    defaults: { _controller: backAdherentBundle:Produit:ajouter }

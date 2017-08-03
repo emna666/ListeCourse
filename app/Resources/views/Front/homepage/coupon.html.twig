@@ -1,0 +1,76 @@
+{% for coupon in coupons %}
+    <div class="col-md-6">
+        <div class="coupon-list list-wrapper">
+            <div class="coupon-wrapper">
+                <div class="row">
+                    <div class="col-md-4 col-sm-4 col-xs-12">
+                        <div class="post-media text-center couponboximg">
+                            <a href="coupon-single.html"><img src= {{ asset('uploads/coupons/' ~ coupon.url ) }} alt="" class="img-responsive"></a>
+                            <small><a href="store-single.html"> Détails Coupons</a></small>
+                        </div><!-- end media -->
+                    </div><!-- end col -->
+
+                    <div class="col-md-8 col-sm-8 col-xs-12">
+                        <div class="coupon-meta">
+                            <div class="coupon-top clearfix">
+                                <div class="favorite-coupon pull-right text-right">
+                                    <a href="coupon-favorites.html" data-toggle="tooltip" data-placement="bottom" title="Favorite"><i class="fa fa-heart-o"></i></a>
+                                </div>
+                            </div><!-- end coupon-top -->
+                            <h3><a href="coupon-single.html">{{ coupon.libelle }}</a></h3>
+                            <p>{{ coupon.description }}</p>
+                        </div><!-- end meta -->
+
+                        <div class="showcode">
+                            <a href="javascript:void(0)" class="code-link" data-ex-link="#">
+                                <span class="coupon-code"></span>
+                                <span class="show-code print-code"><i class="fa fa-print"></i> Print Coupon</span>
+                            </a>
+                        </div><!-- end showcode -->
+
+                        <div class="coupon-bottom clearfix">
+                            <small class="pull-left">Expire : 21/07/2016</small>
+                        </div><!-- end coupon-top -->
+                    </div><!-- end col -->
+                </div><!-- end row -->
+            </div><!-- end coupon-wrapper -->
+        </div><!-- end coupon list -->
+    </div>
+{% endfor %}
+
+
+<!-- Modal -->
+<div id="code_id_01" class="modal fade code-modal print-modal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                {#<h4><a href="coupon-single.html">{{ coupon.libelle }}</a></h4>#}
+            </div>
+            <div class="modal-body">
+                <div class="row bgcolor text-center">
+                    <div class="col-md-8 col-md-offset-2">
+                        {#<a class="coupon-code btn btn-primary btn-block" href="#" title="Click to Copy"><img src={{ asset('uploads/coupons/' ~ coupon.url ) }}  alt="" class="img-responsive"></a>#}
+
+                        <a href="javascript:void(0)" title="" class="btn btn-default">Print Code <i class="fa fa-print"></i></a>
+                    </div>
+                </div>
+            </div><!-- end modal-body -->
+
+            <div class="modal-footer">
+                <div class="coupon-area">
+                    <div class="clearfix">
+                        <div class="pull-left">
+                            <div class="coupon-vote">
+                                <a href="#" data-toggle="tooltip" data-placement="bottom" title="Work!"><i class="fa fa-smile-o"></i></a>
+                                <a href="#" data-toggle="tooltip" data-placement="bottom" title="Poor!"><i class="fa fa-frown-o"></i></a>
+                            </div><!-- end coupon-meta -->
+                        </div><!-- end col -->
+
+
+                    </div><!-- end row -->
+                </div><!-- end coupon-area -->
+            </div><!-- end modal-footer -->
+        </div><!-- end mpdal-content -->
+    </div><!-- end modal-dialog -->
+</div><!-- end modal -->

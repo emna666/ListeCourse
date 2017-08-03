@@ -48,9 +48,9 @@
         <link rel="shortcut icon" href="{{ asset("back-assets/favicon.ico") }}" />
     </head>
     <body>
-        {% include ':Back:header.html.twig' %}
+        {% include ':Back:header_adherent.html.twig' %}
         <div class="main-container">
-            {% include ':Back:menu.html.twig' %}
+            {% include ':Back:menuAdherent.html.twig' %}
             <div class="main-content">
                 <div class="container">
                     <div class="row">
@@ -59,7 +59,7 @@
                                 {% block topbody %}
                                     <li>
                                         <i class="clip-home-2"></i>
-                                        <a href="{{ path('back_general_homepage') }}">
+                                        <a href="{{ path('Adherent_homepage') }}">
                                             Tableau de bord
                                         </a>
                                     </li>

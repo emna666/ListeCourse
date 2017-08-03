@@ -1,0 +1,4 @@
+services:
+#    back_adherent.example:
+#        class: back\AdherentBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]

@@ -1,6 +1,6 @@
 <?php
-
 namespace back\GeneralBundle\Repository;
+use back\GeneralBundle\Entity\User;
 
 /**
  * ProduitRepository
@@ -10,16 +10,23 @@ namespace back\GeneralBundle\Repository;
  */
 class ProduitRepository extends \Doctrine\ORM\EntityRepository
 {
-    public function search($data)
+    public function search($data,User $user=null)
     {
         $query = $this->createQueryBuilder("p");
+        $query->select("p")
+            ->innerJoin("p.supermarche","sp");
 
-        $query->select("p");
         if (isset($data['marque']) && $data['marque'] != null)
             $query
                 ->andWhere("p.marque = :idMarque")
                 ->setParameter("idMarque", $data['marque']->getId());
-        return $query->getQuery()->getResult();
 
+        if(isset($user) and  $user->getSupermarche())
+            $query
+                ->andWhere("sp.id = :superMacheId")
+                ->setParameter("superMacheId",$user->getSupermarche()->getId());
+        return $query->getQuery()->getResult();
     }
+
+
 }

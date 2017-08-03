@@ -3,6 +3,7 @@
 namespace back\GeneralBundle\Form;
 
 use back\GeneralBundle\Entity\Marque;
+use back\GeneralBundle\Entity\Supermarche;
 use Doctrine\ORM\EntityRepository;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
@@ -31,6 +32,7 @@ class ProduitType extends AbstractType
                         ->orderBy('d.libelle', 'ASC');
                 },
             ))
+            ->add('supermarche')
         ;
     }
     

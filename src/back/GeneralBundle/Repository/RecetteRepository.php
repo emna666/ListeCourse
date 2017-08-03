@@ -12,12 +12,13 @@ class RecetteRepository extends \Doctrine\ORM\EntityRepository
 {
     public function search($data)
     {
-        $query = $this->createQueryBuilder("p");
+        $query = $this->createQueryBuilder("r");
 
-        $query->select("p");
+        $query->select("r");
         if (isset($data['produit']) && $data['produit'] != null)
             $query
-                ->andWhere("p.produit = :idProduit")
+                ->join("r.produit","p")
+                ->andWhere("p.id = :idProduit")
                 ->setParameter("idProduit", $data['produit']->getId());
         return $query->getQuery()->getResult();
 

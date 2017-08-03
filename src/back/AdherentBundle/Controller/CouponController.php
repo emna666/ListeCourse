@@ -1,6 +1,6 @@
 <?php
 
-namespace back\GeneralBundle\Controller;
+namespace back\AdherentBundle\Controller;
 
 use back\GeneralBundle\Entity\Coupon;
 use back\GeneralBundle\Form\CouponSearchType;
@@ -15,13 +15,13 @@ class CouponController extends Controller
         $em = $this->get('doctrine.orm.entity_manager');
         $form = $this->createForm(CouponSearchType::class);
         $form->handleRequest($request);
-        if ($form->isValid())
+        if ($form->isSubmitted() and $form->isValid())
         {
             $data = $form->getData();
             $coupons = $em->getRepository(Coupon::class)->search($data);
         } else
-        $coupons = $em->getRepository(Coupon::class)->findAll();
-        return $this->render("backGeneralBundle:coupon:list.html.twig", array(
+        $coupons = $em->getRepository(Coupon::class)->search(array(), $this->getUser());
+        return $this->render("backAdherentBundle:coupon:list.html.twig", array(
             'form'     => $form->createView(),
             'coupons' => $coupons
         ));
@@ -42,9 +42,9 @@ class CouponController extends Controller
             $em->persist($coupon);
             $em->flush();
             $this->addFlash('success', "Votre coupon a été enregistré avec succés");
-            return $this->redirectToRoute('back_general_coupon_list');
+            return $this->redirectToRoute('adherent_coupon_list');
         }
-        return $this->render("backGeneralBundle:coupon:add_edit.html.twig", array(
+        return $this->render("backAdherentBundle:coupon:add_edit.html.twig", array(
             'form' => $form->createView()
         ));
 
@@ -63,6 +63,6 @@ class CouponController extends Controller
         {
             $this->addFlash('danger', "Impossible de supprimer cette Ligne");
         }
-        return $this->redirect($this->generateUrl("back_general_coupon_list"));
+        return $this->redirect($this->generateUrl("adherent_coupon_list"));
     }
 }

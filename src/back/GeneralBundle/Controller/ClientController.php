@@ -99,7 +99,8 @@ class ClientController extends Controller
         if ($form->isValid())
         {
             $user=$form->getData();
-            $em->persist($user->addRole("ROLE_ADHERENT"));
+
+            $em->persist($user->addRole("ROLE_ADHERENT"),$user->setEnabled(true));
             $em->flush();
             $this->addFlash('success', "Votre Adherent a été avec enregistré avec succés");
             return $this->redirectToRoute('back_general_adherent_list');

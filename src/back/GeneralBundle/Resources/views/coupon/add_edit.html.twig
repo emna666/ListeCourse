@@ -17,19 +17,24 @@
                     <div class="panel-body">
                         {{ form_start(form) }}
                         <div class="row">
-                            {{ formulaire.input("col-md-6","Libelle ",form.libelle,true) }}
-                            {{ formulaire.input("col-md-6","Promo",form.promo,true) }}
-
-
+                            {{ formulaire.input("col-md-4","Libelle ",form.libelle,true) }}
+                            {{ formulaire.input("col-md-4","Promo",form.promo,true) }}
+                            {{ formulaire.input("col-md-4","Code coupons",form.code,true) }}
+                        </div>
+                        <div class="row">
+                            {{ formulaire.input("col-md-12","Description ",form.description,true) }}
                         </div>
                         <div class="row">
                             {{ formulaire.select2("col-md-6","Porduit",form.produit,false) }}
                             {{ formulaire.input("col-md-6","Logo/Photo",form.file,false) }}
                         </div>
-
                         <div class="row">
-                            {{ form_widget(form.description, { 'attr': {'rows' : '4', 'cols' : '30' }} ) }}
+                            {{ formulaire.input("col-md-4","Date Debut",form.dateDebut,true) }}
                         </div>
+
+                        {#<div class="row">#}
+                            {#{{ form_widget(form.description, { 'attr': {'rows' : '4', 'cols' : '30' }} ) }}#}
+                        {#</div>#}
                         {{ formulaire.submit("Enregistrer") }}
                         {{ form_end(form) }}
                     </div>

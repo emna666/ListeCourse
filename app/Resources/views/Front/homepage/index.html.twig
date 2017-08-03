@@ -1,0 +1,88 @@
+{% extends ":Front:base.html.twig" %}
+{% block title %}Accueil{% endblock %}
+{% block contentTop %}
+    <div class="container">
+        <div class="section-title m30 text-center">
+            <h1>20.000+ Coupons from 1.000+ Stores</h1>
+        </div><!-- end title -->
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <form class="well">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-search"></i></span>
+                            <input id="typeahead" type="text" class="form-control" placeholder="Search for coupons..." autocomplete="off" data-provide="typeahead">
+                            <button type="submit" class="btn btn-primary">Search</button>
+                        </div>
+                    </div>
+                    <div class="clearfix">
+                        <div class="pull-left text-left hidden-xs">
+                            <div class="checkbox checkbox-success checkbox-inline">
+                                <input type="checkbox" class="styled" id="inlineCheckbox1" value="option1" checked>
+                                <label for="inlineCheckbox1"> Coupons </label>
+                            </div>
+                            <div class="checkbox checkbox-success checkbox-inline">
+                                <input type="checkbox" class="styled" id="inlineCheckbox2" value="option1" checked>
+                                <label for="inlineCheckbox2"> Printable </label>
+                            </div>
+                            <div class="checkbox checkbox-success checkbox-inline">
+                                <input type="checkbox" class="styled" id="inlineCheckbox3" value="option1">
+                                <label for="inlineCheckbox3"> Deals </label>
+                            </div>
+                            <div class="checkbox checkbox-success checkbox-inline">
+                                <input type="checkbox" class="styled" id="inlineCheckbox4" value="option1">
+                                <label for="inlineCheckbox4"> Stores </label>
+                            </div>
+                        </div>
+                        <div class="pull-right text-right hidden-xs">
+                            <label>Search : <a href="#">MyLogo</a>, <a href="#">Companies</a>, <a href="#">Garden</a> etc.</label>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        {{ render(controller("frontGeneralBundle:Homepage:supermarche")) }}
+    </div><!-- end container -->
+{% endblock %}
+
+{% block body %}
+
+    <div class="section wb">
+        <div class="container">
+            <div class="row">
+
+                {{ render (controller ("frontGeneralBundle:Homepage:coupon")) }}
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <nav class="nav-pagi text-center clearfix">
+                        <ul class="pagination">
+                            <li>
+                                <a href="#" aria-label="Previous">
+                                    <span aria-hidden="true">&laquo;</span>
+                                </a>
+                            </li>
+                            <li><a href="#">1</a></li>
+                            <li><a href="#">2</a></li>
+                            <li><a href="#">3</a></li>
+                            <li><a href="#">4</a></li>
+                            <li><a href="#">5</a></li>
+                            <li>
+                                <a href="#" aria-label="Next">
+                                    <span aria-hidden="true">&raquo;</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div><!-- end row -->
+        </div><!-- end container -->
+    </div><!-- end section -->
+
+
+
+
+
+{% endblock %}

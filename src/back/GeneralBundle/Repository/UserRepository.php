@@ -16,4 +16,11 @@ class UserRepository extends \Doctrine\ORM\EntityRepository
         return $query->getQuery()->getResult();
     }
 
+    public function findSupermarcheByAdhrent($id){
+        $query = $this->createQueryBuilder("a");
+        $query->where("a.id = :id")
+            ->Select("a.supermarche")
+            ->setParameter(":id", $id);
+        return $query->getQuery()->getResult();
+    }
 }

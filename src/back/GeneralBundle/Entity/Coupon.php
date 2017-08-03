@@ -31,6 +31,21 @@ class Coupon
     private $libelle;
 
     /**
+     * @Assert\Date()
+     *
+     * @ORM\Column(name="date_debut", type="date")
+     */
+    protected $dateDebut;
+
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="code", type="string", length=255)
+     */
+    private $code;
+
+    /**
      * @var string
      *
      * @ORM\Column(name="description", type="string", length=255, nullable=true)
@@ -234,6 +249,38 @@ class Coupon
     public function getPromo()
     {
         return $this->promo;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCode()
+    {
+        return $this->code;
+    }
+
+    /**
+     * @param string $code
+     */
+    public function setCode($code)
+    {
+        $this->code = $code;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDateDebut()
+    {
+        return $this->dateDebut;
+    }
+
+    /**
+     * @param mixed $dateDebut
+     */
+    public function setDateDebut($dateDebut)
+    {
+        $this->dateDebut = $dateDebut;
     }
 
     /**

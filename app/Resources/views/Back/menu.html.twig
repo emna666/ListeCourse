@@ -89,8 +89,8 @@
                 </ul>
             </li>
             <li {% if app.request.get('_route')in ['back_general_recette_list','back_general_recette_ajouter','back_general_recette_modifier']  %} class="open"{% endif %}>
-                <a href="{{ path("back_general_recette_list") }}"><i class="clip-home-3"></i>
-                    <span class="title"> Recetttes </span>{% if app.request.get('_route')=='back_general_recette_list' %}
+                <a href="{{ path("back_general_recette_list") }}"><i class="clip-file-3"></i>
+                    <span class="title"> Recettes </span>{% if app.request.get('_route')=='back_general_recette_list' %}
                     <span class="selected"></span>{% endif %}
                 </a>
             </li>

@@ -1,10 +1,17 @@
-{% extends ':Front:base.html.twig' %}
+<div class="row">
+    {% for categorie in categories %}
+    <div class="col-md-4 col-sm-4 col-xs-12">
+        <div class="promobox">
+            <div class="post-media">
+                <a href="categories.html" class="linkCat"><img src="{{ asset('uploads/categories/' ~ categorie.category.url) }}" alt="" class="imgCat img-responsive"></a>
+                <div class="promo-desc">
+                    <img src="{{ asset("front-assets/uploads/small_01.png") }}" alt="" class="alignleft img-thumbnail img-responsive">
+                    <h4><a href="#">{{ categorie.category.libelle }}</a></h4>
+                    <small>{{ categorie.countCoupons }}  Coupons</small>
+                </div><!-- end desc -->
+            </div><!-- end media -->
 
-{% block body %}
-
-{% endblock %}
-
-{% block title %}
-
-{% endblock %}
-
+        </div><!-- end box -->
+    </div><!-- end col -->
+    {% endfor %}
+</div><!-- end row -->

@@ -4,6 +4,7 @@ imports:
     - { resource: services.yml }
     - { resource: "@frontGeneralBundle/Resources/config/services.yml" }
     - { resource: "@backGeneralBundle/Resources/config/services.yml" }
+    - { resource: "@backAdherentBundle/Resources/config/services.yml" }
 
 parameters:
     locale: fr
@@ -60,13 +61,16 @@ swiftmailer:
     host:      "%mailer_host%"
     username:  "%mailer_user%"
     password:  "%mailer_password%"
-    spool:     { type: memory }
+    port: 465
+    #spool:     { type: memory }
 
 
 fos_user:
     registration:
         form:
             type: back\GeneralBundle\Form\RegistrationType
+        confirmation:
+             enabled: true
     db_driver: orm # other valid values are 'mongodb', 'couchdb' and 'propel'
     firewall_name: main
     user_class: back\GeneralBundle\Entity\User

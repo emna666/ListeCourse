@@ -1,6 +1,8 @@
 <?php
 
 namespace back\GeneralBundle\Repository;
+use back\GeneralBundle\Entity\Coupon;
+use back\GeneralBundle\Entity\Produit;
 
 /**
  * CategoriesRepository
@@ -10,4 +12,21 @@ namespace back\GeneralBundle\Repository;
  */
 class CategoriesRepository extends \Doctrine\ORM\EntityRepository
 {
+
+    public function getCategorieWithCountCoupons()
+    {
+        $query = $this->createQueryBuilder("c");
+        $query
+            ->select("c as category, count(coup.id) as countCoupons")
+            ->from(Produit::class,"p")
+            ->from(Coupon::class,"coup")
+            ->leftJoin("p.categories","c1")
+            ->where("c1.id = c.id")
+            ->andWhere("coup.produit = p.id")
+            ->groupBy("c.id");
+        return $query->getQuery()->getResult();
+
+
+
+    }
 }

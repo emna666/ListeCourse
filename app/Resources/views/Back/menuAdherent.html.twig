@@ -1,0 +1,35 @@
+<div class="navbar-content">
+    <div class="main-navigation navbar-collapse collapse">
+        <div class="navigation-toggler">
+            <i class="clip-chevron-left"></i>
+            <i class="clip-chevron-right"></i>
+        </div>
+        <ul class="main-navigation-menu sub-menu">
+            <li {% if app.request.get('_route')=='Adherent_homepage' %} class="active open"{% endif %}>
+                <a href="{{ path("Adherent_homepage") }}"><i class="clip-home-3"></i>
+                    <span class="title"> Tableau de bord </span>{% if app.request.get('_route')=='Adherent_homepage' %}
+                    <span class="selected"></span>{% endif %}
+                </a>
+            </li>
+
+            <li {% if app.request.getPathInfo|split('/adherent/supermarche')|length > 1 or app.request.getPathInfo|split('/adherent/produit')|length > 1 or app.request.getPathInfo|split('/adherent/coupon')|length > 1  %} class="active open"{% endif %}>
+                <a href="javascript:void(0)"><i class="fa fa-shopping-cart"></i>
+                    <span class="title">Courses</span><i class="icon-arrow"></i>
+                </a>
+                <ul class="sub-menu">
+                    <li {% if app.request.get('_route') in ['adherent_produit_list','adherent_produit_ajouter','adherent_produit_modifier'] %} class="open"{% endif %}>
+                        <a href="{{ path('adherent_produit_list') }}">
+                            <span class="title">Produits</span>
+                        </a>
+                    </li>
+                    <li {% if app.request.get('_route') in ['adherent_coupon_list','adherent_coupon_coupon_ajouter','adherent_coupon_coupon_modifier'] %} class="open"{% endif %}>
+                        <a href="{{ path('adherent_coupon_list') }}">
+                            <span class="title">Coupons</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+
+    </div>
+</div>

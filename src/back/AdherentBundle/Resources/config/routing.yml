@@ -1,0 +1,9 @@
+Adherent_homepage:
+    path:     /
+    defaults: { _controller: backAdherentBundle:Default:index }
+Adherent_produit:
+    resource: "@backAdherentBundle/Resources/config/routing/produit.yml"
+    prefix:   /produit
+Adherent_coupon:
+    resource: "@backAdherentBundle/Resources/config/routing/coupon.yml"
+    prefix:   /coupon
