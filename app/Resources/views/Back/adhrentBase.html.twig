@@ -1,0 +1,200 @@
+{% import ":Back:macros.html.twig" as macros %}
+{% import ":Back:form.html.twig" as formulaire %}
+<!DOCTYPE html>
+<!--[if IE 8]><html class="ie8 no-js" lang="en"><![endif]-->
+<!--[if IE 9]><html class="ie9 no-js" lang="en"><![endif]-->
+<!--[if !IE]><!-->
+<html lang="en" class="no-js">
+    <head>
+        <title>{% block title %}BackOffice{% endblock %}</title>
+        <meta charset="utf-8" />
+        <!--[if IE]><meta http-equiv='X-UA-Compatible' content="IE=edge,IE=9,IE=8,chrome=1" /><![endif]-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <meta content="" name="description" />
+        <meta content="" name="author" />
+        {% block stylesheets %}
+            <link rel="stylesheet" href="{{ asset("back-assets/plugins/bootstrap/css/bootstrap.min.css") }}">
+            <link rel="stylesheet" href="{{ asset("back-assets/plugins/font-awesome/css/font-awesome.min.css") }}">
+            <link rel="stylesheet" href="{{ asset("back-assets/fonts/style.css") }}">
+            <link rel="stylesheet" href="{{ asset("back-assets/css/main.css") }}">
+            <link rel="stylesheet" href="{{ asset("back-assets/css/main-responsive.css") }}">
+            <link rel="stylesheet" href="{{ asset("back-assets/plugins/iCheck/skins/all.css") }}">
+            <link rel="stylesheet" href="{{ asset("back-assets/plugins/bootstrap-colorpalette/css/bootstrap-colorpalette.css") }}">
+            <link rel="stylesheet" href="{{ asset("back-assets/plugins/perfect-scrollbar/src/perfect-scrollbar.css") }}">
+            <link rel="stylesheet" href="{{ asset("back-assets/css/theme_light.css") }}" type="text/css" id="skin_color">
+            <link rel="stylesheet" href="{{ asset("back-assets/css/print.css") }}" type="text/css" media="print"/>
+            <!--[if IE 7]>
+            <link rel="stylesheet" href="{{ asset("back-assets/plugins/font-awesome/css/font-awesome-ie7.min.css") }}">
+            <![endif]-->
+            <link rel="stylesheet" href="{{ asset("back-assets/plugins/select2/select2.css") }}">
+            <link rel="stylesheet" href="{{ asset("back-assets/plugins/datepicker/css/datepicker.css") }}">
+            <link rel="stylesheet" href="{{ asset("back-assets/plugins/bootstrap-timepicker/css/bootstrap-timepicker.min.css") }}">
+            <link rel="stylesheet" href="{{ asset("back-assets/plugins/bootstrap-daterangepicker/daterangepicker-bs3.css") }}">
+            <link rel="stylesheet" href="{{ asset("back-assets/plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.css") }}">
+            <link rel="stylesheet" href="{{ asset("back-assets/plugins/jQuery-Tags-Input/jquery.tagsinput.css") }}">
+            <link rel="stylesheet" href="{{ asset("back-assets/plugins/bootstrap-fileupload/bootstrap-fileupload.min.css") }}">
+            <link rel="stylesheet" href="{{ asset("back-assets/plugins/summernote/build/summernote.css") }}">
+
+            <link rel="stylesheet" type="text/css" href="{{ asset("back-assets/plugins/select2/select2.css") }}" />
+            <link rel="stylesheet" href="{{ asset("back-assets/plugins/DataTables/media/css/DT_bootstrap.css") }}" />
+            <link rel="stylesheet" href="{{ asset("back-assets/plugins/fullcalendar/fullcalendar/fullcalendar.css") }}">
+            <link href="{{ asset("back-assets/plugins/bootstrap-modal/css/bootstrap-modal-bs3patch.css") }}" rel="stylesheet" type="text/css"/>
+            <link href="{{ asset("back-assets/plugins/bootstrap-modal/css/bootstrap-modal.css") }}" rel="stylesheet" type="text/css"/>
+            <link href="{{ asset("back-assets/css/customstyleback.css") }}" rel="stylesheet" type="text/css"/>
+
+        {% endblock %}
+        <link rel="shortcut icon" href="{{ asset("back-assets/favicon.ico") }}" />
+    </head>
+    <body>
+        {% include ':Back:header.html.twig' %}
+        <div class="main-container">
+            {% include ':Back:menu.html.twig' %}
+            <div class="main-content">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <ol class="breadcrumb">
+                                {% block topbody %}
+                                    <li>
+                                        <i class="clip-home-2"></i>
+                                        <a href="{{ path('back_general_homepage') }}">
+                                            Tableau de bord
+                                        </a>
+                                    </li>
+                                {% endblock %}
+                            </ol>
+                            <div class="page-header">
+                                <h1>{{ block('title') }} <small>{% block description %}{% endblock %}</small></h1>
+                            </div>
+                        </div>
+                    </div>
+                    {% include ':Back:alert.html.twig' %}
+                {% block body %}{% endblock %}
+            </div>
+        </div>
+    </div>
+    {% include ':Back:footer.html.twig' %}
+    {% block javascripts %}
+        <!--[if lt IE 9]>
+        <script src="{{ asset("back-assets/plugins/respond.min.js") }}"></script>
+        <script src="{{ asset("back-assets/plugins/excanvas.min.js") }}"></script>
+        <script type="text/javascript" src="{{ asset("back-assets/plugins/jQuery-lib/1.10.2/jquery.min.js") }}"></script>
+        <![endif]-->
+        <!--[if gte IE 9]><!-->
+        <script src="{{ asset("back-assets/plugins/jQuery-lib/2.0.3/jquery.min.js") }}"></script>
+        <!--<![endif]-->
+        <script src="{{ asset("back-assets/plugins/jquery-ui/jquery-ui-1.10.2.custom.min.js") }}"></script>
+        <script src="{{ asset("back-assets/plugins/bootstrap/js/bootstrap.min.js") }}"></script>
+        <script src="{{ asset("back-assets/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js") }}"></script>
+        <script src="{{ asset("back-assets/plugins/blockUI/jquery.blockUI.js") }}"></script>
+        <script src="{{ asset("back-assets/plugins/iCheck/jquery.icheck.min.js") }}"></script>
+        <script src="{{ asset("back-assets/plugins/perfect-scrollbar/src/jquery.mousewheel.js") }}"></script>
+        <script src="{{ asset("back-assets/plugins/perfect-scrollbar/src/perfect-scrollbar.js") }}"></script>
+        <script src="{{ asset("back-assets/plugins/less/less-1.5.0.min.js") }}"></script>
+        <script src="{{ asset("back-assets/plugins/jquery-cookie/jquery.cookie.js") }}"></script>
+        <script src="{{ asset("back-assets/plugins/bootstrap-colorpalette/js/bootstrap-colorpalette.js") }}"></script>
+        <script src="{{ asset("back-assets/js/main.js") }}"></script>
+        <!-- end: MAIN JAVASCRIPTS -->
+        <script src="{{ asset("back-assets/plugins/bootbox/bootbox.min.js") }}"></script>
+        <script src="{{ asset("back-assets/plugins/jquery-mockjax/jquery.mockjax.js") }}"></script>
+        <script src="{{ asset("back-assets/plugins/select2/select2.min.js") }}"></script>
+        <script src="{{ asset("back-assets/plugins/DataTables/media/js/jquery.dataTables.min.js") }}"></script>
+        <script src="{{ asset("back-assets/plugins/DataTables/media/js/DT_bootstrap.js") }}"></script>
+        <script src="{{ asset("back-assets/js/table-data.js") }}"></script>
+        <script src="{{ asset("back-assets/plugins/jquery-inputlimiter/jquery.inputlimiter.1.3.1.min.js") }}"></script>
+        <script src="{{ asset("back-assets/plugins/autosize/jquery.autosize.min.js") }}"></script>
+        <script src="{{ asset("back-assets/plugins/select2/select2.min.js") }}"></script>
+        <script src="{{ asset("back-assets/plugins/jquery.maskedinput/src/jquery.maskedinput.js") }}"></script>
+        <script src="{{ asset("back-assets/plugins/jquery-maskmoney/jquery.maskMoney.js") }}"></script>
+        <script src="{{ asset("back-assets/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js") }}"></script>
+        <script src="{{ asset("back-assets/plugins/bootstrap-timepicker/js/bootstrap-timepicker.min.js") }}"></script>
+        <script src="{{ asset("back-assets/plugins/bootstrap-daterangepicker/moment.min.js") }}"></script>
+        <script src="{{ asset("back-assets/plugins/bootstrap-daterangepicker/daterangepicker.js") }}"></script>
+        <script src="{{ asset("back-assets/plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.js") }}"></script>
+        <script src="{{ asset("back-assets/plugins/bootstrap-colorpicker/js/commits.js") }}"></script>
+        <script src="{{ asset("back-assets/plugins/jQuery-Tags-Input/jquery.tagsinput.js") }}"></script>
+        <script src="{{ asset("back-assets/plugins/bootstrap-fileupload/bootstrap-fileupload.min.js") }}"></script>
+        <script src="{{ asset("back-assets/plugins/summernote/build/summernote.min.js") }}"></script>
+        <script src="{{ asset("back-assets/plugins/ckeditor/ckeditor.js") }}"></script>
+        <script src="{{ asset("back-assets/plugins/ckeditor/adapters/jquery.js") }}"></script>
+        <script src="{{ asset("back-assets/js/form-elements.js") }}"></script>
+        <script src="{{ asset("back-assets/plugins/fullcalendar/fullcalendar/fullcalendar.js") }}"></script>
+
+        <script src="{{ asset("back-assets/plugins/bootstrap-modal/js/bootstrap-modal.js") }}"></script>
+        <script src="{{ asset("back-assets/plugins/bootstrap-modal/js/bootstrap-modalmanager.js") }}"></script>
+        <script src="{{ asset("back-assets/js/ui-modals.js") }}"></script>
+        <script>
+            jQuery(document).ready(function () {
+                Main.init();
+                TableData.init();
+                FormElements.init();
+//                UINestable.init();
+            });
+        </script>
+        <script>
+            $(document).ready(function () {
+                $('.calendar-btn-01').on('click',function(){
+                    var currentdate = new Date();
+                    var datetime = currentdate.getDate() + "/"
+                            + (currentdate.getMonth()+1)  + "/"
+                            + currentdate.getFullYear() + " "
+                            + currentdate.getHours() + ":"
+                            + currentdate.getMinutes() + ":"
+                            + currentdate.getSeconds()+ "\n";
+                    $(this).siblings('.task-description-01').val(function(index, old) { return datetime + old; });
+
+                });
+            })
+        </script>
+        <script type="text/javascript" src="{{ asset('back-assets/js/jquery.fancybox-1.3.4.pack.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('back-assets/js/jquery.tinymce.js') }}"></script>
+        <script type="text/javascript">
+            $(function() {
+                $('textarea.tinymce').tinymce({
+                    selector: "textarea.crossdomain",
+                    theme: "modern",
+                    width: 680,
+                    height: 300,
+                    plugins: [
+                        "advlist autolink link image lists charmap print preview hr anchor pagebreak",
+                        "searchreplace wordcount visualblocks visualchars insertdatetime media nonbreaking spellchecker",
+                        "table contextmenu directionality emoticons paste textcolor responsivefilemanager "
+                    ],
+                    relative_urls: false,
+
+                    filemanager_title: "Responsive Filemanager",
+                    filemanager_crossdomain: true,
+                    external_filemanager_path: "{{ asset('file_manager/filemanager/') }}",
+                    external_plugins: {"filemanager": "{{ asset('back-assets/js/plugin.min.js') }}"},
+
+                    image_advtab: true,
+                    toolbar1: "undo redo | bold italic underline | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | styleselect",
+                    toolbar2: "| responsivefilemanager | image | media | link unlink anchor | print preview"
+                });
+            });
+            $(document).ready(function ($) {
+
+                $('#download-button').on('click', function() {
+                    ga('send', 'event', 'button', 'click', 'download-buttons');
+                });
+                $('.toggle').click(function(){
+                    var _this=$(this);
+                    $('#'+_this.data('ref')).toggle(200);
+                    var i=_this.find('i');
+                    if (i.hasClass('icon-plus')) {
+                        i.removeClass('icon-plus');
+                        i.addClass('icon-minus');
+                    }else{
+                        i.removeClass('icon-minus');
+                        i.addClass('icon-plus');
+                    }
+                });
+            });
+
+        </script>
+    {% endblock %}
+{% block jquery %}{% endblock %}
+</body>
+</html>
