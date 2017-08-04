@@ -60,7 +60,7 @@ class Coupon
     private $promo;
 
     /**
-     * @ORM\ManyToOne(targetEntity="back\GeneralBundle\Entity\Produit")
+     * @ORM\ManyToOne(targetEntity="back\GeneralBundle\Entity\Produit",inversedBy="coupons")
      */
     private $produit;
 

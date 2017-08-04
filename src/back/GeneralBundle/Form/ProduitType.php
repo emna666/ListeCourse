@@ -7,6 +7,7 @@ use back\GeneralBundle\Entity\Supermarche;
 use Doctrine\ORM\EntityRepository;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -20,8 +21,8 @@ class ProduitType extends AbstractType
         $builder
             ->add('libelle')
             ->add('numSerie')
-            ->add('description'
-            )->add('prix')
+            ->add('description',TextareaType::class)
+            ->add('prix')
             ->add('file')
             ->add('categories')
             ->add('marque', EntityType::class, array(

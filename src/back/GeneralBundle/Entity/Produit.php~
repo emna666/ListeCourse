@@ -75,6 +75,11 @@ class Produit
     private $updated;
 
     /**
+     * @ORM\OneToMany(targetEntity="back\GeneralBundle\Entity\Coupon",mappedBy="produit")
+     */
+    private $coupons;
+
+    /**
      * Image path
      *
      * @var string

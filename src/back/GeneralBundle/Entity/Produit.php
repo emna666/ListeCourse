@@ -75,6 +75,11 @@ class Produit
     private $updated;
 
     /**
+     * @ORM\OneToMany(targetEntity="back\GeneralBundle\Entity\Coupon",mappedBy="produit")
+     */
+    private $coupons;
+
+    /**
      * Image path
      *
      * @var string
@@ -370,6 +375,7 @@ class Produit
     {
         $this->categories = new \Doctrine\Common\Collections\ArrayCollection();
         $this->supermarche = new  \Doctrine\Common\Collections\ArrayCollection();
+        $this->coupons = new  \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -443,5 +449,39 @@ class Produit
     public function __toString()
     {
         return $this->libelle;
+    }
+
+    /**
+     * Add coupon
+     *
+     * @param \back\GeneralBundle\Entity\Coupon $coupon
+     *
+     * @return Produit
+     */
+    public function addCoupon(\back\GeneralBundle\Entity\Coupon $coupon)
+    {
+        $this->coupons[] = $coupon;
+
+        return $this;
+    }
+
+    /**
+     * Remove coupon
+     *
+     * @param \back\GeneralBundle\Entity\Coupon $coupon
+     */
+    public function removeCoupon(\back\GeneralBundle\Entity\Coupon $coupon)
+    {
+        $this->coupons->removeElement($coupon);
+    }
+
+    /**
+     * Get coupons
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getCoupons()
+    {
+        return $this->coupons;
     }
 }

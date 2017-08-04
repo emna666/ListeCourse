@@ -5,161 +5,108 @@
     <div class="container">
         <div class="row">
             <div class="content col-md-8">
-                <div class="post-wrapper store-list">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <nav class="page-filter text-center">
-                                <ul class="list-inline">
-                                    <li><a href="#" data-filter="*">All</a></li>
-                                    <li><a data-toggle="tooltip" data-placement="top" title="12" href="#">A</a></li>
-                                    <li><a data-toggle="tooltip" data-placement="top" title="33" href="#">B</a></li>
-                                    <li><a data-toggle="tooltip" data-placement="top" title="13" href="#">C</a></li>
-                                    <li><a data-toggle="tooltip" data-placement="top" title="44" href="#">D</a></li>
-                                    <li><a data-toggle="tooltip" data-placement="top" title="53" href="#">E</a></li>
-                                    <li><a data-toggle="tooltip" data-placement="top" title="5" href="#">F</a></li>
-                                    <li><a data-toggle="tooltip" data-placement="top" title="31" href="#">G</a></li>
-                                    <li><a data-toggle="tooltip" data-placement="top" title="12" href="#">H</a></li>
-                                    <li><a data-toggle="tooltip" data-placement="top" title="7" href="#">I</a></li>
-                                    <li><a data-toggle="tooltip" data-placement="top" title="42" href="#">J</a></li>
-                                    <li><a data-toggle="tooltip" data-placement="top" title="1" href="#">K</a></li>
-                                    <li><a data-toggle="tooltip" data-placement="top" title="22" href="#">L</a></li>
-                                    <li><a data-toggle="tooltip" data-placement="top" title="0" href="#">M</a></li>
-                                    <li><a data-toggle="tooltip" data-placement="top" title="0" href="#">N</a></li>
-                                    <li><a data-toggle="tooltip" data-placement="top" title="0" href="#">O</a></li>
-                                    <li><a data-toggle="tooltip" data-placement="top" title="0" href="#">P</a></li>
-                                    <li><a data-toggle="tooltip" data-placement="top" title="0" href="#">R</a></li>
-                                    <li><a data-toggle="tooltip" data-placement="top" title="0" href="#">S</a></li>
-                                    <li><a data-toggle="tooltip" data-placement="top" title="0" href="#">T</a></li>
-                                    <li><a data-toggle="tooltip" data-placement="top" title="0" href="#">U</a></li>
-                                    <li><a data-toggle="tooltip" data-placement="top" title="0" href="#">V</a></li>
-                                    <li><a data-toggle="tooltip" data-placement="top" title="0" href="#">Y</a></li>
-                                    <li><a data-toggle="tooltip" data-placement="top" title="0" href="#">W</a></li>
-                                    <li><a data-toggle="tooltip" data-placement="top" title="0" href="#">Z</a></li>
-                                </ul>
-                            </nav>
-                        </div><!-- end col -->
-                    </div><!-- end row -->
-
-                    <div class="row">
-                        <div class="col-md-12">
-                            <h4 class="list-title">A</h4>
-                            <ul class="check-list">
-                                <li><a href="#"><img src="uploads/store_01.jpg" alt="" class=""> Amazon <small>(11 Coupons)</small> </a></li>
-                                <li><a href="#"><img src="uploads/store_02.jpg" alt="" class=""> American Airlines <small>(31 Coupons)</small> </a></li>
-                                <li><a href="#"><img src="uploads/store_03.jpg" alt="" class=""> Apple <small>(51 Coupons)</small> </a></li>
-                                <li><a href="#"><img src="uploads/store_04.jpg" alt="" class=""> AppINC <small>(22 Coupons)</small> </a></li>
-                                <li><a href="#"><img src="uploads/store_05.jpg" alt="" class=""> Antenyi Cable <small>(56 Coupons)</small> </a></li>
-                            </ul><!-- end check -->
+                {% for produit in supermarche.produits %}
+                    <div class="coupon-list list-wrapper">
+                        <div class="coupon-wrapper">
+                            <div class="row">
+                                <div class="col-md-4 col-sm-4 col-xs-12">
+                                    <div class="post-media text-center">
+                                        <a href="javascript:void(0)"><img src="{{ asset('uploads/produits/' ~ produit.url) }}" alt="" class="img-responsive" style="width: 209px;height: 162px"></a>
+                                        <small><a href="javascript:void(0)">{{ produit.marque }}</a></small>
+                                    </div>
+                                </div>
+                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                    <div class="coupon-meta">
+                                        <div class="coupon-top clearfix">
+                                            <div class="favorite-coupon pull-right text-right">
+                                                <a href="javascript:void(0)" data-toggle="tooltip" data-placement="bottom" title="Ajouter dans la list"><i class="fa fa-list"></i></a>
+                                            </div>
+                                        </div><!-- end coupon-top -->
+                                        <h3><a href="javascript:void(0)">{{ produit.libelle }}</a></h3>
+                                        <p>{{ produit.description }}</p>
+                                    </div>
+                                    <div class="showcode">
+                                        {% for coupon in produit.coupons %}
+                                            <a href="javascript:void(0)" data-id="{{ coupon.id }}" class="btn btn-primary btn-xs showCoupons">{{ coupon.libelle }}</a>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                    </div><!-- end row -->
-
-                    <hr class="invis2">
-
-                    <div class="row">
-                        <div class="col-md-12">
-                            <h4 class="list-title">B</h4>
-                            <ul class="check-list">
-                                <li><a href="#"><img src="uploads/store_01.jpg" alt="" class=""> Beauty.com <small>(11 Coupons)</small> </a></li>
-                                <li><a href="#"><img src="uploads/store_02.jpg" alt="" class=""> Best Buy <small>(41 Coupons)</small> </a></li>
-                                <li><a href="#"><img src="uploads/store_03.jpg" alt="" class=""> BlueHost <small>(23 Coupons)</small> </a></li>
-                                <li><a href="#"><img src="uploads/store_03.jpg" alt="" class=""> Buy Sell Theme <small>(55 Coupons)</small> </a></li>
-                            </ul><!-- end check -->
+                    </div>
+                {% endfor %}
+                {% for produit in supermarche.produits %}
+                    {% for coupon in produit.coupons %}
+                        <div id="coupons-{{ coupon.id }}" class="modal fade code-modal">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                        <h4><a href="javascript:void(0)">{{ coupon.libelle }}</a></h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <a href="javascript:void(0)"><img src="{{ asset('uploads/coupons/' ~ coupon.url) }}" alt="" class="img-responsive"></a>
+                                                <div class="modal-button">
+                                                    <a href="javascript:void(0)" target="_blank" title="" class="btn btn-default btn-block">Ajouter dans ma list <i class="fa fa-angle-right"></i></a>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <p>{{ coupon.description }}</p>
+                                                <div class="modal-share clearfix">
+                                                    <ul class="list-inline social-small">
+                                                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                                        <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <div class="coupon-area">
+                                            <div class=" row">
+                                                <div class="col-md-4 text-left">
+                                                    <div class="coupon-vote">
+                                                        <a href="#" data-toggle="tooltip" data-placement="bottom" title="Work!"><i class="fa fa-smile-o"></i></a>
+                                                        <a href="#" data-toggle="tooltip" data-placement="bottom" title="Poor!"><i class="fa fa-frown-o"></i></a>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-8 text-center">
+                                                    <button data-clipboard-text="{{ coupon.code }}" class="coupon-code btn btn-primary btn-block" type="submit" title="Click to Copy">{{ coupon.code }}</button>
+                                                    <small>Click to Copy</small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                    </div><!-- end row -->
-
-                    <hr class="invis2">
-
-                    <div class="row">
-                        <div class="col-md-12">
-                            <h4 class="list-title">C</h4>
-                            <ul class="check-list">
-                                <li><a href="#"><img src="uploads/store_06.jpg" alt="" class=""> Canser Supplies <small>(55 Coupons)</small> </a></li>
-                                <li><a href="#"><img src="uploads/store_07.jpg" alt="" class=""> Clear Host <small>(11 Coupons)</small> </a></li>
-                                <li><a href="#"><img src="uploads/store_08.jpg" alt="" class=""> Condostica <small>(12 Coupons)</small> </a></li>
-                                <li><a href="#"><img src="uploads/store_09.jpg" alt="" class=""> Creative Marketing <small>(5 Coupons)</small> </a></li>
-                            </ul><!-- end check -->
-                        </div>
-                    </div><!-- end row -->
-
-                    <hr class="invis2">
-
-                    <div class="row">
-                        <div class="col-md-12">
-                            <h4 class="list-title">D</h4>
-                            <ul class="check-list">
-                                <li><a href="#"><img src="uploads/store_10.jpg" alt="" class=""> Dragon Tatto <small>(112 Coupons)</small> </a></li>
-                                <li><a href="#"><img src="uploads/store_11.jpg" alt="" class=""> Double Check <small>(66 Coupons)</small> </a></li>
-                            </ul>
-                        </div>
-                    </div><!-- end row -->
-
-                    <hr class="invis2">
-
-                    <div class="row">
-                        <div class="col-md-12">
-                            <h4 class="list-title">E</h4>
-                            <ul class="check-list">
-                                <li><a href="#"><img src="uploads/store_12.jpg" alt="" class=""> e-Bootstrap.com <small>(3 Coupons)</small> </a></li>
-                                <li><a href="#"><img src="uploads/store_13.jpg" alt="" class=""> Envato <small>(5 Coupons)</small> </a></li>
-                                <li><a href="#"><img src="uploads/store_13.jpg" alt="" class=""> Emilion Games <small>(6 Coupons)</small> </a></li>
-                                <li><a href="#"><img src="uploads/store_13.jpg" alt="" class=""> Emoji Shop <small>(6 Coupons)</small> </a></li>
-                            </ul><!-- end check -->
-                        </div>
-                    </div><!-- end row -->
-
-                    <hr class="invis2">
-
-                    <div class="row">
-                        <div class="col-md-12">
-                            <h4 class="list-title">F</h4>
-                            <ul class="check-list">
-                                <li><a href="#"><img src="uploads/store_01.jpg" alt="" class=""> FaceTime <small>(12 Coupons)</small> </a></li>
-                                <li><a href="#"><img src="uploads/store_02.jpg" alt="" class=""> Fully Resp <small>(4 Coupons)</small> </a></li>
-                                <li><a href="#"><img src="uploads/store_03.jpg" alt="" class=""> Fantasia Games <small>(1 Coupons)</small> </a></li>
-                            </ul><!-- end check -->
-                        </div>
-                    </div><!-- end row -->
-
-                    <hr class="invis2">
-
-                    <div class="row">
-                        <div class="col-md-12">
-                            <h4 class="list-title">G</h4>
-                            <ul class="check-list">
-                                <li><a href="#"><img src="uploads/store_04.jpg" alt="" class=""> Garden Shop <small>(12 Coupons)</small> </a></li>
-                                <li><a href="#"><img src="uploads/store_05.jpg" alt="" class=""> Guard Body <small>(41 Coupons)</small> </a></li>
-                                <li><a href="#"><img src="uploads/store_06.jpg" alt="" class=""> Gardening <small>(33 Coupons)</small> </a></li>
-                            </ul><!-- end check -->
-                        </div>
-                    </div><!-- end row -->
-
-                    <hr class="invis2">
-
-                    <div class="row">
-                        <div class="col-md-12">
-                            <h4 class="list-title">H</h4>
-                            <ul class="check-list">
-                                <li><a href="#"><img src="uploads/store_08.jpg" alt="" class=""> Hellium Gase <small>(72 Coupons)</small> </a></li>
-                                <li><a href="#"><img src="uploads/store_09.jpg" alt="" class=""> Hyper Links <small>(12 Coupons)</small> </a></li>
-                            </ul><!-- end check -->
-                        </div>
-                    </div><!-- end row -->
-
-                    <hr class="invis2">
-
-                    <div class="row">
-                        <div class="col-md-12">
-                            <h4 class="list-title">T</h4>
-                            <ul class="check-list">
-                                <li><a href="#"><img src="uploads/store_12.jpg" alt="" class=""> Takifest <small>(98 Coupons)</small> </a></li>
-                                <li><a href="#"><img src="uploads/store_13.jpg" alt="" class=""> Trade Free <small>(85 Coupons)</small> </a></li>
-                            </ul><!-- end check -->
-                        </div>
-                    </div><!-- end row -->
-
-                </div><!-- end post-wrapper -->
-            </div><!-- end content -->
-
+                    {% endfor %}
+                {% endfor %}
+                {% if false %}
+                    <nav class="nav-pagi">
+                        <ul class="pagination">
+                            <li>
+                                <a href="#" aria-label="Previous">
+                                    <span aria-hidden="true">&laquo;</span>
+                                </a>
+                            </li>
+                            <li><a href="#">1</a></li>
+                            <li><a href="#">2</a></li>
+                            <li><a href="#">3</a></li>
+                            <li><a href="#">4</a></li>
+                            <li><a href="#">5</a></li>
+                            <li>
+                                <a href="#" aria-label="Next">
+                                    <span aria-hidden="true">&raquo;</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                {% endif %}
+            </div>
             <div class="sidebar col-md-4 col-sm-12">
                 <div class="widget clearfix">
                     <div class="text-center store-list row">
@@ -169,7 +116,6 @@
                                 <small>{{ supermarche|title }}</small>
                             </div>
                         </div>
-
                     </div>
                 </div>
                 {{ render(controller("frontGeneralBundle:Supermarche:populaire")) }}
@@ -190,7 +136,5 @@
             </div>
         </div>
     </div>
-
-
 {% endblock %}
 

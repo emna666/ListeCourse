@@ -19,20 +19,16 @@
                         <div class="row">
                             {{ formulaire.input("col-md-6","Libelle ",form.libelle,true) }}
                             {{ formulaire.input("col-md-6","Niméro de série",form.numSerie,true) }}
-
-
                         </div>
                         <div class="row">
-
+                            {{ formulaire.input("col-md-12","Description",form.description,false) }}
+                        </div>
+                        <div class="row">
                             {{ formulaire.select2("col-md-6","Marque",form.marque,false) }}
                             {{ formulaire.select2("col-md-6","Supermaché",form.supermarche,false) }}
                             {{ formulaire.select2("col-md-6","Catégorie",form.categories,false) }}
                             {{ formulaire.input("col-md-6","Prix",form.prix,true) }}
                             {{ formulaire.input("col-md-6","Logo/Photo",form.file,false) }}
-                        </div>
-
-                        <div class="row">
-                            {{ form_widget(form.description, { 'attr': {'rows' : '4', 'cols' : '30' }} ) }}
                         </div>
                         {{ formulaire.submit("Enregistrer") }}
                         {{ form_end(form) }}
