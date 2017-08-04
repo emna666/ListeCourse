@@ -5,3 +5,7 @@ front_general_accueil:
 front_general_contact:
     path:     /contact
     defaults: { _controller: frontGeneralBundle:Homepage:contactUs }
+
+front_super_marches:
+    path:     /supermarches
+    defaults: { _controller: frontGeneralBundle:Supermarche:list }
