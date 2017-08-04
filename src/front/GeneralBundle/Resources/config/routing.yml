@@ -17,3 +17,15 @@ front_super_marches_details:
 front_pannier_add_product:
     path:     /pannier/addproduct/{idProduit}/{idSupermarche}
     defaults: { _controller: frontGeneralBundle:Pannier:addProduit }
+
+front_pannier_add_coupon:
+    path:     /pannier/addcoupons/{idCoupon}/{idSupermarche}
+    defaults: { _controller: frontGeneralBundle:Pannier:addcoupon }
+
+front_pannier_coupons:
+    path:     /pannier/coupons
+    defaults: { _controller: frontGeneralBundle:Pannier:listCoupons }
+
+front_pannier_produits:
+    path:     /pannier/produits
+    defaults: { _controller: frontGeneralBundle:Pannier:listProduits }

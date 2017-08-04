@@ -86,5 +86,22 @@
 <script src="{{ asset('front-assets/switcher/switcher.js') }}"></script>
 <script src="http://maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=places"></script>
 <script src="{{ asset('front-assets/js/map.js') }}"></script>
+<script src="{{ asset('front-assets/notify.min.js') }}"></script>
+
+{% for class,messages in app.session.getFlashBag.all %}
+    {% for msg in messages %}
+        <script>
+            $(document).ready(function () {
+                $.notify("{{ msg |raw }}","{{ class }}");
+                /*new PNotify({
+                    title: '{{ class|title }}',
+                    text: '{{ msg |raw }}',
+                    addclass: 'bg-{{ class }}'
+                });*/
+            })
+        </script>
+    {% endfor %}
+{% endfor %}
+
 </body>
 </html>

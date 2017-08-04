@@ -30,10 +30,10 @@
                                         {{ app.user.nom }} {{ app.user.prenom }}
                                     </a>
                                     <ul class="dropdown-menu start-right" role="menu">
-                                        {#<li><a href="user-saved.html"><i class="fa fa-heart-o"></i> Saved Coupons</a></li>
-                                        <li><a href="user-submit.html"><i class="fa fa-bullhorn"></i> Submit Coupon</a></li>#}
                                         <li><a href="{{ path('fos_user_profile_edit') }}"><i class="fa fa-pencil"></i> Modifier login et Email</a></li>
                                         <li><a href="{{ path('fos_user_change_password') }}"><i class="fa fa-lock"></i> Modifier mot de passe</a></li>
+                                        <li><a href="{{ path("front_pannier_coupons") }}"><i class="fa fa-heart-o"></i> Mes Coupons ({{ render(controller("frontGeneralBundle:Pannier:countCoupons")) }})</a></li>
+                                        <li><a href="{{ path("front_pannier_produits") }}"><i class="fa fa-heart-o"></i> Mes Produits ({{ render(controller("frontGeneralBundle:Pannier:countProduits")) }})</a></li>
                                         {% if is_granted('ROLE_ADMIN') %}
                                             <li><a href="{{ path('back_general_homepage') }}" target="_blank"><i class="fa fa-dashboard"></i> Administration</a></li>
                                         {% endif %}

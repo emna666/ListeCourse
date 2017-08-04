@@ -21,6 +21,7 @@ class SupermarcheController extends Controller
     public function detailsAction($id,Request $request)
     {
         dump($request->getSession()->get('produits'));
+        dump($request->getSession()->get('coupons'));
         $em = $this->get('doctrine.orm.entity_manager');
         $supermarche = $em->getRepository(Supermarche::class)->find($id);
         if (!$supermarche)

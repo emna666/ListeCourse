@@ -1,0 +1,54 @@
+{% extends ':Front:base.html.twig' %}
+{% block title %}Mes Prduits{% endblock %}
+{% block description %}La liste des produits souhaités{% endblock %}
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="content col-md-8">
+                {% for produit in produits %}
+                    <div class="coupon-list list-wrapper">
+                        <div class="coupon-wrapper">
+                            <div class="row">
+                                <div class="col-md-4 col-sm-4 col-xs-12">
+                                    <div class="post-media text-center">
+                                        <a href="javascript:void(0)"><img src="{{ asset('uploads/produits/' ~ produit.url) }}" alt="" class="img-responsive" style="width: 209px;height: 162px"></a>
+                                        {#<small><a href="javascript:void(0)">{{ produit.marque }}</a></small>#}
+                                    </div>
+                                </div>
+                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                    <div class="coupon-meta">
+                                        <div class="coupon-top clearfix">
+                                            <div class="favorite-coupon pull-right text-right">
+                                                <a href="" data-toggle="tooltip" data-placement="bottom" title="Ajouter dans la list"><i class="fa fa-trash"></i></a>
+                                            </div>
+                                        </div><!-- end coupon-top -->
+                                        <h3><a href="javascript:void(0)">{{ produit.libelle }}</a></h3>
+                                        <p>{{ produit.description }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+            <div class="sidebar col-md-4 col-sm-12">
+                {{ render(controller("frontGeneralBundle:Supermarche:populaire")) }}
+                <div class="widget clearfix">
+                    <div class="widget-title">
+                        <h4><span>Email Newsletter</span></h4>
+                    </div>
+
+                    <div class="newsletter">
+                        <p>Your email is safe with us and we hate spam as much as you do. Lorem ipsum dolor sit amet et dolore.</p>
+                        <form class="">
+                            <input type="text" class="form-control" placeholder="Enter your name..">
+                            <input type="email" class="form-control" placeholder="Enter your email..">
+                            <button type="submit" class="btn btn-primary">Subscribe</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
