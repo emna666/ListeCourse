@@ -13,6 +13,13 @@
 
     // Coupon Code Jquery
     (function() {
+
+        $(".showCoupons").on('click',function () {
+            var id = $(this).data("id");
+            var code_modal = $("#coupons-"+id);
+            $(code_modal).modal('show');
+        });
+
         var coupon_list = $('.coupon-list');
         coupon_list.each(function() {
             var code_modal = $(this).find('.code-modal');
