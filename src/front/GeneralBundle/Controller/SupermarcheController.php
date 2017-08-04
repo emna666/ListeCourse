@@ -4,6 +4,7 @@ namespace front\GeneralBundle\Controller;
 
 use back\GeneralBundle\Entity\Supermarche;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
 
 class SupermarcheController extends Controller
 {
@@ -17,8 +18,9 @@ class SupermarcheController extends Controller
         ));
     }
 
-    public function detailsAction($id)
+    public function detailsAction($id,Request $request)
     {
+        dump($request->getSession()->get('produits'));
         $em = $this->get('doctrine.orm.entity_manager');
         $supermarche = $em->getRepository(Supermarche::class)->find($id);
         if (!$supermarche)

@@ -19,7 +19,7 @@
                                     <div class="coupon-meta">
                                         <div class="coupon-top clearfix">
                                             <div class="favorite-coupon pull-right text-right">
-                                                <a href="javascript:void(0)" data-toggle="tooltip" data-placement="bottom" title="Ajouter dans la list"><i class="fa fa-list"></i></a>
+                                                <a href="{{ path('front_pannier_add_product',{idProduit:produit.id,idSupermarche:supermarche.id}) }}" data-toggle="tooltip" data-placement="bottom" title="Ajouter dans la list"><i class="fa fa-plus"></i></a>
                                             </div>
                                         </div><!-- end coupon-top -->
                                         <h3><a href="javascript:void(0)">{{ produit.libelle }}</a></h3>

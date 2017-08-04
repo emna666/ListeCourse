@@ -13,3 +13,7 @@ front_super_marches:
 front_super_marches_details:
     path:     /supermarches/{id}
     defaults: { _controller: frontGeneralBundle:Supermarche:details }
+
+front_pannier_add_product:
+    path:     /pannier/addproduct/{idProduit}/{idSupermarche}
+    defaults: { _controller: frontGeneralBundle:Pannier:addProduit }
