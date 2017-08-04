@@ -19,7 +19,7 @@
                                     <div class="coupon-meta">
                                         <div class="coupon-top clearfix">
                                             <div class="favorite-coupon pull-right text-right">
-                                                <a href="" data-toggle="tooltip" data-placement="bottom" title="Ajouter dans la list"><i class="fa fa-trash"></i></a>
+                                                <a href="{{ path('front_pannier_delete_coupon',{id:coupon.id}) }}" data-toggle="tooltip" data-placement="bottom" title="Supprimer"><i class="fa fa-trash"></i></a>
                                             </div>
                                         </div><!-- end coupon-top -->
                                         <h3><a href="javascript:void(0)">{{ coupon.libelle }}</a></h3>

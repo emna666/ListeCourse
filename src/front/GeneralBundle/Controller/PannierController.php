@@ -21,6 +21,41 @@ class PannierController extends Controller
             "produits"=>$produits
         ));
     }
+
+    public function deleteProduitAction(Produit $produit, Request $request)
+    {
+        $session = $request->getSession();
+        if (!$session->has("produits"))
+            $produits = array();
+        else
+            $produits = $session->get('produits');
+        $newProduits=array();
+        foreach ($produits as $pp)
+        {
+            if($pp->getId()!=$produit->getId())
+                $newProduits[]=$pp;
+        }
+        $session->set("produits", $newProduits);
+        return $this->redirectToRoute("front_pannier_produits");
+    }
+
+
+    public function deleteCouponAction(Coupon $coupon, Request $request)
+    {
+        $session = $request->getSession();
+        if (!$session->has("coupons"))
+            $coupons = array();
+        else
+            $coupons = $session->get('coupons');
+        $newCoupons=array();
+        foreach ($coupons as $cc)
+        {
+            if($cc->getId()!=$coupon->getId())
+                $newCoupons[]=$cc;
+        }
+        $session->set("coupons", $newCoupons);
+        return $this->redirectToRoute("front_pannier_coupons");
+    }
     public function listCouponsAction(Request $request)
     {
         $session = $request->getSession();
