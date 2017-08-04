@@ -62,7 +62,7 @@ class Produit
     private $categories;
 
     /**
-     * @ORM\ManyToMany(targetEntity="back\GeneralBundle\Entity\Supermarche", cascade={"persist"})
+     * @ORM\ManyToMany(targetEntity="back\GeneralBundle\Entity\Supermarche", cascade={"persist"},inversedBy="produits")
      */
     private $supermarche;
 

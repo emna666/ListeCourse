@@ -1,0 +1,31 @@
+{% extends ':Front:base.html.twig' %}
+{% block title %}Supermarchés{% endblock %}
+{% block description %}Dans cette page vous trouvez notre liste des supermarchés{% endblock %}
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="content col-md-12">
+                <div class="post-wrapper store-list">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h4 class="list-title">Liste des supermarchés</h4>
+                            <ul class="check-list">
+                                {% for supermarche in supermarches %}
+                                    <li>
+                                        <a href="{{ path('front_super_marches_details',{id:supermarche.id}) }}">
+                                            <img src="{{ asset('uploads/supermarches/' ~ supermarche.url) }}" style="width: 51px;height: 31px">
+                                            {{ supermarche.libelle }}
+                                            <small>(Produits {{ supermarche.produits.count }} )</small>
+                                        </a>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+

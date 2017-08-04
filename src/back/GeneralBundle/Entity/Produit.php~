@@ -10,6 +10,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  *
  * @ORM\Table(name="produit")
  * @ORM\Entity(repositoryClass="back\GeneralBundle\Repository\ProduitRepository")
+ * @ORM\HasLifecycleCallbacks()
  */
 class Produit
 {
@@ -61,6 +62,19 @@ class Produit
     private $categories;
 
     /**
+     * @ORM\ManyToMany(targetEntity="back\GeneralBundle\Entity\Supermarche", cascade={"persist"},inversedBy="produits")
+     */
+    private $supermarche;
+
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="updated_at",type="datetime", nullable=true)
+     */
+    private $updated;
+
+    /**
      * Image path
      *
      * @var string
@@ -82,6 +96,37 @@ class Produit
      * )
      */
     private $file;
+
+
+    /**
+     * @param mixed $supermarche
+     * @return Produit
+     */
+    public function setSupermarche($supermarche)
+    {
+        $this->supermarche = $supermarche;
+        return $this;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getUpdated()
+    {
+        return $this->updated;
+    }
+
+    /**
+     * @param \DateTime $updated
+     * @return Produit
+     */
+    public function setUpdated($updated)
+    {
+        $this->updated = $updated;
+        return $this;
+    }
+
+
 
     public function getUploadRootDir()
     {
@@ -324,6 +369,7 @@ class Produit
     public function __construct()
     {
         $this->categories = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->supermarche = new  \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -358,5 +404,44 @@ class Produit
     public function getCategories()
     {
         return $this->categories;
+    }
+
+    /**
+     * Add Supermarche
+     *
+     * @param \back\GeneralBundle\Entity\Supermarche $supermarche
+     *
+     * @return Produit
+     */
+    public function addSupermarche(\back\GeneralBundle\Entity\Supermarche $supermarche)
+    {
+        $this->supermarche[] = $supermarche;
+
+        return $this;
+    }
+
+    /**
+     * Remove Supermarche
+     *
+     * @param \back\GeneralBundle\Entity\Supermarche $supermarche
+     */
+    public function removeSupermarche(\back\GeneralBundle\Entity\Supermarche $supermarche)
+    {
+        $this->supermarche->removeElement($supermarche);
+    }
+
+    /**
+     * Get supermarche
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getSupermarche()
+    {
+        return $this->supermarche;
+    }
+
+    public function __toString()
+    {
+        return $this->libelle;
     }
 }

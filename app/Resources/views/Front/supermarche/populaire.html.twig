@@ -1,0 +1,17 @@
+<div class="widget clearfix">
+    <div class="featured hidden-xs"><i class="fa fa-star-o"></i></div>
+    <div class="widget-title">
+        <h4><span>Populaires</span></h4>
+    </div>
+
+    <div class="text-center store-list row">
+        {% for supermarche in suermarches %}
+            <div class="col-md-6 col-xs-6">
+                <div class="post-media">
+                    <a href="{{ path('front_super_marches_details',{id:supermarche.id}) }}"><img src={{ asset('uploads/supermarches/' ~ supermarche.url) }} alt="" class="img-responsive" style="width: 134px;height: 80px"></a>
+                    <small>{{ supermarche|title }}</small>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>

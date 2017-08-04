@@ -45,7 +45,7 @@ class Supermarche
     private $longitude;
 
     /**
-     * @ORM\ManyToMany(targetEntity="back\GeneralBundle\Entity\Produit",mappedBy="supermarche")
+     * @ORM\ManyToMany(targetEntity="back\GeneralBundle\Entity\Produit",mappedBy="")
      */
     private $produits;
 
@@ -425,38 +425,5 @@ class Supermarche
         $this->produits = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
-
-    /**
-     * Add produit
-     *
-     * @param \back\GeneralBundle\Entity\Produit $produit
-     *
-     * @return Supermarche
-     */
-    public function addProduit(\back\GeneralBundle\Entity\Produit $produit)
-    {
-        $this->produits[] = $produit;
-
-        return $this;
-    }
-
-    /**
-     * Remove produit
-     *
-     * @param \back\GeneralBundle\Entity\Produit $produit
-     */
-    public function removeProduit(\back\GeneralBundle\Entity\Produit $produit)
-    {
-        $this->produits->removeElement($produit);
-    }
-
-    /**
-     * Get produits
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getProduits()
-    {
-        return $this->produits;
-    }
 }
+

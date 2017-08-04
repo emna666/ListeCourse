@@ -1,7 +1,6 @@
 {% extends ":Front:base.html.twig" %}
-{% block title %}
-	Connexion
-{% endblock %}
+{% block title %}Connexion{% endblock %}
+{% block description %}Merci de s'inscrire si vous n'avez pas des accéss{% endblock %}
 {% block body %}
 	<div class="container">
         {% trans_default_domain 'FOSUserBundle' %}
@@ -9,14 +8,24 @@
 			<div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
         {% endif %}
 
-		<div class="row">
-			<div class="col-md-8 col-lg-offset-4">
+		<div class="row sidebar">
+			<div class="col-md-6">
+				<div class="widget-title">
+					<h4><span>S'inscrire</span></h4>
+					<p>En créant un compte auprès de notre magasin, vous pourrez passer rapidement le processus de caisse, stocker plusieurs adresses d'expédition, afficher et suivre vos commandes dans votre compte et plus encore.</p>
+					<a href="{{ path('fos_user_registration_register') }}" class="btn btn-primary btn-block">S'inscrire</a>
+				</div>
+			</div>
+			<div class="col-md-6">
+				<div class="widget-title">
+					<h4><span>Se connecter</span></h4>
+				</div>
 				<form action="{{ path("fos_user_security_check") }}" method="post">
                     {% if csrf_token %}
 						<input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
                     {% endif %}
 					<div class="row">
-						<div class="col-md-6">
+						<div class="col-md-8">
 							<div class="form-group">
 								<label for="username">{{ 'security.login.username'|trans }}</label>
 								<input type="text" id="username" name="_username" value="{{ last_username }}" class="form-control" required="required" />
@@ -24,7 +33,7 @@
 						</div>
 					</div>
 					<div class="row">
-						<div class="col-md-6">
+						<div class="col-md-8">
 							<div class="form-group">
 								<label for="username">{{ 'security.login.password'|trans }}</label>
 								<input type="password" id="password" name="_password" required="required" class="form-control" />
@@ -32,7 +41,7 @@
 						</div>
 					</div>
 					<div class="row">
-						<div class="col-md-4">
+						<div class="col-md-8">
 							<div class="form-group">
 								<input type="checkbox" id="remember_me" name="_remember_me" value="on" />
 								<label for="remember_me">{{ 'security.login.remember_me'|trans }}</label>

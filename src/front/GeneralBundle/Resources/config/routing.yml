@@ -9,3 +9,7 @@ front_general_contact:
 front_super_marches:
     path:     /supermarches
     defaults: { _controller: frontGeneralBundle:Supermarche:list }
+
+front_super_marches_details:
+    path:     /supermarches/{id}
+    defaults: { _controller: frontGeneralBundle:Supermarche:details }
