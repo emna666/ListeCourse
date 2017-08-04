@@ -1,5 +1,15 @@
 {% extends ":Front:base.html.twig" %}
+{% block title %}
+    Inscription
+{% endblock %}
 
+{#{% block contentTop %}
+    <div class="container">
+        <div class="section-title m30 text-center">
+            <h1>Inscription</h1>
+        </div>
+    </div>
+{% endblock %}#}
 {% block body %}
     <div class="container">
         {% trans_default_domain 'FOSUserBundle' %}
@@ -28,11 +38,13 @@
             {{ formulaire.select2("col-md-3","localite",form.localite,false) }}
         </div>
         <div class="row">
-            {{ formulaire.input("col-md-6","Adresse",form.adresse,false) }}
-            {{ formulaire.input("col-md-6","Logo/Photo",form.file,false) }}
+            {{ formulaire.input("col-md-12","Adresse",form.adresse,false) }}
         </div>
         <div>
-            <input type="submit" value="{{ 'registration.submit'|trans }}" />
+            <input type="submit" class="btn btn-primary" value="{{ 'registration.submit'|trans }}" />
+        </div>
+        <div class="hidden">
+            {{ form_rest(form) }}
         </div>
         {{ form_end(form) }}
 

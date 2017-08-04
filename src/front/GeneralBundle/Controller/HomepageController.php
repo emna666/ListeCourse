@@ -17,15 +17,16 @@ class HomepageController extends Controller
         $marques = $em->getRepository(Marque::class)->findAll();
         $supermarches = $em->getRepository(Supermarche::class)->findAll();
         return $this->render('Front/homepage/index.html.twig', array(
-            'coupons' => $coupons,
-            'marques' => $marques,
+            'coupons'     => $coupons,
+            'marques'     => $marques,
             'suermarches' => $supermarches
         ));
     }
+
     public function supermarcheAction()
     {
         $em = $this->get('doctrine.orm.entity_manager');
-        $supermarches = $em->getRepository(Supermarche::class)->findBy(array(),array(),6);
+        $supermarches = $em->getRepository(Supermarche::class)->findBy(array(), array(), 6);
         return $this->render('Front/homepage/supermarche.html.twig', array(
             'suermarches' => $supermarches
         ));
@@ -41,11 +42,18 @@ class HomepageController extends Controller
         ));
     }
 
-    public function  couponAction() {
+    public function couponAction()
+    {
         $em = $this->get('doctrine.orm.entity_manager');
         $coupons = $em->getRepository(Coupon::class)->findBy(array(), array(), 8);
         return $this->render('Front/homepage/coupon.html.twig', array(
             'coupons' => $coupons
         ));
+    }
+
+
+    public function contactUsAction()
+    {
+        return $this->render(':Front/contactAs:index.html.twig');
     }
 }

@@ -1,3 +1,7 @@
 front_general_accueil:
     path:     /
     defaults: { _controller: frontGeneralBundle:Homepage:accueil }
+
+front_general_contact:
+    path:     /contact
+    defaults: { _controller: frontGeneralBundle:Homepage:contactUs }

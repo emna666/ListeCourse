@@ -1,0 +1,75 @@
+{% extends ":Front:base.html.twig" %}
+{% block title %}Contactez-nous{% endblock %}
+{% block contentTop %}
+    <div class="container">
+        <div class="section-title m30 text-center">
+            <h1>Contact Us</h1>
+            <p>In dignissim feugiat gravida. Proin feugiat quam sed gravida fringilla. Proin quis mauris ut magna fringilla vulputate quis non ante. Integer bibendum velit dui. Sed consequat nisi id convallis eleifend. </p>
+        </div>
+    </div>
+{% endblock %}
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="content col-md-7">
+                <div class="post-wrapper">
+                    <div class="widget-title">
+                        <h4><span>Contact Form</span></h4>
+                    </div>
+                    <!-- end widget-title -->
+
+                    <p>Remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+
+                    <hr class="invis3">
+
+                    <form id="submit" class="comment-form newsletter">
+                        <div class="row">
+                            <div class="col-md-6 col-sm-12">
+                                <label class="control-label">Your Name</label>
+                                <input type="text" class="form-control" placeholder="">
+                            </div>
+                            <div class="col-md-6 col-sm-12">
+                                <label class="control-label">Your Email</label>
+                                <input type="email" class="form-control" placeholder="">
+                            </div>
+                        </div>
+                        <!-- end row -->
+
+                        <div class="row">
+                            <div class="col-md-6 col-sm-12">
+                                <label class="control-label">Phone</label>
+                                <input type="text" class="form-control" placeholder="">
+                            </div>
+                            <div class="col-md-6 col-sm-12">
+                                <label class="control-label">Subject</label>
+                                <input type="text" class="form-control" placeholder="">
+                            </div>
+                        </div>
+                        <!-- end row -->
+
+                        <div class="row">
+                            <div class="col-md-12 col-sm-12">
+                                <label class="control-label">Your Message</label>
+                                <textarea class="form-control" placeholder=""></textarea>
+                            </div>
+                        </div>
+                        <!-- end row -->
+
+                        <button class="btn btn-custom">Submit Form</button>
+                    </form>
+
+                </div><!-- end coupon-wrapper -->
+            </div><!-- end content -->
+
+            <div class="sidebar col-md-5">
+                <div class="widget">
+                    <div class="widget-title">
+                        <h4><span>Contact Map</span></h4>
+                    </div><!-- end widget-title -->
+                    <div id="map"></div>
+                </div>
+            </div>
+        </div><!-- end row -->
+    </div><!-- end container -->
+
+{% endblock %}

@@ -10,46 +10,41 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand" href="index-2.html"><img src="{{ asset('front-assets/images/logo.png') }}" alt=""></a>
+                        <a class="navbar-brand" href="{{ path('front_general_accueil') }}"><img src="{{ asset('front-assets/images/logo.png') }}" alt=""></a>
                     </div><!-- end navbar-header -->
 
                     <div class="navbar-collapse collapse">
                         <ul class="nav navbar-nav">
-                            <li><a class="active" href="index-2.html" title="">Home</a></li>
-                            <li class="dropdown hasmenu">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Pages <span class="fa fa-angle-down"></span></a>
-                                <ul class="dropdown-menu" role="menu">
-                                    <li><a href="store-single.html">Store Single</a></li>
-                                    <li><a href="coupon-single.html">Coupon Single</a></li>
-                                    <li><a href="category-single.html">Category Single</a></li>
-                                    <li><a href="single.html">Blog Single</a></li>
-                                    <li><a href="page-contact.html">Contact us</a></li>
-                                    <li><a href="page.html">Default Page</a></li>
-                                    <li><a href="page-404.html">Not Found</a></li>
-                                    <li><a href="page-elements.html">All Elements</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="coupons.html" title="">Coupons</a></li>
-                            <li><a href="printable.html" title="">Printable</a></li>
-                            <li><a href="categories.html" title="">Categories</a></li>
-                            <li><a href="stores.html" title="">Stores</a></li>
-                            <li><a href="blog.html" title="">Blog</a></li>
+                            <li><a {% if app.request.get('_route')=='front_general_accueil' %}class="active"{% endif %} href="{{ path('front_general_accueil') }}" title="">Accueil</a></li>
+                            <li><a {% if app.request.get('_route')=='front_supermarches' %}class="active"{% endif %} href="{{ path('front_general_accueil') }}" title="">Nos supermarchés</a></li>
+                            <li><a {% if app.request.get('_route')=='front_general_contact' %}class="active"{% endif %} href="{{ path('front_general_contact') }}" title="">Contactez nous</a></li>
                         </ul>
                         <ul class="nav navbar-nav navbar-right">
-                            <li class="dropdown hasmenu userpanel">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="{{ asset('front-assets/uploads/testi_03.png') }}" alt="" class="img-circle"> <span class="fa fa-angle-down"></span></a>
-                                <ul class="dropdown-menu start-right" role="menu">
-                                    <li><a href="user-dashboard.html"><i class="fa fa-dashboard"></i> Dashboard</a></li>
-                                    <li><a href="user-favorites.html"><i class="fa fa-star"></i> Favorite Stores</a></li>
-                                    <li><a href="user-saved.html"><i class="fa fa-heart-o"></i> Saved Coupons</a></li>
-                                    <li><a href="user-submit.html"><i class="fa fa-bullhorn"></i> Submit Coupon</a></li>
-                                    <li><a href="#"><i class="fa fa-lock"></i> Sign Out</a></li>
-                                </ul>
-                            </li>
+                            {% if not is_granted('ROLE_USER') %}
+                                <li><a {% if app.request.get('_route')=='fos_user_security_login' %}class="active"{% endif %} href="{{ path('fos_user_security_login') }}" title="">Connextion</a></li>
+                                <li><a {% if app.request.get('_route')=='fos_user_registration_register' %}class="active"{% endif %} href="{{ path('fos_user_registration_register') }}" title="">Inscription</a></li>
+                            {% else %}
+                                <li class="dropdown hasmenu userpanel">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="{{ asset('front-assets/uploads/testi_03.png') }}" alt="" class="img-circle"> <span class="fa fa-angle-down"></span></a>
+                                    <ul class="dropdown-menu start-right" role="menu">
+                                        <li><a href="user-dashboard.html"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+                                        <li><a href="user-favorites.html"><i class="fa fa-star"></i> Favorite Stores</a></li>
+                                        <li><a href="user-saved.html"><i class="fa fa-heart-o"></i> Saved Coupons</a></li>
+                                        <li><a href="user-submit.html"><i class="fa fa-bullhorn"></i> Submit Coupon</a></li>
+                                        {% if is_granted('ROLE_ADMIN') %}
+                                            <li><a href="{{ path('back_general_homepage') }}"><i class="fa fa-dashboard"></i> Administration</a></li>
+                                        {% endif %}
+                                        {% if is_granted('ROLE_ADHERENT') %}
+                                            <li><a href="{{ path('Adherent_homepage') }}"><i class="fa fa-dashboard"></i> Espace adhérent</a></li>
+                                        {% endif %}
+                                        <li><a href="{{ path('fos_user_security_logout') }}"><i class="fa fa-lock"></i> Déconnexion</a></li>
+                                    </ul>
+                                </li>
+                            {% endif %}
                         </ul>
-                    </div><!--/.nav-collapse -->
-                </div><!-- end navbar navbar-default clearfix -->
-            </div><!-- end menu 1 -->
-        </div><!-- end container -->
-    </div><!-- / menu-wrapper -->
-</div><!-- end header -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
