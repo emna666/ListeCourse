@@ -8,3 +8,6 @@ services:
         class: back\GeneralBundle\Form\RegistrationType
         tags:
             - { name: form.type, alias: app_user_registration  }
+
+    app.html2pdf:
+        class: front\GeneralBundle\Service\HTML2PDF

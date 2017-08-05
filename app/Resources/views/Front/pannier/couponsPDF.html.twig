@@ -1,0 +1,17 @@
+<page backtop="10mm" backbottom="10mm" backleft="20mm" backright="20mm">
+    <span style="font-size: 20px; font-weight: bold">Liste des coupons</span><br>
+    <br>
+    <br>
+    <table style="width: 80%;border: solid 1px #5544DD; border-collapse: collapse" align="center">
+        <tbody>
+        {% for coupon in coupons %}
+
+            <tr>
+                <td style="width: 100%; text-align: left; border: solid 1px #55DD44">
+                    <img src="{{ app.request.scheme ~'://' ~ app.request.httpHost ~ asset('uploads/coupons/' ~ coupon.url) }}" style="width: 500px">
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</page>

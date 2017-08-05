@@ -5,6 +5,9 @@
     <div class="container">
         <div class="row">
             <div class="content col-md-8">
+                {% if coupons|length>0 %}
+                    <a target="_blank" href="{{ path('front_pannier_pdf_coupon') }}" class="btn btn-default btn-block">Imprimer vos coupons</a>
+                {% endif %}
                 {% for coupon in coupons %}
                     <div class="coupon-list list-wrapper">
                         <div class="coupon-wrapper">

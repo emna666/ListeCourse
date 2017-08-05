@@ -10,6 +10,29 @@ use Symfony\Component\HttpFoundation\Response;
 
 class PannierController extends Controller
 {
+    public function produitsPdfAction(Request $request)
+    {
+        $session = $request->getSession();
+        if (!$session->has("produits"))
+            $produits = array();
+        else
+            $produits = $session->get('produits');
+        $html2pdf = $this->get('app.html2pdf');
+        $html2pdf->create();
+        return $html2pdf->generatePdf($this->renderView(":Front/pannier:produitsPDF.html.twig",array("produits"=>$produits)),"abc");
+    }
+    public function couponsPdfAction(Request $request)
+    {
+        $session = $request->getSession();
+        if (!$session->has("coupons"))
+            $coupons = array();
+        else
+            $coupons = $session->get('coupons');
+        $html2pdf = $this->get('app.html2pdf');
+        $html2pdf->create();
+        return $html2pdf->generatePdf($this->renderView(":Front/pannier:couponsPDF.html.twig",array("coupons"=>$coupons)),"abc");
+    }
+
     public function listProduitsAction(Request $request)
     {
         $session = $request->getSession();
@@ -17,8 +40,23 @@ class PannierController extends Controller
             $produits = array();
         else
             $produits = $session->get('produits');
+        if(count($produits)==0)
+            $this->addFlash("info", "Votre liste et vide");
         return $this->render(":Front/pannier:produits.html.twig",array(
             "produits"=>$produits
+        ));
+    }
+    public function listCouponsAction(Request $request)
+    {
+        $session = $request->getSession();
+        if (!$session->has("coupons"))
+            $coupons = array();
+        else
+            $coupons = $session->get('coupons');
+        if(count($coupons)==0)
+            $this->addFlash("info", "Votre liste et vide");
+        return $this->render(":Front/pannier:coupons.html.twig",array(
+            "coupons"=>$coupons
         ));
     }
 
@@ -55,17 +93,6 @@ class PannierController extends Controller
         }
         $session->set("coupons", $newCoupons);
         return $this->redirectToRoute("front_pannier_coupons");
-    }
-    public function listCouponsAction(Request $request)
-    {
-        $session = $request->getSession();
-        if (!$session->has("coupons"))
-            $coupons = array();
-        else
-            $coupons = $session->get('coupons');
-        return $this->render(":Front/pannier:coupons.html.twig",array(
-            "coupons"=>$coupons
-        ));
     }
 
     public function countProduitsAction(Request $request)
@@ -144,7 +171,7 @@ class PannierController extends Controller
         }
         $coupons[] = $coupon;
         $session->set("coupons", $coupons);
-        $this->addFlash("success", "Le coupons a été ajoutée dans votre liste des coupons");
+        $this->addFlash("success", "Le coupon a été ajoutée dans votre liste des coupons");
         return $this->redirectToRoute("front_super_marches_details", array(
             "id" => $idSupermarche
         ));

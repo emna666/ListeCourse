@@ -5,6 +5,9 @@
     <div class="container">
         <div class="row">
             <div class="content col-md-8">
+                {% if produits|length>0 %}
+                    <a target="_blank" href="{{ path('front_pannier_pdf_produit') }}" class="btn btn-default btn-block">Imprimer la liste des produits</a>
+                {% endif %}
                 {% for produit in produits %}
                     <div class="coupon-list list-wrapper">
                         <div class="coupon-wrapper">

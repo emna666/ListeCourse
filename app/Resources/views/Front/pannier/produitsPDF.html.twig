@@ -1,0 +1,26 @@
+<page backtop="10mm" backbottom="10mm" backleft="20mm" backright="20mm">
+    <span style="font-size: 20px; font-weight: bold">Liste des produits</span><br>
+    <br>
+    <br>
+    <table style="width: 80%;border: solid 1px #5544DD; border-collapse: collapse" align="center">
+        <thead>
+        <tr>
+            <th style="width: 30%; text-align: left; border: solid 1px #337722; background: #CCFFCC">Photo</th>
+            <th style="width: 30%; text-align: left; border: solid 1px #337722; background: #CCFFCC">Desc</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for produit in produits %}
+
+            <tr>
+                <td style="width: 30%; text-align: left; border: solid 1px #55DD44">
+                    {{ produit.libelle }}
+                </td>
+                <td style="width: 70%; text-align: left; border: solid 1px #55DD44">
+                    {{ produit.description }}
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</page>

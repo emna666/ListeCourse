@@ -37,3 +37,11 @@ front_pannier_delete_coupon:
 front_pannier_delete_produit:
     path:     /pannier/produit_delete/{id}
     defaults: { _controller: frontGeneralBundle:Pannier:deleteProduit }
+
+front_pannier_pdf_produit:
+    path:     /pannier/produit_pdf
+    defaults: { _controller: frontGeneralBundle:Pannier:produitsPdf }
+
+front_pannier_pdf_coupon:
+    path:     /pannier/coupon_pdf
+    defaults: { _controller: frontGeneralBundle:Pannier:couponsPdf }
