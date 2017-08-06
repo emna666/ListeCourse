@@ -1,0 +1,40 @@
+{% extends ':Front:base.html.twig' %}
+{% block title %}Recettes{% endblock %}
+{% block description %}Dans cette page vous trouvez nos meileures recettes{% endblock %}
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="content col-md-12">
+            <div class="row">
+                {% for recette in recettes %}
+                <div class="col-md-6">
+                        <div class="coupon-list list-wrapper single-blog blog-wrapper">
+                            <div class="coupon-wrapper">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="post-media text-center">
+                                            <a href="{{ path('front_recette_details',{id:recette.id}) }}"><img src="{{ asset('uploads/recettes/' ~ recette.url) }}" alt="" class="img-responsive"></a>
+                                        </div><!-- end media -->
+                                    </div>
+
+                                    <div class="col-md-8">
+                                        <div class="coupon-meta">
+                                            <h3><a href="{{ path('front_recette_details',{id:recette.id}) }}">{{ recette.libelle }}</a></h3>
+                                        </div><!-- end meta -->
+                                        <div class="blog-bottom clearfix">
+                                            <p>{{ recette.shortDesc }} </p>
+                                            <a href="{{ path('front_recette_details',{id:recette.id}) }}" class="readmore">Voir plus</a>
+                                        </div>
+                                    </div><!-- end col -->
+                                </div><!-- end row -->
+                            </div><!-- end coupon-wrapper -->
+                        </div>
+                </div>
+                {% endfor %}
+            </div>
+
+            </div>
+        </div>
+    </div>
+{% endblock %}
+

@@ -17,7 +17,9 @@
                         <ul class="nav navbar-nav">
                             <li><a {% if app.request.get('_route')=='front_general_accueil' %}class="active"{% endif %} href="{{ path('front_general_accueil') }}" title="">Accueil</a></li>
                             <li><a {% if app.request.get('_route')=='front_super_marches' %}class="active"{% endif %} href="{{ path('front_super_marches') }}" title="">Nos supermarchés</a></li>
+                            <li><a {% if app.request.get('_route')=='front_recettes' %}class="active"{% endif %} href="{{ path('front_recettes') }}" title="">Nos recettes</a></li>
                             <li><a {% if app.request.get('_route')=='front_general_contact' %}class="active"{% endif %} href="{{ path('front_general_contact') }}" title="">Contactez nous</a></li>
+
                         </ul>
                         <ul class="nav navbar-nav navbar-right">
                             {% if not is_granted('ROLE_USER') %}

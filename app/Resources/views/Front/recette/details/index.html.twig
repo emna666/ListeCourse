@@ -1,0 +1,54 @@
+{% extends ':Front:base.html.twig' %}
+{% block title %}{{ recette.libelle | title }}{% endblock %}
+{% block description %}{{ recette.shortDesc }}{% endblock %}
+{% block body %}
+    <div class="container">
+    <div class="row">
+    <div class="content col-md-12">
+        <div class="coupon-list list-wrapper single-blog">
+            <div class="coupon-wrapper">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="post-media text-center">
+                            <img src="{{ asset ('/uploads/recettes/' ~ recette.url) }}" alt="" class="img-responsive">
+                        </div><!-- end media -->
+
+                        <div class="coupon-meta">
+                            <h3>{{ recette.libelle }}</h3>
+
+                            <div class="coupon-bottom clearfix">
+                                {{ recette.shortDesc }}
+                            </div><!-- end coupon-top -->
+                        </div><!-- end meta -->
+
+                        <div class="coupon-bottom clearfix">
+                            <p class="lead">Porduit utilisés dans notre magasin : </p>
+                            {% for produit in recette.produit %}
+                            <small><i class="fa fa-cutlery"></i> {{ produit.libelle }}</small>
+                            </br>
+                                {% endfor %}
+                        </div><!-- end coupon-top -->
+                        <div class="coupon-bottom clearfix">
+                            <p class="lead">Autre ingredients : </p>
+
+                                <small><i class="fa fa-cutlery"></i> {{ recette.ingredients }}</small>
+                        </div><!-- end coupon-top -->
+                    </div><!-- end col -->
+                </div><!-- end row -->
+
+                <hr class="invis2">
+
+                <div class="coupon-desc clearfix">
+                    <p class="lead">Préparation: </p>
+                    <p>{{ recette.description }}</p>
+
+                    </div>
+
+                </div><!-- end desc -->
+            </div><!-- end coupon-wrapper -->
+        </div><!-- end coupon list -->
+
+    </div>
+</div>
+    </div>
+{% endblock %}
