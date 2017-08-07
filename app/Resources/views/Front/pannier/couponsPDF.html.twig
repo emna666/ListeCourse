@@ -11,6 +11,9 @@
                     <img src="{{ app.request.scheme ~'://' ~ app.request.httpHost ~ asset('uploads/coupons/' ~ coupon.url) }}" style="width: 500px">
                 </td>
             </tr>
+            <tr>
+                <td><h2>{{ coupon.libelle }}</h2></td>
+            </tr>
         {% endfor %}
         </tbody>
     </table>

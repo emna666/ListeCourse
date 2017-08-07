@@ -1,0 +1,14 @@
+services:
+
+    rest.service:
+        class: RestBundle\Service\RestService
+        arguments: ["@request_stack"]
+
+    rest.data.service:
+        class: RestBundle\Service\RestDataService
+        arguments: ["@doctrine.orm.entity_manager","@rest.service"]
+
+
+    rest.session.service:
+        class: RestBundle\Service\RestSessionService
+        arguments: ["@serializer","@doctrine.orm.entity_manager","@rest.service","@rest.data.service","@request_stack","@security.encoder_factory"]

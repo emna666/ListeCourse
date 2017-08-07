@@ -5,6 +5,7 @@ imports:
     - { resource: "@frontGeneralBundle/Resources/config/services.yml" }
     - { resource: "@backGeneralBundle/Resources/config/services.yml" }
     - { resource: "@backAdherentBundle/Resources/config/services.yml" }
+    - { resource: "@RestBundle/Resources/config/services.yml" }
 
 parameters:
     locale: fr
@@ -77,3 +78,26 @@ fos_user:
     from_email:
         address: "%mailer_user%"
         sender_name: You
+
+fos_rest:
+    serializer:
+        serialize_null: true
+    param_fetcher_listener: true
+    body_listener: true
+    format_listener: true
+    view:
+        view_response_listener: 'force'
+        mime_types:
+            json: ['application/json; charset=UTF-8', 'application/json']
+    routing_loader:
+        default_format: json
+    access_denied_listener:
+        json: true
+    exception:
+        codes:
+            'Symfony\Component\Routing\Exception\ResourceNotFoundException': 404
+            'Doctrine\ORM\OptimisticLockException': HTTP_CONFLICT
+        messages:
+            'Symfony\Component\Routing\Exception\ResourceNotFoundException': true
+
+nelmio_api_doc: ~

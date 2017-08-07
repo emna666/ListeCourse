@@ -1,0 +1,172 @@
+<?php
+
+namespace RestBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Session
+ *
+ * @ORM\Table(name="session")
+ * @ORM\Entity(repositoryClass="RestBundle\Repository\SessionRepository")
+ */
+class Session
+{
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="device_id", type="string", length=255, nullable=true)
+     */
+    private $deviceId;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="device_type", type="string", length=255, nullable=true)
+     */
+    private $deviceType;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="token", type="string", length=255)
+     */
+    private $token;
+
+    /**
+     * @var \DateTime $created
+     *
+     * @ORM\Column(type="datetime")
+     */
+    private $created;
+
+    /**
+     *
+     * @ORM\ManyToOne(targetEntity="back\GeneralBundle\Entity\User")
+     */
+    private $user;
+
+    public function __construct()
+    {
+        $this->created = new \DateTime();
+    }
+
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set token
+     *
+     * @param string $token
+     *
+     * @return Session
+     */
+    public function setToken($token)
+    {
+        $this->token = $token;
+
+        return $this;
+    }
+
+    /**
+     * Get token
+     *
+     * @return string
+     */
+    public function getToken()
+    {
+        return $this->token;
+    }
+
+    /**
+     * Set created
+     *
+     * @param \DateTime $created
+     *
+     * @return Session
+     */
+    public function setCreated($created)
+    {
+        $this->created = $created;
+
+        return $this;
+    }
+
+    /**
+     * Get created
+     *
+     * @return \DateTime
+     */
+    public function getCreated()
+    {
+        return $this->created;
+    }
+
+
+
+    /**
+     * Set deviceId
+     *
+     * @param string $deviceId
+     *
+     * @return Session
+     */
+    public function setDeviceId($deviceId)
+    {
+        $this->deviceId = $deviceId;
+
+        return $this;
+    }
+
+    /**
+     * Get deviceId
+     *
+     * @return string
+     */
+    public function getDeviceId()
+    {
+        return $this->deviceId;
+    }
+
+    /**
+     * Set deviceType
+     *
+     * @param string $deviceType
+     *
+     * @return Session
+     */
+    public function setDeviceType($deviceType)
+    {
+        $this->deviceType = $deviceType;
+
+        return $this;
+    }
+
+    /**
+     * Get deviceType
+     *
+     * @return string
+     */
+    public function getDeviceType()
+    {
+        return $this->deviceType;
+    }
+
+}
+

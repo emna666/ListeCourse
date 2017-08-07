@@ -1,3 +1,8 @@
+rest:
+    resource: "@RestBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
 back_adherent:
     resource: "@backAdherentBundle/Controller/"
     type:     annotation
@@ -21,3 +26,7 @@ front_general:
 Adherent_general:
     resource: "@backAdherentBundle/Resources/config/routing.yml"
     prefix:   /adherent
+
+NelmioApiDocBundle:
+    resource: "@NelmioApiDocBundle/Resources/config/routing.yml"
+    prefix:   /api/doc
