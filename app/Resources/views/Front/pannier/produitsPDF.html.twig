@@ -1,26 +1,101 @@
-<page backtop="10mm" backbottom="10mm" backleft="20mm" backright="20mm">
-    <span style="font-size: 20px; font-weight: bold">Ma liste de courses</span><br>
-    <br>
-    <br>
-    <table style="width: 80%;border: solid 1px #5544DD; border-collapse: collapse" align="center">
-        <thead>
-        <tr>
-            <th style="width: 30%; text-align: left; border: solid 1px #337722; background: #CCFFCC">Photo</th>
-            <th style="width: 30%; text-align: left; border: solid 1px #337722; background: #CCFFCC">Desc</th>
-        </tr>
-        </thead>
-        <tbody>
-        {% for produit in produits %}
+<html>
+<head>
+    <style type="text/css" media="all">
+        @page {
+            size: A4 portrait; /* can use also 'landscape' for orientation */
+            margin: 1.0in;
+            border: thin solid black;
+            padding: 1em;
 
-            <tr>
-                <td style="width: 30%; text-align: left; border: solid 1px #55DD44">
-                    {{ produit.libelle }}
-                </td>
-                <td style="width: 70%; text-align: left; border: solid 1px #55DD44">
-                    {{ produit.description }}
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-</page>
+            @bottom-center {
+                content: element(footer);
+            }
+
+            @top-center {
+                content: element(header);
+            }
+        }
+
+        #page-header {
+            display: block;
+            position: running(header);
+        }
+
+        #page-footer {
+            display: block;
+            position: running(footer);
+        }
+
+        .page-number:before {
+            content: counter(page);
+        }
+
+        .page-count:before {
+            content: counter(pages);
+        }
+        h1,h2,h3,h4,h5,h6 {
+            font-family: Helvetica, Arial, sans-serif;
+            color: #000;
+        }
+        h1 { font-size: 130%; text-align: center; margin-bottom: 40px; color: #2c323c;  text-transform: uppercase}
+        h3 { font-size: 135%; }
+        h4 { font-size: 100%; font-variant: small-caps; }
+        h5 { font-size: 100%; }
+        h6 { font-size: 120%; font-style: italic; margin: 0 0 20px;}
+        p {
+            margin: 0 5px;
+        }
+        .content_article {
+            width: 95%;
+            border: 1px dashed #000000;
+            display: block;
+            padding: 10pt;
+            margin-bottom: 15px;
+        }
+        .img_produit {
+            max-width: 100%;
+            display: inline;
+            float: left;
+            width:35%;
+            padding: 10px;
+            border: 1px solid #d1d1d1;
+        }
+        .img_produit img {
+            max-width:100%;
+            height: 250px;
+            display: block;
+        }
+        .desc_produit {
+            float: right;
+            display: inline;
+            width:60%;
+        }
+    </style>
+</head>
+
+<body>
+<div id="page-header">
+    <h1>Ma liste de courses</h1>
+</div>
+
+
+<div id="page-content">
+    {% for produit in produits %}
+        <div class="content_article">
+
+            <div class="img_produit"><img src="{{ app.request.scheme ~'://' ~ app.request.httpHost ~ asset('uploads/produits/' ~ produit.url) }}" >
+            </div>
+            <div class="desc_produit">
+                <h4>{{ produit.libelle }}</h4>
+                <h6>{{ produit.prix }} DT</h6>
+                <p>{{ produit.description }}</p>
+
+            </div>
+
+        </div>
+        <p style="page-break-after:always;"/>
+    {% endfor %}
+
+</div>
+</body>
+</html>

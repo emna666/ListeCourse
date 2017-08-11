@@ -91,4 +91,26 @@ class DefaultController extends Controller
             return $this->get('rest.data.service')->getProduits($idSupermarche);
         }
     }
+
+
+
+    /**
+     * @Route("/mesProduits", defaults={"_format" = "json"}, name="api__mes_produits")
+     * @Method("get")
+     * @ApiDoc(
+     *   parameters={
+     *     {"name"="token","dataType"="string","required"=true}
+     *   }
+     * )
+     */
+    public function mesProduitsAction(Request $request)
+    {
+        $session = $this->get('rest.session.service')->getSessionByToken();
+        if ($session instanceof JsonResponse)
+            return $session;
+        elseif ($session instanceof Session)
+        {
+            return $this->get('rest.data.service')->mesProduits($session->getUser());
+        }
+    }
 }

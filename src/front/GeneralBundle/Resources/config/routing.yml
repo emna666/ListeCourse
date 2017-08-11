@@ -14,6 +14,10 @@ front_super_marches_details:
     path:     /supermarches/{id}
     defaults: { _controller: frontGeneralBundle:Supermarche:details }
 
+front_super_marches_produits:
+    path:     /produits/{idSupermarche}/{idCategorie}
+    defaults: { _controller: frontGeneralBundle:Supermarche:produits }
+
 front_recettes:
     path:     /recette
     defaults: { _controller: frontGeneralBundle:Recette:index }

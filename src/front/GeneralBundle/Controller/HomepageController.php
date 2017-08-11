@@ -5,6 +5,7 @@ namespace front\GeneralBundle\Controller;
 use back\GeneralBundle\Entity\Categories;
 use back\GeneralBundle\Entity\Coupon;
 use back\GeneralBundle\Entity\Marque;
+use back\GeneralBundle\Entity\Recette;
 use back\GeneralBundle\Entity\Supermarche;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
@@ -45,7 +46,7 @@ class HomepageController extends Controller
     public function couponAction()
     {
         $em = $this->get('doctrine.orm.entity_manager');
-        $coupons = $em->getRepository(Coupon::class)->findBy(array(), array(), 8);
+        $coupons = $em->getRepository(Coupon::class)->findBy(array(), array('id' => 'DESC'), 8);
         return $this->render('Front/homepage/coupon.html.twig', array(
             'coupons' => $coupons
         ));
@@ -55,5 +56,15 @@ class HomepageController extends Controller
     public function contactUsAction()
     {
         return $this->render(':Front/contactAs:index.html.twig');
+    }
+
+    public function lastRecetteAction() {
+
+        $em = $this->get('doctrine.orm.entity_manager');
+        $recettes = $em->getRepository(Recette::class)->findBy(array(),array('id' => 'DESC'),2);
+        dump($recettes);
+        return $this->render('Front/homepage/tophomepage.html.twig',array(
+            'lasteRecettes' => $recettes
+        ));
     }
 }

@@ -2,6 +2,7 @@
 
 namespace back\GeneralBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -101,6 +102,16 @@ class User extends BaseUser
      */
     private $file;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="back\GeneralBundle\Entity\Produit")
+     */
+    private $produits;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="back\GeneralBundle\Entity\Coupon")
+     */
+    private $coupons;
+
     public function getUploadRootDir()
     {
         return __dir__ . '/../../../../web/' . $this->getDirectory();
@@ -178,7 +189,8 @@ class User extends BaseUser
     {
         parent::__construct();
         $this->setEnabled(true);
-        // your own logic
+        $this->produits = new ArrayCollection();
+        $this->coupons = new ArrayCollection();
     }
 
     /**
@@ -441,5 +453,73 @@ class User extends BaseUser
     public function getUpdated()
     {
         return $this->updated;
+    }
+
+    /**
+     * Add produit
+     *
+     * @param \back\GeneralBundle\Entity\Produit $produit
+     *
+     * @return User
+     */
+    public function addProduit(\back\GeneralBundle\Entity\Produit $produit)
+    {
+        $this->produits[] = $produit;
+
+        return $this;
+    }
+
+    /**
+     * Remove produit
+     *
+     * @param \back\GeneralBundle\Entity\Produit $produit
+     */
+    public function removeProduit(\back\GeneralBundle\Entity\Produit $produit)
+    {
+        $this->produits->removeElement($produit);
+    }
+
+    /**
+     * Get produits
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getProduits()
+    {
+        return $this->produits;
+    }
+
+    /**
+     * Add coupon
+     *
+     * @param \back\GeneralBundle\Entity\Coupon $coupon
+     *
+     * @return User
+     */
+    public function addCoupon(\back\GeneralBundle\Entity\Coupon $coupon)
+    {
+        $this->coupons[] = $coupon;
+
+        return $this;
+    }
+
+    /**
+     * Remove coupon
+     *
+     * @param \back\GeneralBundle\Entity\Coupon $coupon
+     */
+    public function removeCoupon(\back\GeneralBundle\Entity\Coupon $coupon)
+    {
+        $this->coupons->removeElement($coupon);
+    }
+
+    /**
+     * Get coupons
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getCoupons()
+    {
+        return $this->coupons;
     }
 }

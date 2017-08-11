@@ -5,108 +5,26 @@
     <div class="container">
         <div class="row">
             <div class="content col-md-8">
-                {% for produit in supermarche.produits %}
-                    <div class="coupon-list list-wrapper">
-                        <div class="coupon-wrapper">
+                <div class="post-wrapper">
+                    {% for rayon in rayons %}
+                        {% if rayon.categories|length>0 %}
                             <div class="row">
-                                <div class="col-md-4 col-sm-4 col-xs-12">
-                                    <div class="post-media text-center">
-                                        <a href="javascript:void(0)"><img src="{{ asset('uploads/produits/' ~ produit.url) }}" alt="" class="img-responsive" style="width: 209px;height: 162px"></a>
-                                        <small><a href="javascript:void(0)">{{ produit.marque }}</a></small>
-                                    </div>
-                                </div>
-                                <div class="col-md-8 col-sm-8 col-xs-12">
-                                    <div class="coupon-meta">
-                                        <div class="coupon-top clearfix">
-                                            <div class="favorite-coupon pull-right text-right">
-                                                <a href="{{ path('front_pannier_add_product',{idProduit:produit.id,idSupermarche:supermarche.id}) }}" data-toggle="tooltip" data-placement="bottom" title="Ajouter dans la list"><i class="fa fa-plus"></i></a>
-                                            </div>
-                                        </div><!-- end coupon-top -->
-                                        <h3><a href="javascript:void(0)">{{ produit.libelle }}</a></h3>
-                                        <p>{{ produit.description }}</p>
-                                    </div>
-                                    <div class="showcode">
-                                        {% for coupon in produit.coupons %}
-                                            <a href="javascript:void(0)" data-id="{{ coupon.id }}" class="btn btn-primary btn-xs showCoupons">{{ coupon.libelle }}</a>
+                                <div class="col-md-12">
+                                    <h4 class="list-title">{{ rayon }}</h4>
+                                    <ul class="check-list">
+                                        {% for categorie in rayon.categories %}
+                                            <li><a href="{{ path('front_super_marches_produits',{idSupermarche:supermarche.id,idCategorie:categorie.id}) }}"><i class="fa fa-folder-open-o"></i> {{ categorie }} <small>(21 Coupons)</small></a></li>
                                         {% endfor %}
-                                    </div>
+                                    </ul>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                {% endfor %}
-                {% for produit in supermarche.produits %}
-                    {% for coupon in produit.coupons %}
-                        <div id="coupons-{{ coupon.id }}" class="modal fade code-modal">
-                            <div class="modal-dialog" role="document">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                        <h4><a href="javascript:void(0)">{{ coupon.libelle }}</a></h4>
-                                    </div>
-                                    <div class="modal-body">
-                                        <div class="row">
-                                            <div class="col-md-4">
-                                                <a href="javascript:void(0)"><img src="{{ asset('uploads/coupons/' ~ coupon.url) }}" alt="" class="img-responsive"></a>
-                                                <div class="modal-button">
-                                                    <a href="{{ path('front_pannier_add_coupon',{idCoupon:coupon.id,idSupermarche:supermarche.id}) }}"  title="" class="btn btn-default btn-block">Ajouter dans ma list <i class="fa fa-angle-right"></i></a>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-8">
-                                                <p>{{ coupon.description }}</p>
-                                                <div class="modal-share clearfix">
-                                                    <ul class="list-inline social-small">
-                                                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                                        <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <div class="coupon-area">
-                                            <div class=" row">
-                                                <div class="col-md-4 text-left">
-                                                    <div class="coupon-vote">
-                                                        <a href="#" data-toggle="tooltip" data-placement="bottom" title="Work!"><i class="fa fa-smile-o"></i></a>
-                                                        <a href="#" data-toggle="tooltip" data-placement="bottom" title="Poor!"><i class="fa fa-frown-o"></i></a>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-8 text-center">
-                                                    <button data-clipboard-text="{{ coupon.code }}" class="coupon-code btn btn-primary btn-block" type="submit" title="Click to Copy">{{ coupon.code }}</button>
-                                                    <small>Click to Copy</small>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                            <hr class="invis2">
+                        {% endif %}
                     {% endfor %}
-                {% endfor %}
-                {% if false %}
-                    <nav class="nav-pagi">
-                        <ul class="pagination">
-                            <li>
-                                <a href="#" aria-label="Previous">
-                                    <span aria-hidden="true">&laquo;</span>
-                                </a>
-                            </li>
-                            <li><a href="#">1</a></li>
-                            <li><a href="#">2</a></li>
-                            <li><a href="#">3</a></li>
-                            <li><a href="#">4</a></li>
-                            <li><a href="#">5</a></li>
-                            <li>
-                                <a href="#" aria-label="Next">
-                                    <span aria-hidden="true">&raquo;</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </nav>
-                {% endif %}
-            </div>
+
+                </div><!-- end post-wrapper -->
+            </div><!-- end content -->
+
             <div class="sidebar col-md-4 col-sm-12">
                 <div class="widget clearfix">
                     <div class="text-center store-list row">

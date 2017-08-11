@@ -1,0 +1,20 @@
+<div class="row">
+    {% for lasteRecette in lasteRecettes %}
+    <div class="col-md-6 col-sm-6 col-xs-12">
+        <div class="promobox">
+            <div class="post-media" style="height:400px;">
+                <a href="{{ path('front_recette_details',{id:lasteRecette.id}) }}">
+                    <img src={{ asset('uploads/recettes/' ~ lasteRecette.url ) }} alt="" class="img-responsive" style="max-height:400px;"></a>
+                <div class="promo-desc">
+
+                    <h4><a href="{{ path('front_recette_details',{id:lasteRecette.id}) }}">{{ lasteRecette.libelle }}</a></h4>
+                    <small>Notre dernière recette</small>
+                </div><!-- end desc -->
+            </div><!-- end media -->
+
+        </div><!-- end box -->
+    </div><!-- end col -->
+    {% endfor %}
+
+
+</div><!-- end row -->

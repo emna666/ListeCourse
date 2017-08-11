@@ -5,7 +5,7 @@
                 <div class="row">
                     <div class="col-md-4 col-sm-4 col-xs-12">
                         <div class="post-media text-center couponboximg">
-                            <a href="coupon-single.html"><img src= {{ asset('uploads/coupons/' ~ coupon.url ) }} alt="" class="img-responsive"></a>
+                            <a href="{{ path('front_pannier_coupons',{id:coupon.id}) }}"><img src= {{ asset('uploads/coupons/' ~ coupon.url ) }} alt="" class="img-responsive"></a>
                             <small><a href="store-single.html"> Détails Coupons</a></small>
                         </div><!-- end media -->
                     </div><!-- end col -->
@@ -14,10 +14,10 @@
                         <div class="coupon-meta">
                             <div class="coupon-top clearfix">
                                 <div class="favorite-coupon pull-right text-right">
-                                    <a href="coupon-favorites.html" data-toggle="tooltip" data-placement="bottom" title="Favorite"><i class="fa fa-heart-o"></i></a>
+                                    <a href="{{ path('front_pannier_coupons',{id:coupon.id}) }}" data-toggle="tooltip" data-placement="bottom" title="Favorite"><i class="fa fa-heart-o"></i></a>
                                 </div>
                             </div><!-- end coupon-top -->
-                            <h3><a href="coupon-single.html">{{ coupon.libelle }}</a></h3>
+                            <h3><a href="{{ path('front_pannier_coupons',{id:coupon.id}) }}">{{ coupon.libelle }}</a></h3>
                             <p>{{ coupon.description }}</p>
                         </div><!-- end meta -->
 

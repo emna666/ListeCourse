@@ -28,5 +28,20 @@ class ProduitRepository extends \Doctrine\ORM\EntityRepository
         return $query->getQuery()->getResult();
     }
 
+    public function getProduits($idSupermarche,$idCategorie)
+    {
+        $query = $this->createQueryBuilder("p");
+        $query
+            ->join("p.supermarche","s")
+            ->join("p.categories","c")
+            ->where("s.id = :idSupermarche")
+            ->andWhere("c.id = :idCategory")
+            ->setParameters(array(
+                "idCategory"=>$idCategorie,
+                "idSupermarche"=>$idSupermarche
+            ));
+        return $query->getQuery()->getResult();
+    }
+
 
 }

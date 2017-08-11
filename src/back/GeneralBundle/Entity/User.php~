@@ -101,6 +101,16 @@ class User extends BaseUser
      */
     private $file;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="back\GeneralBundle\Entity\Produit")
+     */
+    private $produits;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="back\GeneralBundle\Entity\Coupon")
+     */
+    private $coupons;
+
     public function getUploadRootDir()
     {
         return __dir__ . '/../../../../web/' . $this->getDirectory();
@@ -174,11 +184,7 @@ class User extends BaseUser
             unlink($this->tempFile);
     }
 
-    public function __construct()
-    {
-        parent::__construct();
-        // your own logic
-    }
+
 
     /**
      * Set nom
@@ -440,5 +446,73 @@ class User extends BaseUser
     public function getUpdated()
     {
         return $this->updated;
+    }
+
+    /**
+     * Add produit
+     *
+     * @param \back\GeneralBundle\Entity\Produit $produit
+     *
+     * @return User
+     */
+    public function addProduit(\back\GeneralBundle\Entity\Produit $produit)
+    {
+        $this->produits[] = $produit;
+
+        return $this;
+    }
+
+    /**
+     * Remove produit
+     *
+     * @param \back\GeneralBundle\Entity\Produit $produit
+     */
+    public function removeProduit(\back\GeneralBundle\Entity\Produit $produit)
+    {
+        $this->produits->removeElement($produit);
+    }
+
+    /**
+     * Get produits
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getProduits()
+    {
+        return $this->produits;
+    }
+
+    /**
+     * Add coupon
+     *
+     * @param \back\GeneralBundle\Entity\Coupon $coupon
+     *
+     * @return User
+     */
+    public function addCoupon(\back\GeneralBundle\Entity\Coupon $coupon)
+    {
+        $this->coupons[] = $coupon;
+
+        return $this;
+    }
+
+    /**
+     * Remove coupon
+     *
+     * @param \back\GeneralBundle\Entity\Coupon $coupon
+     */
+    public function removeCoupon(\back\GeneralBundle\Entity\Coupon $coupon)
+    {
+        $this->coupons->removeElement($coupon);
+    }
+
+    /**
+     * Get coupons
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getCoupons()
+    {
+        return $this->coupons;
     }
 }

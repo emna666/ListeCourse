@@ -102,5 +102,13 @@ class RestDataService
             return $this->restService->errorResponse("Pas de supermarché");
     }
 
+    public function mesProduits(User $user)
+    {
+        $response = array();
+        foreach ($user->getProduits() as $produit)
+            $response[] = $this->toArray($produit);
+        return $this->restService->successResponse($response);
+    }
+
 
 }

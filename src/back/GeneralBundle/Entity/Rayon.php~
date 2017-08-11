@@ -101,45 +101,5 @@ class Rayon
     public function __toString() {
         return $this->libelle;
     }
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->categories = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-
-    /**
-     * Add category
-     *
-     * @param \back\GeneralBundle\Entity\Categories $category
-     *
-     * @return Rayon
-     */
-    public function addCategory(\back\GeneralBundle\Entity\Categories $category)
-    {
-        $this->categories[] = $category;
-
-        return $this;
-    }
-
-    /**
-     * Remove category
-     *
-     * @param \back\GeneralBundle\Entity\Categories $category
-     */
-    public function removeCategory(\back\GeneralBundle\Entity\Categories $category)
-    {
-        $this->categories->removeElement($category);
-    }
-
-    /**
-     * Get categories
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getCategories()
-    {
-        return $this->categories;
-    }
 }
+

@@ -30,7 +30,7 @@ class Categories
     private $libelle;
 
     /**
-     * @ORM\ManyToOne(targetEntity="back\GeneralBundle\Entity\Rayon")
+     * @ORM\ManyToOne(targetEntity="back\GeneralBundle\Entity\Rayon",inversedBy="categories")
      */
     private $rayon;
 
@@ -248,5 +248,29 @@ class Categories
     public function __toString()
     {
         return $this->libelle;
+    }
+
+    /**
+     * Set updated
+     *
+     * @param \DateTime $updated
+     *
+     * @return Categories
+     */
+    public function setUpdated($updated)
+    {
+        $this->updated = $updated;
+
+        return $this;
+    }
+
+    /**
+     * Get updated
+     *
+     * @return \DateTime
+     */
+    public function getUpdated()
+    {
+        return $this->updated;
     }
 }

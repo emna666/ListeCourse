@@ -30,9 +30,16 @@ class Categories
     private $libelle;
 
     /**
-     * @ORM\ManyToOne(targetEntity="back\GeneralBundle\Entity\Rayon")
+     * @ORM\ManyToOne(targetEntity="back\GeneralBundle\Entity\Rayon",inversedBy="categories")
      */
     private $rayon;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="updated_at",type="datetime", nullable=true)
+     */
+    private $updated;
 
     /**
      * Image path
@@ -212,5 +219,34 @@ class Categories
     public function getUrl()
     {
         return $this->url;
+    }
+
+    /**
+     * Set rayon
+     *
+     * @param \back\GeneralBundle\Entity\Rayon $rayon
+     *
+     * @return Categories
+     */
+    public function setRayon(\back\GeneralBundle\Entity\Rayon $rayon = null)
+    {
+        $this->rayon = $rayon;
+
+        return $this;
+    }
+
+    /**
+     * Get rayon
+     *
+     * @return \back\GeneralBundle\Entity\Rayon
+     */
+    public function getRayon()
+    {
+        return $this->rayon;
+    }
+
+    public function __toString()
+    {
+        return $this->libelle;
     }
 }
