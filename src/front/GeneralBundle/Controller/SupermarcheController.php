@@ -8,6 +8,7 @@ use back\GeneralBundle\Entity\Rayon;
 use back\GeneralBundle\Entity\Supermarche;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 class SupermarcheController extends Controller
 {
@@ -47,6 +48,15 @@ class SupermarcheController extends Controller
             "produits" => $produits,
             "category"=>$category
         ));
+    }
+
+
+
+    public function countProduitsAction($idSupermarche, $idCategorie)
+    {
+        $em = $this->get('doctrine.orm.entity_manager');
+        $produits = $em->getRepository(Produit::class)->getProduits($idSupermarche,$idCategorie);
+        return new Response(count($produits));
     }
 
     public function populaireAction()

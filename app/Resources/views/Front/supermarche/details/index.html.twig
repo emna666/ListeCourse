@@ -13,7 +13,16 @@
                                     <h4 class="list-title">{{ rayon }}</h4>
                                     <ul class="check-list">
                                         {% for categorie in rayon.categories %}
-                                            <li><a href="{{ path('front_super_marches_produits',{idSupermarche:supermarche.id,idCategorie:categorie.id}) }}"><i class="fa fa-folder-open-o"></i> {{ categorie }} <small>(21 Coupons)</small></a></li>
+                                            <li>
+                                                <a href="{{ path('front_super_marches_produits',{idSupermarche:supermarche.id,idCategorie:categorie.id}) }}">
+                                                    <i class="fa fa-folder-open-o"></i>
+                                                    {{ categorie }}
+                                                    <small>({{ render(controller(
+                                                        'frontGeneralBundle:Supermarche:countProduits',
+                                                        {idSupermarche:supermarche.id,idCategorie:categorie.id}
+                                                        )) }} Produits)</small>
+                                                </a>
+                                            </li>
                                         {% endfor %}
                                     </ul>
                                 </div>
