@@ -12,7 +12,7 @@
                                 <div class="col-md-4 col-sm-4 col-xs-12">
                                     <div class="post-media text-center">
                                         <a href="javascript:void(0)"><img src="{{ asset('uploads/produits/' ~ produit.url) }}" alt="" class="img-responsive" style="width: 209px;height: 162px"></a>
-                                        <small><a href="javascript:void(0)">{{ produit.marque }}</a></small>
+
                                     </div>
                                 </div>
                                 <div class="col-md-8 col-sm-8 col-xs-12">
@@ -23,11 +23,16 @@
                                             </div>
                                         </div><!-- end coupon-top -->
                                         <h3><a href="javascript:void(0)">{{ produit.libelle }}</a></h3>
+                                        <small><a href="javascript:void(0)">{{ produit.marque }}</a></small>
+                                        <h5>{{ produit.prix }} DT</h5>
                                         <p>{{ produit.description }}</p>
                                     </div>
                                     <div class="showcode">
                                         {% for coupon in produit.coupons %}
-                                            <a href="javascript:void(0)" data-id="{{ coupon.id }}" class="btn btn-primary btn-xs showCoupons">{{ coupon.libelle }}</a>
+                                            <a href="javascript:void(0)" data-id="{{ coupon.id }}" class="showCoupons">
+                                                <img src="{{ asset('front-assets/images/apple-touch-icon.png') }}" style="width: 50px;">
+                                                voir Coupons
+                                            </a>
                                         {% endfor %}
                                     </div>
                                 </div>
@@ -47,36 +52,28 @@
                                     <div class="modal-body">
                                         <div class="row">
                                             <div class="col-md-4">
-                                                <a href="javascript:void(0)"><img src="{{ asset('uploads/coupons/' ~ coupon.url) }}" alt="" class="img-responsive"></a>
+                                                <a href="javascript:void(0)"><img src="{{ asset('uploads/coupons/' ~ coupon.url) }}" alt="" class="img-responsive" style="max-height: 200px;"></a>
                                                 <div class="modal-button">
-                                                    <a href="{{ path('front_pannier_add_coupon',{idCoupon:coupon.id,idSupermarche:supermarche.id}) }}"  title="" class="btn btn-default btn-block">Ajouter dans ma list <i class="fa fa-angle-right"></i></a>
+                                                    <a href="{{ path('front_pannier_add_coupon',{idCoupon:coupon.id,idSupermarche:supermarche.id}) }}"  title="" class="btn btn-default btn-block show-code">Ajouter Coupons<i class="fa fa-angle-right"></i></a>
                                                 </div>
                                             </div>
                                             <div class="col-md-8">
+                                                <h1>{{ coupon.libelle }}</h1>
                                                 <p>{{ coupon.description }}</p>
-                                                <div class="modal-share clearfix">
-                                                    <ul class="list-inline social-small">
-                                                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                                        <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                                                    </ul>
-                                                </div>
+
                                             </div>
                                         </div>
                                     </div>
                                     <div class="modal-footer">
                                         <div class="coupon-area">
                                             <div class=" row">
-                                                <div class="col-md-4 text-left">
-                                                    <div class="coupon-vote">
-                                                        <a href="#" data-toggle="tooltip" data-placement="bottom" title="Work!"><i class="fa fa-smile-o"></i></a>
-                                                        <a href="#" data-toggle="tooltip" data-placement="bottom" title="Poor!"><i class="fa fa-frown-o"></i></a>
+                                                {% if coupon.code %}
+                                                    <div class="col-md-8 text-center col-md-offset-2">
+                                                        <button data-clipboard-text="{{ coupon.code }}" class="coupon-code btn btn-primary btn-block" type="submit" title="Click to Copy">{{ coupon.code }}</button>
+
                                                     </div>
-                                                </div>
-                                                <div class="col-md-8 text-center">
-                                                    <button data-clipboard-text="{{ coupon.code }}" class="coupon-code btn btn-primary btn-block" type="submit" title="Click to Copy">{{ coupon.code }}</button>
-                                                    <small>Click to Copy</small>
-                                                </div>
+                                                {% endif %}
+
                                             </div>
                                         </div>
                                     </div>
@@ -119,20 +116,7 @@
                     </div>
                 </div>
                 {{ render(controller("frontGeneralBundle:Supermarche:populaire")) }}
-                <div class="widget clearfix">
-                    <div class="widget-title">
-                        <h4><span>Email Newsletter</span></h4>
-                    </div>
 
-                    <div class="newsletter">
-                        <p>Your email is safe with us and we hate spam as much as you do. Lorem ipsum dolor sit amet et dolore.</p>
-                        <form class="">
-                            <input type="text" class="form-control" placeholder="Enter your name..">
-                            <input type="email" class="form-control" placeholder="Enter your email..">
-                            <button type="submit" class="btn btn-primary">Subscribe</button>
-                        </form>
-                    </div>
-                </div>
             </div>
         </div>
     </div>

@@ -112,6 +112,11 @@ class User extends BaseUser
      */
     private $coupons;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="back\GeneralBundle\Entity\Recette")
+     */
+    private $recettes;
+
     public function getUploadRootDir()
     {
         return __dir__ . '/../../../../web/' . $this->getDirectory();
@@ -521,5 +526,39 @@ class User extends BaseUser
     public function getCoupons()
     {
         return $this->coupons;
+    }
+
+    /**
+     * Add recette
+     *
+     * @param \back\GeneralBundle\Entity\Recette $recette
+     *
+     * @return User
+     */
+    public function addRecette(\back\GeneralBundle\Entity\Recette $recette)
+    {
+        $this->recettes[] = $recette;
+
+        return $this;
+    }
+
+    /**
+     * Remove recette
+     *
+     * @param \back\GeneralBundle\Entity\Recette $recette
+     */
+    public function removeRecette(\back\GeneralBundle\Entity\Recette $recette)
+    {
+        $this->recettes->removeElement($recette);
+    }
+
+    /**
+     * Get recettes
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getRecettes()
+    {
+        return $this->recettes;
     }
 }

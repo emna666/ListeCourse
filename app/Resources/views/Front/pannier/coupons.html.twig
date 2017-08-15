@@ -5,11 +5,7 @@
     <div class="container">
         <div class="row">
             <div class="content col-md-8">
-            {% if coupons|length>0 %}
-                <div class="coupon-wrapper pull-right col-md-4 col-sm-4 col-xs-12">
-                    <a target="_blank" href="{{ path('front_pannier_pdf_coupon') }}" class="show-code print-code"><span class="fa fa-print"></span> Imprimer vos coupons</a>
-                </div>
-            {% endif %}
+
             <div class="clearfix"></div>
 
 
@@ -38,23 +34,15 @@
                         </div>
                     </div>
                 {% endfor %}
+                {% if coupons|length>0 %}
+                    <div class="coupon-wrapper pull-right col-md-4 col-sm-4 col-xs-12">
+                        <a target="_blank" href="{{ path('front_pannier_pdf_coupon') }}" class="show-code print-code"><span class="fa fa-print"></span> Imprimer vos coupons</a>
+                    </div>
+                {% endif %}
             </div>
             <div class="sidebar col-md-4 col-sm-12">
                 {{ render(controller("frontGeneralBundle:Supermarche:populaire")) }}
-                <div class="widget clearfix">
-                    <div class="widget-title">
-                        <h4><span>Email Newsletter</span></h4>
-                    </div>
 
-                    <div class="newsletter">
-                        <p>Your email is safe with us and we hate spam as much as you do. Lorem ipsum dolor sit amet et dolore.</p>
-                        <form class="">
-                            <input type="text" class="form-control" placeholder="Enter your name..">
-                            <input type="email" class="form-control" placeholder="Enter your email..">
-                            <button type="submit" class="btn btn-primary">Subscribe</button>
-                        </form>
-                    </div>
-                </div>
             </div>
         </div>
     </div>

@@ -23,7 +23,7 @@
                         </ul>
                         <ul class="nav navbar-nav navbar-right">
                             {% if not is_granted('ROLE_USER') %}
-                                <li><a {% if app.request.get('_route')=='fos_user_security_login' %}class="active"{% endif %} href="{{ path('fos_user_security_login') }}" title="">Connextion</a></li>
+                                <li><a {% if app.request.get('_route')=='fos_user_security_login' %}class="active"{% endif %} href="{{ path('fos_user_security_login') }}" title="">Connexion</a></li>
                                 <li><a {% if app.request.get('_route')=='fos_user_registration_register' %}class="active"{% endif %} href="{{ path('fos_user_registration_register') }}" title="">Inscription</a></li>
                             {% else %}
                                 <li class="dropdown hasmenu userpanel">
@@ -35,6 +35,7 @@
                                         <li><a href="{{ path('fos_user_profile_edit') }}"><i class="fa fa-pencil"></i> Modifier login et Email</a></li>
                                         <li><a href="{{ path('fos_user_change_password') }}"><i class="fa fa-lock"></i> Modifier mot de passe</a></li>
                                         <li><a href="{{ path("front_pannier_coupons") }}"><i class="fa fa-heart-o"></i> Mes Coupons ({{ render(controller("frontGeneralBundle:Pannier:countCoupons")) }})</a></li>
+                                        <li><a href="{{ path("front_pannier_recettes") }}"><i class="fa fa-heart-o"></i> Mes recettes ({{ render(controller("frontGeneralBundle:Pannier:countRecettes")) }})</a></li>
                                         <li><a href="{{ path("front_pannier_produits") }}"><i class="fa fa-heart-o"></i> Mes Produits ({{ render(controller("frontGeneralBundle:Pannier:countProduits")) }})</a></li>
                                         {% if is_granted('ROLE_ADMIN') %}
                                             <li><a href="{{ path('back_general_homepage') }}" target="_blank"><i class="fa fa-dashboard"></i> Administration</a></li>

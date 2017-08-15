@@ -15,7 +15,6 @@
 
                         <div class="coupon-meta">
                             <h3>{{ recette.libelle }}</h3>
-
                             <div class="coupon-bottom clearfix">
                                 {{ recette.shortDesc }}
                             </div><!-- end coupon-top -->
@@ -43,9 +42,12 @@
                     <p>{{ recette.description }}</p>
 
                     </div>
-
+                <div class="coupon-desc clearfix col-md-4 col-sm-4 col-xs-12 pull-right">
+                    <a href="{{ path('front_pannier_add_recette',{idRecette:recette.id}) }}" data-toggle="tooltip" data-placement="bottom" title="Ajouter dans la list" class="show-code print-code"><i class="fa fa-shopping-cart"></i> Ajouter ma recette</a>
+                </div>
                 </div><!-- end desc -->
-            </div><!-- end coupon-wrapper -->
+
+        </div><!-- end coupon-wrapper -->
         </div><!-- end coupon list -->
 
     </div>

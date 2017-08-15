@@ -33,6 +33,10 @@ front_pannier_add_coupon:
     path:     /pannier/addcoupons/{idCoupon}/{idSupermarche}
     defaults: { _controller: frontGeneralBundle:Pannier:addcoupon }
 
+front_pannier_add_recette:
+    path:     /pannier/addRecette/{idRecette}
+    defaults: { _controller: frontGeneralBundle:Pannier:addRecete }
+
 front_pannier_coupons:
     path:     /pannier/coupons
     defaults: { _controller: frontGeneralBundle:Pannier:listCoupons }
@@ -40,6 +44,10 @@ front_pannier_coupons:
 front_pannier_produits:
     path:     /pannier/produits
     defaults: { _controller: frontGeneralBundle:Pannier:listProduits }
+
+front_pannier_recettes:
+    path:     /pannier/recettes
+    defaults: { _controller: frontGeneralBundle:Pannier:listRecette }
 
 front_pannier_delete_coupon:
     path:     /pannier/coupon_delete/{id}
@@ -49,6 +57,10 @@ front_pannier_delete_produit:
     path:     /pannier/produit_delete/{id}
     defaults: { _controller: frontGeneralBundle:Pannier:deleteProduit }
 
+front_pannier_delete_recette:
+    path:     /pannier/recette_delete/{id}
+    defaults: { _controller: frontGeneralBundle:Pannier:deleteRecette }
+
 front_pannier_pdf_produit:
     path:     /pannier/produit_pdf
     defaults: { _controller: frontGeneralBundle:Pannier:produitsPdf }
@@ -56,3 +68,7 @@ front_pannier_pdf_produit:
 front_pannier_pdf_coupon:
     path:     /pannier/coupon_pdf
     defaults: { _controller: frontGeneralBundle:Pannier:couponsPdf }
+
+front_pannier_pdf_recette:
+    path:     /pannier/recette_pdf
+    defaults: { _controller: frontGeneralBundle:Pannier:recettesPdf }

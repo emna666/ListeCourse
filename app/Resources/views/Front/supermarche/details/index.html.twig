@@ -20,7 +20,7 @@
                                                     <small>({{ render(controller(
                                                         'frontGeneralBundle:Supermarche:countProduits',
                                                         {idSupermarche:supermarche.id,idCategorie:categorie.id}
-                                                        )) }} Produits)</small>
+                                                        )) }} )Produit(s)</small>
                                                 </a>
                                             </li>
                                         {% endfor %}
@@ -46,20 +46,7 @@
                     </div>
                 </div>
                 {{ render(controller("frontGeneralBundle:Supermarche:populaire")) }}
-                <div class="widget clearfix">
-                    <div class="widget-title">
-                        <h4><span>Email Newsletter</span></h4>
-                    </div>
 
-                    <div class="newsletter">
-                        <p>Your email is safe with us and we hate spam as much as you do. Lorem ipsum dolor sit amet et dolore.</p>
-                        <form class="">
-                            <input type="text" class="form-control" placeholder="Enter your name..">
-                            <input type="email" class="form-control" placeholder="Enter your email..">
-                            <button type="submit" class="btn btn-primary">Subscribe</button>
-                        </form>
-                    </div>
-                </div>
             </div>
         </div>
     </div>

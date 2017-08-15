@@ -1,18 +1,18 @@
 {% extends ':Front:base.html.twig' %}
-{% block title %}Ma liste de course{% endblock %}
-{% block description %}Ma liste des produits souhaités{% endblock %}
+{% block title %}Ma liste de recettes{% endblock %}
+{% block description %}Ma liste des recettes souhaités{% endblock %}
 {% block body %}
     <div class="container">
         <div class="row">
             <div class="content col-md-8">
 
-                {% for produit in produits %}
+                {% for recette in recettes %}
                     <div class="coupon-list list-wrapper">
                         <div class="coupon-wrapper">
                             <div class="row">
                                 <div class="col-md-4 col-sm-4 col-xs-12">
                                     <div class="post-media text-center">
-                                        <a href="javascript:void(0)"><img src="{{ asset('uploads/produits/' ~ produit.url) }}" alt="" class="img-responsive" style="width: 209px;height: 162px"></a>
+                                        <a href="javascript:void(0)"><img src="{{ asset('uploads/recettes/' ~ recette.url) }}" alt="" class="img-responsive" style="width: 209px;height: 162px"></a>
                                         {#<small><a href="javascript:void(0)">{{ produit.marque }}</a></small>#}
                                     </div>
                                 </div>
@@ -20,11 +20,11 @@
                                     <div class="coupon-meta">
                                         <div class="coupon-top clearfix">
                                             <div class="favorite-coupon pull-right text-right">
-                                                <a href="{{ path('front_pannier_delete_produit',{id:produit.id}) }}" data-toggle="tooltip" data-placement="bottom" title="Supprimer"><i class="fa fa-trash"></i></a>
+                                                <a href="{{ path('front_pannier_delete_recette',{id:recette.id}) }}" data-toggle="tooltip" data-placement="bottom" title="Supprimer"><i class="fa fa-trash"></i></a>
                                             </div>
                                         </div><!-- end coupon-top -->
-                                        <h3><a href="javascript:void(0)">{{ produit.libelle }}</a></h3>
-                                        <p>{{ produit.description }}</p>
+                                        <h3><a href="javascript:void(0)">{{ recette.libelle }}</a></h3>
+                                        <p>{{ recette.description }}</p>
                                     </div>
                                 </div>
                             </div>
@@ -32,10 +32,10 @@
                     </div>
                 {% endfor %}
                 <div class="coupon-wrapper pull-right col-md-4 col-sm-4 col-xs-12">
-                {% if produits|length>0 %}
-                    <a target="_blank" href="{{ path('front_pannier_pdf_produit') }}" class="show-code print-code"><span class="fa fa-print"></span> Imprimer Ma liste </a>
-                {% endif %}
-                    </div>
+                    {% if recettes|length>0 %}
+                        <a target="_blank" href="{{ path('front_pannier_pdf_recette') }}" class="show-code print-code"><span class="fa fa-print"></span> Imprimer Ma liste </a>
+                    {% endif %}
+                </div>
             </div>
             <div class="sidebar col-md-4 col-sm-12">
                 {{ render(controller("frontGeneralBundle:Supermarche:populaire")) }}

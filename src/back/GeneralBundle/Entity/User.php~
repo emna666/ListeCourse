@@ -2,6 +2,7 @@
 
 namespace back\GeneralBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -111,6 +112,11 @@ class User extends BaseUser
      */
     private $coupons;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="back\GeneralBundle\Entity\Recette")
+     */
+    private $recettes;
+
     public function getUploadRootDir()
     {
         return __dir__ . '/../../../../web/' . $this->getDirectory();
@@ -184,7 +190,13 @@ class User extends BaseUser
             unlink($this->tempFile);
     }
 
-
+    public function __construct()
+    {
+        parent::__construct();
+        $this->setEnabled(true);
+        $this->produits = new ArrayCollection();
+        $this->coupons = new ArrayCollection();
+    }
 
     /**
      * Set nom
