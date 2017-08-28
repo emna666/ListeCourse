@@ -1,22 +1,25 @@
-{% extends ":Back:base.html.twig" %}
-{% block title %} Votre Profil{% endblock %}
+{% extends ":Front:base.html.twig" %}
+{% block title %}Mon Profile{% endblock %}
+{% block description %}{% endblock %}
 {% block body %}
-    {% trans_default_domain 'FOSUserBundle' %}
-    <div class="col-md-6">
-        <h3>Information</h3>
-        <div class="well">
-            <address>
-                <strong>Nom d'utilisateur</strong>
-                <br>
-                {{ user.username }}
-            </address>
-            <address>
-                <strong>Email</strong>
-                <br>
-                <a href="mailto:#">
-                    {{ user.email }}
-                </a>
-            </address>
+    <div class="container">
+        {% trans_default_domain 'FOSUserBundle' %}
+        <div class="col-md-6">
+            <h3>Information</h3>
+            <div class="well">
+                <address>
+                    <strong>Nom d'utilisateur</strong>
+                    <br>
+                    {{ user.username }}
+                </address>
+                <address>
+                    <strong>Email</strong>
+                    <br>
+                    <a href="mailto:#">
+                        {{ user.email }}
+                    </a>
+                </address>
+            </div>
         </div>
     </div>
 {% endblock %}

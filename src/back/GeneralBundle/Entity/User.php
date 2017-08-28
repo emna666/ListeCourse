@@ -31,7 +31,6 @@ class User extends BaseUser
 
     /**
      * @var string
-     * @Assert\NotNull()
      * @ORM\Column(name="cin", type="string", length=255 , nullable=true)
      */
     private $cin;

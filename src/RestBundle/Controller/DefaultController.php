@@ -17,7 +17,7 @@ class DefaultController extends Controller
 {
     /**
      * @Route("/login", defaults={"_format" = "json"}, name="api_login")
-     * @Method("post")
+     * @Method("get")
      * @ApiDoc(
      *   parameters={
      *     {"name"="login","dataType"="string","required"=true},
