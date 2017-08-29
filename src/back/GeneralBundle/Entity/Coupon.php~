@@ -31,6 +31,27 @@ class Coupon
     private $libelle;
 
     /**
+     * @Assert\Date()
+     *
+     * @ORM\Column(name="date_debut", type="date")
+     */
+    protected $dateDebut;
+
+    /**
+     * @Assert\Date()
+     *
+     * @ORM\Column(name="date_fin", type="date")
+     */
+    protected $dateFin;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="code", type="string", length=255)
+     */
+    private $code;
+
+    /**
      * @var string
      *
      * @ORM\Column(name="description", type="string", length=255, nullable=true)
@@ -45,7 +66,7 @@ class Coupon
     private $promo;
 
     /**
-     * @ORM\ManyToOne(targetEntity="back\GeneralBundle\Entity\Produit")
+     * @ORM\ManyToOne(targetEntity="back\GeneralBundle\Entity\Produit",inversedBy="coupons")
      */
     private $produit;
 
@@ -237,6 +258,38 @@ class Coupon
     }
 
     /**
+     * @return string
+     */
+    public function getCode()
+    {
+        return $this->code;
+    }
+
+    /**
+     * @param string $code
+     */
+    public function setCode($code)
+    {
+        $this->code = $code;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDateDebut()
+    {
+        return $this->dateDebut;
+    }
+
+    /**
+     * @param mixed $dateDebut
+     */
+    public function setDateDebut($dateDebut)
+    {
+        $this->dateDebut = $dateDebut;
+    }
+
+    /**
      * Set file
      *
      * @param string $file
@@ -306,5 +359,29 @@ class Coupon
     public function getUrl()
     {
         return $this->url;
+    }
+
+    /**
+     * Set produit
+     *
+     * @param \back\GeneralBundle\Entity\Produit $produit
+     *
+     * @return Coupon
+     */
+    public function setProduit(\back\GeneralBundle\Entity\Produit $produit = null)
+    {
+        $this->produit = $produit;
+
+        return $this;
+    }
+
+    /**
+     * Get produit
+     *
+     * @return \back\GeneralBundle\Entity\Produit
+     */
+    public function getProduit()
+    {
+        return $this->produit;
     }
 }

@@ -37,6 +37,12 @@ class Coupon
      */
     protected $dateDebut;
 
+    /**
+     * @Assert\Date()
+     *
+     * @ORM\Column(name="date_fin", type="date")
+     */
+    protected $dateFin;
 
     /**
      * @var string
@@ -377,5 +383,29 @@ class Coupon
     public function getProduit()
     {
         return $this->produit;
+    }
+
+    /**
+     * Set dateFin
+     *
+     * @param \DateTime $dateFin
+     *
+     * @return Coupon
+     */
+    public function setDateFin($dateFin)
+    {
+        $this->dateFin = $dateFin;
+
+        return $this;
+    }
+
+    /**
+     * Get dateFin
+     *
+     * @return \DateTime
+     */
+    public function getDateFin()
+    {
+        return $this->dateFin;
     }
 }

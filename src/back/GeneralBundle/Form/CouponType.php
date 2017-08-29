@@ -24,6 +24,9 @@ class CouponType extends AbstractType
             ->add('dateDebut',DateType::class,array(
                 "widget"=>"single_text"
             ))
+            ->add('dateFin',DateType::class,array(
+                "widget"=>"single_text"
+            ))
             ->add('code')
             ->add('file')
             ->add('produit', EntityType::class, array(
