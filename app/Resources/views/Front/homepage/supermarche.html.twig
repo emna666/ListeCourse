@@ -11,7 +11,9 @@
     {% for supermarche in suermarches %}
         <div class="col-md-2 col-sm-4 col-xs-6 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.2s">
             <div class="post-media">
-                <a href="{{ path('front_super_marches_details',{id:supermarche.id}) }}"><img src="{{ asset('uploads/supermarches/' ~ supermarche.url) }}" alt="" class="img-responsive"></a>
+                <a href="{{ path('front_super_marches_details',{id:supermarche.id}) }}" class="link_sup" style=" height: 150px;display: flex;align-items: center;align-content: center;background: #fff;vertical-align: middle;">
+                    <img src="{{ asset('uploads/supermarches/' ~ supermarche.url) }}" alt="" class="img-responsive img_sup">
+                </a>
                 <small>{{ supermarche.libelle }}</small>
 
             </div>

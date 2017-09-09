@@ -9,26 +9,26 @@
 {% endblock %}
 {% block body %}
     <div class="row">
-        <div class="col-md-2 col-md-offset-10 btn_ajout">
+        <div class="col-md-2 col-md-offset-10 btn_ajout col-xs-12">
             <a class="btn btn-primary right " href="{{ path('back_general_client_ajouter') }}"><i class="fa fa-plus"></i>
                 Ajouter client</a>
         </div>
     </div>
     <div class="clear"></div>
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-12 col-xs-12 col-sm-12">
 
             <div class="panel panel-default">
                 <div class="panel-body">
-                    <table class="table table-striped table-bordered table-hover table-full-width table-condensed table-hover"  id="sample_1">
+                    <table class="table table-striped table-bordered table-hover table-full-width dataTable"  id="sample_1">
                         <thead>
                         <tr>
                             <th>ID</th>
                             <th>Username</th>
-                            <th>Email</th>
-                            <th>Téléphone</th>
-                            <th>Nom</th>
-                            <th>prénom</th>
+                            <th class="hidden-xs">Email</th>
+                            <th class="hidden-xs">Téléphone</th>
+                            <th class="hidden-xs">Nom</th>
+                            <th class="hidden-xs">prénom</th>
                             <th class="center" >Action</th>
                         </tr>
                         </thead>
@@ -36,13 +36,13 @@
                         {% for client in clients %}
                             <tr>
                                 <td>{{ client.id }}</td>
-                                <td>{{ client.username }}</td>
-                                <td>{{ client.email }}</td>
-                                <td>{{ client.telephone }}</td>
-                                <td>{{ client.nom }}</td>
-                                <td>{{ client.prenom}}</td>
-                                <td class="TableAction">
-                                    <div class="visible-md visible-lg hidden-sm hidden-xs">
+                                <td >{{ client.username }}</td>
+                                <td class="hidden-xs">{{ client.email }}</td>
+                                <td class="hidden-xs">{{ client.telephone }}</td>
+                                <td class="hidden-xs">{{ client.nom }}</td>
+                                <td class="hidden-xs">{{ client.prenom}}</td>
+                                <td class="TableAction center">
+                                    <div class="visible-md visible-lg hidden-sm visible-xs">
                                         {{ macros.tableEdit(path('back_general_client_modifier',{'id':client.id})) }}
                                         {{ macros.tableDelete(path('back_general_client_delete',{'id':client.id})) }}
                                     </div>

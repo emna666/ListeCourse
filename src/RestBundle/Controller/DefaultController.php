@@ -67,6 +67,27 @@ class DefaultController extends Controller
         }
     }
 
+
+    /**
+     * @Route("/coupons", defaults={"_format" = "json"}, name="api_coupons")
+     * @Method("get")
+     * @ApiDoc(
+     *   parameters={
+     *     {"name"="token","dataType"="string","required"=true}
+     *   }
+     * )
+     */
+    public function couponAction(Request $request)
+    {
+        $session = $this->get('rest.session.service')->getSessionByToken();
+        if ($session instanceof JsonResponse)
+            return $session;
+        elseif ($session instanceof Session)
+        {
+            return $this->get('rest.data.service')->getCoupon();
+        }
+    }
+
     /**
      * @Route("/produitsBySupermarche", defaults={"_format" = "json"}, name="api__produit_supermarches")
      * @Method("get")
@@ -92,6 +113,30 @@ class DefaultController extends Controller
         }
     }
 
+    /**
+     * @Route("/CouponsByProduit", defaults={"_format" = "json"}, name="api__coupons_produit")
+     * @Method("get")
+     * @ApiDoc(
+     *   parameters={
+     *     {"name"="token","dataType"="string","required"=true},
+     *     {"name"="idProduit","dataType"="string","required"=true}
+     *   }
+     * )
+     */
+    public function couponByProduitAction(Request $request)
+    {
+        $idPorduit = $request->get("idProduit");
+        $verifParameters = $this->get('rest.service')->verifEmpty(array('idProduit'));
+        if ($verifParameters instanceof JsonResponse)
+            return $verifParameters;
+        $session = $this->get('rest.session.service')->getSessionByToken();
+        if ($session instanceof JsonResponse)
+            return $session;
+        elseif ($session instanceof Session)
+        {
+            return $this->get('rest.data.service')->getCouponsProduits($idPorduit);
+        }
+    }
 
 
     /**
@@ -111,6 +156,26 @@ class DefaultController extends Controller
         elseif ($session instanceof Session)
         {
             return $this->get('rest.data.service')->mesProduits($session->getUser());
+        }
+    }
+
+    /**
+     * @Route("/mesCoupons", defaults={"_format" = "json"}, name="api__mes_coupons")
+     * @Method("get")
+     * @ApiDoc(
+     *   parameters={
+     *     {"name"="token","dataType"="string","required"=true}
+     *   }
+     * )
+     */
+    public function mesCouponsAction(Request $request)
+    {
+        $session = $this->get('rest.session.service')->getSessionByToken();
+        if ($session instanceof JsonResponse)
+            return $session;
+        elseif ($session instanceof Session)
+        {
+            return $this->get('rest.data.service')->mesCoupons($session->getUser());
         }
     }
 }

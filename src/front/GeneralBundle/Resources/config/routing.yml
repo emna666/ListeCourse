@@ -29,10 +29,17 @@ front_pannier_add_product:
     path:     /pannier/addproduct/{idProduit}/{idSupermarche}
     defaults: { _controller: frontGeneralBundle:Pannier:addProduit }
 
+front_pannier_add_product_recette:
+    path:     /pannier/addproduct/{idProduit}
+    defaults: { _controller: frontGeneralBundle:Pannier:addProduitRecette }
+
 front_pannier_add_coupon:
     path:     /pannier/addcoupons/{idCoupon}/{idSupermarche}
     defaults: { _controller: frontGeneralBundle:Pannier:addcoupon }
 
+front_pannier_add_coupon_home:
+    path:     /pannier/addcoupons/{idCoupon}
+    defaults: { _controller: frontGeneralBundle:Pannier:addcouponHome }
 front_pannier_add_recette:
     path:     /pannier/addRecette/{idRecette}
     defaults: { _controller: frontGeneralBundle:Pannier:addRecete }

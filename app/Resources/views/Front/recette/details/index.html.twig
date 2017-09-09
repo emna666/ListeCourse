@@ -23,7 +23,7 @@
                         <div class="coupon-bottom clearfix">
                             <p class="lead">Porduit utilisés dans notre magasin : </p>
                             {% for produit in recette.produit %}
-                            <small><i class="fa fa-cutlery"></i> {{ produit.libelle }}</small>
+                            <small><i class="fa fa-cutlery"></i> <a href="{{ path('front_pannier_add_product_recette',{idProduit:produit.id}) }}" data-toggle="tooltip" data-placement="bottom" title="Ajouter dans la list">{{ produit.libelle }} </a></small>
                             </br>
                                 {% endfor %}
                         </div><!-- end coupon-top -->

@@ -22,14 +22,14 @@
                         </div><!-- end meta -->
 
                         <div class="showcode">
-                            <a href="javascript:void(0)" class="code-link" data-ex-link="#">
-                                <span class="coupon-code"></span>
-                                <span class="show-code print-code"><i class="fa fa-print"></i> Print Coupon</span>
+                            <a href="{{ path('front_pannier_add_coupon_home',{idCoupon:coupon.id}) }}">
+
+                                <span class="show-code print-code"><i class="fa fa-print"></i>Imprimer Coupon</span>
                             </a>
                         </div><!-- end showcode -->
 
                         <div class="coupon-bottom clearfix">
-                            <small class="pull-left">Expire : 21/07/2016</small>
+                            <small class="pull-left">Expire :{{ coupon.dateFin|date('Y-m-d') }}</small>
                         </div><!-- end coupon-top -->
                     </div><!-- end col -->
                 </div><!-- end row -->

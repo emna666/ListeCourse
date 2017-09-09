@@ -1,7 +1,5 @@
 <?php
-
 namespace back\AdherentBundle\Controller;
-
 use back\GeneralBundle\Entity\Produit;
 use back\GeneralBundle\Entity\User;
 use back\GeneralBundle\Form\ProduitSearchType;
@@ -23,7 +21,7 @@ class ProduitController extends Controller
         } else
             $produits = $em->getRepository(Produit::class)->search(array(), $this->getUser());
         //dump($produits);
-        return $this->render("backAdherentBundle:produit:list.html.twig", array(
+        return $this->render("@backAdherent/Produit/list.html.twig", array(
             'form'     => $form->createView(),
             'produits' => $produits
         ));
@@ -46,7 +44,7 @@ class ProduitController extends Controller
             $this->addFlash('success', "Votre produit a été enregistré avec succés");
             return $this->redirectToRoute('adherent_produit_list');
         }
-        return $this->render("backAdherentBundle:Produit:add_edit.html.twig", array(
+        return $this->render("@backAdherent/Produit/add_edit.html.twig", array(
             'form' => $form->createView()
         ));
 

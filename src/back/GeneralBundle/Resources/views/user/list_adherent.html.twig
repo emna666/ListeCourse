@@ -9,26 +9,26 @@
 {% endblock %}
 {% block body %}
     <div class="row">
-        <div class="col-md-2 col-md-offset-10 btn_ajout">
+        <div class="col-md-2 col-md-offset-10 btn_ajout col-xs-12">
             <a class="btn btn-primary right" href="{{ path('back_general_adherent_ajouter') }}"><i class="fa fa-plus"></i>
                 Ajouter Adhérent</a>
         </div>
     </div>
     <div class="clear"></div>
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-12 col-x-12">
             <div class="panel panel-default">
                 <div class="panel-body">
-                    <table class="table table-striped table-bordered table-hover table-full-width table-condensed table-hover"  id="sample_1">
+                    <table class="table table-striped table-bordered table-hover table-full-width dataTable"  id="sample_1">
                         <thead>
                         <tr>
-                            <th>ID</th>
+                            <th >ID</th>
                             <th>Username</th>
-                            <th>Email</th>
-                            <th>Téléphone</th>
-                            <th>Nom</th>
-                            <th>prénom</th>
-                            <th>Supermarché</th>
+                            <th class="hidden-xs">Email</th>
+                            <th class="hidden-xs">Téléphone</th>
+                            <th class="hidden-xs">Nom</th>
+                            <th  class="hidden-xs">prénom</th>
+                            <th class="hidden-xs">Supermarché</th>
                             <th class="center" >Action</th>
                         </tr>
                         </thead>
@@ -37,13 +37,13 @@
                             <tr>
                                 <td>{{ adherent.id }}</td>
                                 <td>{{ adherent.username }}</td>
-                                <td>{{ adherent.email }}</td>
-                                <td>{{ adherent.telephone }}</td>
-                                <td>{{ adherent.nom }}</td>
-                                <td>{{ adherent.prenom}}</td>
-                                <td>{{ adherent.supermarche}}</td>
-                                <td class="TableAction">
-                                    <div class="visible-md visible-lg hidden-sm hidden-xs">
+                                <td class="hidden-xs">{{ adherent.email }}</td>
+                                <td class="hidden-xs">{{ adherent.telephone }}</td>
+                                <td class="hidden-xs">{{ adherent.nom }}</td>
+                                <td class="hidden-xs">{{ adherent.prenom}}</td>
+                                <td class="hidden-xs">{{ adherent.supermarche}}</td>
+                                <td class="TableAction center">
+                                    <div class="visible-md visible-lg visible-xs">
                                         {{ macros.tableEdit(path('back_general_adherent_modifier',{'id':adherent.id})) }}
                                         {{ macros.tableDelete(path('back_general_adherent_delete',{'id':adherent.id})) }}
                                     </div>

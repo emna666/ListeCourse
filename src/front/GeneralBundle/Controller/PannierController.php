@@ -91,7 +91,7 @@ class PannierController extends Controller
         /**
          * @var $user User
          */
-        $user->removeCoupon($recette);
+        $user->removeRecette($recette);
         $em= $this->get('doctrine.orm.entity_manager');
         $em->persist($user);
         $em->flush();
@@ -132,8 +132,50 @@ class PannierController extends Controller
         $this->addFlash("success", "Le produit a été ajoutée dans votre liste des produits");
         return $this->redirect($request->server->get('HTTP_REFERER'));
     }
+    public function addProduitRecetteAction($idProduit, Request $request)
+    {
+        $em = $this->get('doctrine.orm.entity_manager');
+        $produit = $em->getRepository(Produit::class)->find($idProduit);
+        $user =$this->getUser();
+        /**
+         * @var $user User
+         */
+        try{
+            $user->addProduit($produit);
+            $em->persist($user);
+            $em->flush();
+        }
+        catch (\Exception $exception)
+        {
+            $this->addFlash("info", "Vous avez déja ce produit");
+            return $this->redirect($request->server->get('HTTP_REFERER'));
+        }
+        $this->addFlash("success", "Le produit a été ajoutée dans votre liste des produits");
+        return $this->redirect($request->server->get('HTTP_REFERER'));
+    }
 
     public function addcouponAction($idCoupon, $idSupermarche, Request $request)
+    {
+        $em = $this->get('doctrine.orm.entity_manager');
+        $coupon = $em->getRepository(Coupon::class)->find($idCoupon);
+        $user =$this->getUser();
+        /**
+         * @var $user User
+         */
+        try{
+            $user->addCoupon($coupon);
+            $em->persist($user);
+            $em->flush();
+        }
+        catch (\Exception $exception)
+        {
+            $this->addFlash("info", "Vous avez déja ce coupon");
+            return $this->redirect($request->server->get('HTTP_REFERER'));
+        }
+        $this->addFlash("success", "Le coupon a été ajoutée dans votre liste des coupons");
+        return $this->redirect($request->server->get('HTTP_REFERER'));
+    }
+    public function addcouponHomeAction($idCoupon, Request $request)
     {
         $em = $this->get('doctrine.orm.entity_manager');
         $coupon = $em->getRepository(Coupon::class)->find($idCoupon);
