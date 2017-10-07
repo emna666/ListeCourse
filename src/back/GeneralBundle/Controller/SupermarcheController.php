@@ -105,7 +105,6 @@ class SupermarcheController extends Controller
         }
         return $this->redirect($this->generateUrl("back_general_rayon_list"));
     }
-
     public function listCategorieAction()
     {
         $em = $this->get('doctrine.orm.entity_manager');

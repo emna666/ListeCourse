@@ -82,15 +82,15 @@
 
 
 <div id="page-content">
-    {% for produit in produits %}
+    {% for produit in maListe %}
         <div class="content_article">
 
-            <div class="img_produit"><img src="{{ app.request.scheme ~'://' ~ app.request.httpHost ~ asset('uploads/produits/' ~ produit.url) }}" >
+            <div class="img_produit"><img src="{{ app.request.scheme ~'://' ~ app.request.httpHost ~ asset('uploads/produits/' ~ produit.produit.url) }}" >
             </div>
             <div class="desc_produit" >
-                <h4>{{ produit.libelle }}</h4>
-                <h6>{{ produit.prix }} DT</h6>
-                <p>{{ produit.description }}</p>
+                <h4>{{ produit.produit.libelle }} x {{ produit.quantity }}</h4>
+                <h6>{{ produit.produit.prix }} DT</h6>
+                <p>{{ produit.produit.description }}</p>
 
             </div>
 

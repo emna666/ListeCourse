@@ -6,6 +6,7 @@ use back\GeneralBundle\Entity\Localite;
 use Doctrine\ORM\EntityRepository;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\FormBuilderInterface;
 
 class RegistrationType extends AbstractType
@@ -32,6 +33,9 @@ class RegistrationType extends AbstractType
                 },
             ))
             ->add('file')
+            ->add('enabled',CheckboxType::class,array(
+                "required" => false,
+                "label" => "Activé"))
         ;
     }
 

@@ -112,6 +112,11 @@ class User extends BaseUser
     private $coupons;
 
     /**
+     * @ORM\OneToMany(targetEntity="back\GeneralBundle\Entity\UserProduit",mappedBy="user")
+     */
+    private $maListe;
+
+    /**
      * @ORM\ManyToMany(targetEntity="back\GeneralBundle\Entity\Recette")
      */
     private $recettes;
@@ -193,7 +198,9 @@ class User extends BaseUser
     {
         parent::__construct();
         $this->setEnabled(true);
+        $this->roles = array('ROLE_CLIENT');
         $this->produits = new ArrayCollection();
+        $this->maListe = new ArrayCollection();
         $this->coupons = new ArrayCollection();
     }
 
@@ -559,5 +566,39 @@ class User extends BaseUser
     public function getRecettes()
     {
         return $this->recettes;
+    }
+
+    /**
+     * Add maListe
+     *
+     * @param \back\GeneralBundle\Entity\UserProduit $maListe
+     *
+     * @return User
+     */
+    public function addMaListe(\back\GeneralBundle\Entity\UserProduit $maListe)
+    {
+        $this->maListe[] = $maListe;
+
+        return $this;
+    }
+
+    /**
+     * Remove maListe
+     *
+     * @param \back\GeneralBundle\Entity\UserProduit $maListe
+     */
+    public function removeMaListe(\back\GeneralBundle\Entity\UserProduit $maListe)
+    {
+        $this->maListe->removeElement($maListe);
+    }
+
+    /**
+     * Get maListe
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getMaListe()
+    {
+        return $this->maListe;
     }
 }

@@ -6,14 +6,14 @@
         <div class="row">
             <div class="content col-md-8">
 
-                {% for produit in produits %}
+                {% for produit in maListe %}
                     <div class="coupon-list list-wrapper">
                         <div class="coupon-wrapper">
                             <div class="row">
                                 <div class="col-md-4 col-sm-4 col-xs-12">
                                     <div class="post-media text-center">
-                                        <a href="javascript:void(0)"><img src="{{ asset('uploads/produits/' ~ produit.url) }}" alt="" class="img-responsive" style="width: 209px;height: 162px"></a>
-                                        {#<small><a href="javascript:void(0)">{{ produit.marque }}</a></small>#}
+                                        <a href="javascript:void(0)"><img src="{{ asset('uploads/produits/' ~ produit.produit.url) }}" alt="" class="img-responsive" style="width: 209px;height: 162px"></a>
+                                        {#<small><a href="javascript:void(0)">{{ produit.produit.marque }}</a></small>#}
                                     </div>
                                 </div>
                                 <div class="col-md-8 col-sm-8 col-xs-12">
@@ -23,8 +23,8 @@
                                                 <a href="{{ path('front_pannier_delete_produit',{id:produit.id}) }}" data-toggle="tooltip" data-placement="bottom" title="Supprimer"><i class="fa fa-trash"></i></a>
                                             </div>
                                         </div><!-- end coupon-top -->
-                                        <h3><a href="javascript:void(0)">{{ produit.libelle }}</a></h3>
-                                        <p>{{ produit.description }}</p>
+                                        <h3><a href="javascript:void(0)">{{ produit.produit.libelle }} x {{ produit.quantity }}</a></h3>
+                                        <p>{{ produit.produit.description }}</p>
                                     </div>
                                 </div>
                             </div>
@@ -32,7 +32,7 @@
                     </div>
                 {% endfor %}
                 <div class="coupon-wrapper pull-right col-md-4 col-sm-4 col-xs-12">
-                {% if produits|length>0 %}
+                {% if maListe|length>0 %}
                     <a target="_blank" href="{{ path('front_pannier_pdf_produit') }}" class="show-code print-code"><span class="fa fa-print"></span> Imprimer Ma liste </a>
                 {% endif %}
                     </div>

@@ -6,6 +6,7 @@ use back\GeneralBundle\Entity\Coupon;
 use back\GeneralBundle\Entity\Produit;
 use back\GeneralBundle\Entity\Recette;
 use back\GeneralBundle\Entity\User;
+use back\GeneralBundle\Entity\UserProduit;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -17,7 +18,7 @@ class PannierController extends Controller
         //return $this->render(":Front/pannier:produitsPDF.html.twig",array("produits"=>$this->getUser()->getProduits()));
         $html2pdf = $this->get('app.html2pdf');
         $html2pdf->create();
-        return $html2pdf->generatePdf($this->renderView(":Front/pannier:produitsPDF.html.twig",array("produits"=>$this->getUser()->getProduits())),"abc");
+        return $html2pdf->generatePdf($this->renderView(":Front/pannier:produitsPDF.html.twig",array("maListe"=>$this->getUser()->getMaListe())),"abc");
     }
     public function couponsPdfAction(Request $request)
     {
@@ -37,7 +38,7 @@ class PannierController extends Controller
         if(count($this->getUser()->getProduits())==0)
             $this->addFlash("info", "Votre liste et vide");
         return $this->render(":Front/pannier:produits.html.twig",array(
-            "produits"=>$this->getUser()->getProduits()
+            "maListe"=>$this->getUser()->getMaListe()
         ));
     }
 
@@ -58,15 +59,10 @@ class PannierController extends Controller
         ));
     }
 
-    public function deleteProduitAction(Produit $produit, Request $request)
+    public function deleteProduitAction(UserProduit $userProduit, Request $request)
     {
-        $user =$this->getUser();
-        /**
-         * @var $user User
-         */
-        $user->removeProduit($produit);
         $em= $this->get('doctrine.orm.entity_manager');
-        $em->persist($user);
+        $em->remove($userProduit);
         $em->flush();
         return $this->redirectToRoute("front_pannier_produits");
     }
@@ -100,7 +96,7 @@ class PannierController extends Controller
 
     public function countProduitsAction(Request $request)
     {
-        return new Response(count($this->getUser()->getProduits()));
+        return new Response(count($this->getUser()->getMaListe()));
     }
 
     public function countCouponsAction(Request $request)

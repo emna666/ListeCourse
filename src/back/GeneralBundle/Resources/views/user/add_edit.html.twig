@@ -33,10 +33,12 @@
                             {{ formulaire.select2("col-md-3","localite",form.localite,false) }}
 
                         </div>
-
                         <div class="row">
                             {{ formulaire.input("col-md-6","Adresse",form.adresse,false) }}
                             {{ formulaire.input("col-md-6","Logo/Photo",form.file,false) }}
+                        </div>
+                        <div class="row">
+                            {{ formulaire.select2("col-md-4","",form.enabled,false) }}
                         </div>
                         {{ formulaire.submit("Enregistrer") }}
                         {{ form_end(form) }}

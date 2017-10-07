@@ -58,6 +58,7 @@ class RestDataService
             );
         } elseif ($object instanceof Produit) {
             return array(
+                "id" => $object->getId(),
                 "libelle" => $object->getLibelle(),
                 "photo" => $object->getAssetPath(),
                 "prix" => $object->getPrix(),
@@ -66,6 +67,7 @@ class RestDataService
             );
         } elseif ($object instanceof Coupon) {
             return array(
+                "id" => $object->getId(),
                 "libelle" => $object->getLibelle(),
                 "photo" => $object->getAssetPath(),
                 "dateDebut" => $object->getDateDebut(),
@@ -79,7 +81,7 @@ class RestDataService
             return array(
                 "id" => $object->getId(),
                 "libelle" => $object->getLibelle(),
-                "longitude" => $object->getLatitude(),
+                "longitude" => $object->getLongitude(),
                 "latitude" => $object->getLatitude(),
                 "adresse" => $object->getAdresse(),
                 "email" => $object->getEmail(),
@@ -148,6 +150,55 @@ class RestDataService
             $response[] = $this->toArray($coupon);
         return $this->restService->successResponse($response);
     }
+    public function addProduitPanier(User $user,$idProduit)
+    {
 
+        $produit = $this->em->getRepository(Produit::class)->find($idProduit);
+        if ($produit) {
+
+            try {
+                $user->addProduit($produit);
+                $this->em->persist($user);
+                $this->em->flush();
+            } catch (\Exception $exception) {
+                return $this->restService->errorResponse("Produit existant");
+            }
+            return $this->restService->successMessage("Porduit ajouté à ma liste");
+        }
+    }
+    public function addCouponsPanier(User $user,$idCoupons)
+    {
+
+        $coupon = $this->em->getRepository(Coupon::class)->find($idCoupons);
+        if ($coupon) {
+
+            try {
+                $user->addCoupon($coupon);
+                $this->em->persist($user);
+                $this->em->flush();
+            } catch (\Exception $exception) {
+                return $this->restService->errorResponse("Coupons existant");
+            }
+            return $this->restService->successMessage("Coupons ajouté à ma liste");
+        }
+    }
+    public function deleteCouponsPanier(User $user,$idCoupons)
+    {
+        $coupon = $this->em->getRepository(Coupon::class)->find($idCoupons);
+                $user->removeCoupon($coupon);
+                $this->em->persist($user);
+                $this->em->flush();
+            return $this->restService->successMessage("Coupons supprimé de ma liste");
+
+    }
+    public function deleteProduitPanier(User $user,$idProduit)
+    {
+        $produit = $this->em->getRepository(Produit::class)->find($idProduit);
+        $user->removeProduit($produit);
+        $this->em->persist($user);
+        $this->em->flush();
+        return $this->restService->successMessage("Produit supprimé de ma liste");
+
+    }
 
 }

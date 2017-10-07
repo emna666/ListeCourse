@@ -87,7 +87,14 @@
 <script src="http://maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=places"></script>
 <script src="{{ asset('front-assets/js/map.js') }}"></script>
 <script src="{{ asset('front-assets/notify.min.js') }}"></script>
-
+<script>
+    $(document).ready(function(){
+        $('.addProduct').on('click',function () {
+            idProduit= $(this).data('product');
+            $("#back_generalbundle_userproduit_produit").val(idProduit);
+        })
+    })
+</script>
 {% for class,messages in app.session.getFlashBag.all %}
     {% for msg in messages %}
         <script>

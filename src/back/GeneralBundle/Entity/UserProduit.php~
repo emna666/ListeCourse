@@ -1,0 +1,75 @@
+<?php
+
+namespace back\GeneralBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * UserProduit
+ *
+ * @ORM\Table(name="liste_course")
+ * @ORM\Entity(repositoryClass="back\GeneralBundle\Repository\UserProduitRepository")
+ */
+class UserProduit
+{
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="quantity", type="integer")
+     */
+    private $quantity;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="back\GeneralBundle\Entity\User")
+     */
+    private $user;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="back\GeneralBundle\Entity\Produit")
+     */
+    private $produit;
+
+    /**
+     * Get id
+     *
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set quantity
+     *
+     * @param integer $quantity
+     *
+     * @return UserProduit
+     */
+    public function setQuantity($quantity)
+    {
+        $this->quantity = $quantity;
+
+        return $this;
+    }
+
+    /**
+     * Get quantity
+     *
+     * @return int
+     */
+    public function getQuantity()
+    {
+        return $this->quantity;
+    }
+}
+

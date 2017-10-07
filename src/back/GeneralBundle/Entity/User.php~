@@ -31,7 +31,6 @@ class User extends BaseUser
 
     /**
      * @var string
-     * @Assert\NotNull()
      * @ORM\Column(name="cin", type="string", length=255 , nullable=true)
      */
     private $cin;
@@ -111,6 +110,11 @@ class User extends BaseUser
      * @ORM\ManyToMany(targetEntity="back\GeneralBundle\Entity\Coupon")
      */
     private $coupons;
+
+    /**
+     * @ORM\OneToMany(targetEntity="back\GeneralBundle\Entity\UserProduit",mappedBy="user")
+     */
+    private $maListe;
 
     /**
      * @ORM\ManyToMany(targetEntity="back\GeneralBundle\Entity\Recette")
@@ -194,6 +198,7 @@ class User extends BaseUser
     {
         parent::__construct();
         $this->setEnabled(true);
+        $this->roles = array('ROLE_CLIENT');
         $this->produits = new ArrayCollection();
         $this->coupons = new ArrayCollection();
     }
@@ -526,5 +531,39 @@ class User extends BaseUser
     public function getCoupons()
     {
         return $this->coupons;
+    }
+
+    /**
+     * Add recette
+     *
+     * @param \back\GeneralBundle\Entity\Recette $recette
+     *
+     * @return User
+     */
+    public function addRecette(\back\GeneralBundle\Entity\Recette $recette)
+    {
+        $this->recettes[] = $recette;
+
+        return $this;
+    }
+
+    /**
+     * Remove recette
+     *
+     * @param \back\GeneralBundle\Entity\Recette $recette
+     */
+    public function removeRecette(\back\GeneralBundle\Entity\Recette $recette)
+    {
+        $this->recettes->removeElement($recette);
+    }
+
+    /**
+     * Get recettes
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getRecettes()
+    {
+        return $this->recettes;
     }
 }

@@ -2,6 +2,7 @@
 
 namespace RestBundle\Controller;
 
+use back\GeneralBundle\Entity\Produit;
 use Nelmio\ApiDocBundle\Annotation\ApiDoc;
 use RestBundle\Entity\Session;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
@@ -113,6 +114,109 @@ class DefaultController extends Controller
         }
     }
 
+
+
+    /**
+     * @Route("/addproduit", defaults={"_format" = "json"}, name="api__add_produit")
+     * @Method("post")
+     * @ApiDoc(
+     *   parameters={
+     *     {"name"="token","dataType"="string","required"=true},
+     *     {"name"="idProduit","dataType"="string","required"=true}
+     *   }
+     * )
+     */
+    public function addproduitAction(Request $request)
+    {
+        $idPorduit = $request->get("idProduit");
+        $verifParameters = $this->get('rest.service')->verifEmpty(array('idProduit'));
+        if ($verifParameters instanceof JsonResponse)
+            return $verifParameters;
+        $session = $this->get('rest.session.service')->getSessionByToken();
+        if ($session instanceof JsonResponse)
+            return $session;
+        elseif ($session instanceof Session) {
+            return $this->get('rest.data.service')->addProduitPanier($session->getUser(),$idPorduit);
+
+        }
+
+    }
+
+    /**
+     * @Route("/deleteproduit", defaults={"_format" = "json"}, name="api__delete_produit")
+     * @Method("delete")
+     * @ApiDoc(
+     *   parameters={
+     *     {"name"="token","dataType"="string","required"=true},
+     *     {"name"="idProduit","dataType"="string","required"=true}
+     *   }
+     * )
+     */
+    public function deleteproduitAction(Request $request)
+    {
+        $idPorduit = $request->get("idProduit");
+        $verifParameters = $this->get('rest.service')->verifEmpty(array('idProduit'));
+        if ($verifParameters instanceof JsonResponse)
+            return $verifParameters;
+        $session = $this->get('rest.session.service')->getSessionByToken();
+        if ($session instanceof JsonResponse)
+            return $session;
+        elseif ($session instanceof Session) {
+            return $this->get('rest.data.service')->deleteProduitPanier($session->getUser(),$idPorduit);
+
+        }
+
+    }
+    /**
+     * @Route("/addcoupons", defaults={"_format" = "json"}, name="api__add_coupons")
+     * @Method("post")
+     * @ApiDoc(
+     *   parameters={
+     *     {"name"="token","dataType"="string","required"=true},
+     *     {"name"="idCoupons","dataType"="string","required"=true}
+     *   }
+     * )
+     */
+    public function addcouponsAction(Request $request)
+    {
+        $idCoupons = $request->get("idCoupons");
+        $verifParameters = $this->get('rest.service')->verifEmpty(array('idCoupons'));
+        if ($verifParameters instanceof JsonResponse)
+            return $verifParameters;
+        $session = $this->get('rest.session.service')->getSessionByToken();
+        if ($session instanceof JsonResponse)
+            return $session;
+        elseif ($session instanceof Session) {
+            return $this->get('rest.data.service')->addCouponsPanier($session->getUser(),$idCoupons);
+
+        }
+
+    }
+    /**
+     * @Route("/deletecoupons", defaults={"_format" = "json"}, name="api__delete_coupons")
+     * @Method("delete")
+     * @ApiDoc(
+     *   parameters={
+     *     {"name"="token","dataType"="string","required"=true},
+     *     {"name"="idCoupons","dataType"="string","required"=true}
+     *   }
+     * )
+     */
+    public function deletecouponsAction(Request $request)
+    {
+        $idCoupons = $request->get("idCoupons");
+        $verifParameters = $this->get('rest.service')->verifEmpty(array('idCoupons'));
+        if ($verifParameters instanceof JsonResponse)
+            return $verifParameters;
+        $session = $this->get('rest.session.service')->getSessionByToken();
+        if ($session instanceof JsonResponse)
+            return $session;
+        elseif ($session instanceof Session) {
+            return $this->get('rest.data.service')->deleteCouponsPanier($session->getUser(),$idCoupons);
+
+        }
+
+    }
     /**
      * @Route("/CouponsByProduit", defaults={"_format" = "json"}, name="api__coupons_produit")
      * @Method("get")

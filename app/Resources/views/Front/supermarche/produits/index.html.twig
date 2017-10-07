@@ -11,7 +11,9 @@
                             <div class="row">
                                 <div class="col-md-4 col-sm-4 col-xs-12">
                                     <div class="post-media text-center">
-                                        <a href="javascript:void(0)"><img src="{{ asset('uploads/produits/' ~ produit.url) }}" alt="" class="img-responsive" style="width: 209px;height: 162px"></a>
+                                        <a href="javascript:void(0)"><img
+                                                    src="{{ asset('uploads/produits/' ~ produit.url) }}" alt=""
+                                                    class="img-responsive" style="width: 209px;height: 162px"></a>
 
                                     </div>
                                 </div>
@@ -19,9 +21,11 @@
                                     <div class="coupon-meta">
                                         <div class="coupon-top clearfix">
                                             <div class="favorite-coupon pull-right text-right">
-                                                <a href="{{ path('front_pannier_add_product',{idProduit:produit.id,idSupermarche:supermarche.id}) }}" data-toggle="tooltip" data-placement="bottom" title="Ajouter dans la list"><i class="fa fa-shopping-cart"></i></a>
+                                                <a href="javascript:void(0)" data-product="{{ produit.id }}" data-id="xxx" class="showCoupons addProduct"
+                                                   data-toggle="tooltip" data-placement="bottom"
+                                                   title="Ajouter dans la list"><i class="fa fa-shopping-cart"></i></a>
                                             </div>
-                                        </div><!-- end coupon-top -->
+                                        </div>
                                         <h3><a href="javascript:void(0)">{{ produit.libelle }}</a></h3>
                                         <small><a href="javascript:void(0)">{{ produit.marque }}</a></small>
                                         <h5>{{ produit.prix }} DT</h5>
@@ -30,7 +34,8 @@
                                     <div class="showcode">
                                         {% for coupon in produit.coupons %}
                                             <a href="javascript:void(0)" data-id="{{ coupon.id }}" class="showCoupons">
-                                                <img src="{{ asset('front-assets/images/apple-touch-icon.png') }}" style="width: 50px;">
+                                                <img src="{{ asset('front-assets/images/apple-touch-icon.png') }}"
+                                                     style="width: 50px;">
                                                 voir Coupons
                                             </a>
                                         {% endfor %}
@@ -46,15 +51,20 @@
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span></button>
                                         <h4><a href="javascript:void(0)">{{ coupon.libelle }}</a></h4>
                                     </div>
                                     <div class="modal-body">
                                         <div class="row">
                                             <div class="col-md-4">
-                                                <a href="javascript:void(0)"><img src="{{ asset('uploads/coupons/' ~ coupon.url) }}" alt="" class="img-responsive" style="max-height: 200px;"></a>
+                                                <a href="javascript:void(0)"><img
+                                                            src="{{ asset('uploads/coupons/' ~ coupon.url) }}" alt=""
+                                                            class="img-responsive" style="max-height: 200px;"></a>
                                                 <div class="modal-button">
-                                                    <a href="{{ path('front_pannier_add_coupon',{idCoupon:coupon.id,idSupermarche:supermarche.id}) }}"  title="" class="btn btn-default btn-block show-code">Ajouter Coupons<i class="fa fa-angle-right"></i></a>
+                                                    <a href="{{ path('front_pannier_add_coupon',{idCoupon:coupon.id,idSupermarche:supermarche.id}) }}"
+                                                       title="" class="btn btn-default btn-block show-code">Ajouter
+                                                        Coupons<i class="fa fa-angle-right"></i></a>
                                                 </div>
                                             </div>
                                             <div class="col-md-8">
@@ -69,7 +79,10 @@
                                             <div class=" row">
                                                 {% if coupon.code %}
                                                     <div class="col-md-8 text-center col-md-offset-2">
-                                                        <button data-clipboard-text="{{ coupon.code }}" class="coupon-code btn btn-primary btn-block" type="submit" title="Click to Copy">{{ coupon.code }}</button>
+                                                        <button data-clipboard-text="{{ coupon.code }}"
+                                                                class="coupon-code btn btn-primary btn-block"
+                                                                type="submit"
+                                                                title="Click to Copy">{{ coupon.code }}</button>
 
                                                     </div>
                                                 {% endif %}
@@ -109,7 +122,9 @@
                     <div class="text-center store-list row">
                         <div class="col-md-12">
                             <div class="post-media">
-                                <a href="javascript:void(0)"><img src="{{ asset('uploads/supermarches/' ~ supermarche.url) }}" alt="" class="img-responsive"></a>
+                                <a href="javascript:void(0)"><img
+                                            src="{{ asset('uploads/supermarches/' ~ supermarche.url) }}" alt=""
+                                            class="img-responsive"></a>
                                 <small>{{ supermarche|title }}</small>
                             </div>
                         </div>
@@ -120,5 +135,29 @@
             </div>
         </div>
     </div>
+    <div id="coupons-xxx" class="modal fade code-modal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span></button>
+                    <h4><a href="javascript:void(0)">Ajouter ce produit dans la liste</a></h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        {{ form_start(form) }}
+                        <div class="row">
+                            {{ formulaire.input("col-md-4 hidden","",form.produit,true) }}
+                            {{ formulaire.input("col-md-6","Quantité",form.quantity,true) }}
+                        </div>
+                        {{ formulaire.submit("Ajouter") }}
+                        {{ form_end(form) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}
+
+
 
